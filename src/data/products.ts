@@ -11,10 +11,14 @@ export interface Product {
   scaScore: string;
   flavorNotes: string[];
   roast: string;
-  variants: { id: string; name: string }[];
+  variants: { id: string; name: string; helper: string }[];
   description: string;
   story: string;
   impact: string;
+  impactProject: string;
+  impactWhat: string;
+  impactWho: string;
+  profileHint: string;
   image: string;
   imageAlt: string;
   color: "green" | "terracotta";
@@ -35,8 +39,8 @@ export const products: Product[] = [
     flavorNotes: ["Floral", "Citrico", "Bergamota"],
     roast: "Medio",
     variants: [
-      { id: "etiopia-grano", name: "Grano" },
-      { id: "etiopia-molido", name: "Molido" },
+      { id: "etiopia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
+      { id: "etiopia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
     ],
     description:
       "Cafe de especialidad de la region de Yirgacheffe, cuna del cafe. Notas florales delicadas con toques citricos y un final a bergamota que lo hacen unico.",
@@ -44,6 +48,10 @@ export const products: Product[] = [
       "Yirgacheffe es considerada la cuna del cafe. Aqui, a mas de 1.800 metros de altitud, las familias caficultoras cultivan con metodos tradicionales que se transmiten de generacion en generacion. Cada grano lleva consigo siglos de tradicion.",
     impact:
       "Cada bolsa de Etiopia financia proyectos de educacion en las comunidades caficultoras de Yirgacheffe. Hasta ahora, hemos contribuido a la construccion de aulas y material escolar para mas de 200 ninos.",
+    impactProject: "Programa de educacion",
+    impactWhat: "Construccion de aulas, material escolar y becas",
+    impactWho: "200+ ninos en comunidades caficultoras de Yirgacheffe",
+    profileHint: "Ideal si te gustan los cafes florales y delicados",
     image: "/images/etiopia-product.jpg",
     imageAlt: "Bolsa de cafe Fikir Coffee Etiopia Yirgacheffe",
     color: "green",
@@ -62,8 +70,8 @@ export const products: Product[] = [
     flavorNotes: ["Grosella negra", "Frutos rojos", "Citrico"],
     roast: "Medio",
     variants: [
-      { id: "kenia-grano", name: "Grano" },
-      { id: "kenia-molido", name: "Molido" },
+      { id: "kenia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
+      { id: "kenia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
     ],
     description:
       "Cafe de especialidad de la region de Nyeri. Un perfil vibrante con notas de grosella negra, frutos rojos y un final citrico brillante.",
@@ -71,6 +79,10 @@ export const products: Product[] = [
       "En las faldas del Monte Kenia, a mas de 1.700 metros, los caficultores de Nyeri producen algunos de los cafes mas complejos del mundo. El suelo volcanico y el clima templado crean condiciones perfectas para un cafe excepcional.",
     impact:
       "Cada bolsa de Kenia apoya programas de acceso a agua potable en las comunidades rurales de Nyeri. Trabajamos directamente con cooperativas locales para garantizar que el beneficio llega a quien mas lo necesita.",
+    impactProject: "Acceso a agua potable",
+    impactWhat: "Construccion de pozos y sistemas de purificacion",
+    impactWho: "50+ familias en comunidades rurales de Nyeri",
+    profileHint: "Ideal si te gustan los cafes intensos y afrutados",
     image: "/images/kenia-product.jpg",
     imageAlt: "Bolsa de cafe Fikir Coffee Kenia Nyeri",
     color: "terracotta",

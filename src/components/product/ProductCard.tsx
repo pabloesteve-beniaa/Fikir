@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Product } from "@/data/products";
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({ product, badge }: { product: Product; badge?: string }) {
   const colorMap = {
     green: {
       bg: "bg-fikir-green",
@@ -39,6 +39,12 @@ export default function ProductCard({ product }: { product: Product }) {
             SCA {product.scaScore}
           </span>
         </div>
+        {/* Optional marketing badge */}
+        {badge && (
+          <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown">
+            {badge}
+          </div>
+        )}
       </div>
 
       {/* Info */}
@@ -57,8 +63,13 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         </div>
 
+        {/* Profile hint - helps quick decision */}
+        <p className="mt-3 font-body text-sm italic text-fikir-brown-light/80">
+          {product.profileHint}
+        </p>
+
         {/* Flavor notes */}
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-2">
           {product.flavorNotes.map((note) => (
             <span
               key={note}

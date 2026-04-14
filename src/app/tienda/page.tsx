@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { products, packs } from "@/data/products";
 import ProductCard from "@/components/product/ProductCard";
-import { ArrowRight, Coffee, Repeat } from "lucide-react";
+import { ArrowRight, Coffee, Repeat, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tienda",
@@ -24,9 +24,18 @@ export default function TiendaPage() {
               Cafe con proposito
             </h1>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              Cafe de especialidad tostado con cuidado. Cada bolsa que compras
+              Cafe de especialidad tostado en pequenos lotes. Cada bolsa que compras
               financia proyectos de educacion y agua potable en origen.
             </p>
+            {/* Trust line */}
+            <div className="mt-4 flex flex-wrap justify-center gap-4">
+              {["Envio en 2-4 dias", "100% beneficio reinvertido", "SCA 85+"].map((item) => (
+                <div key={item} className="flex items-center gap-1.5">
+                  <CheckCircle className="h-3.5 w-3.5 text-fikir-green" />
+                  <span className="font-body text-xs text-fikir-brown-light">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -38,9 +47,8 @@ export default function TiendaPage() {
             Nuestros origenes
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            <ProductCard product={products[0]} badge="Mas vendido" />
+            <ProductCard product={products[1]} badge="Intenso y complejo" />
           </div>
         </div>
       </section>
@@ -55,6 +63,9 @@ export default function TiendaPage() {
             {/* Pack Degustacion */}
             <div className="bg-fikir-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
               <div className="relative aspect-video bg-gradient-to-br from-fikir-green to-fikir-terracotta flex items-center justify-center p-8">
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown">
+                  Ideal para empezar
+                </div>
                 <div className="text-center">
                   <Coffee className="h-12 w-12 text-fikir-cream/80 mx-auto" />
                   <span className="mt-4 block font-heading text-3xl font-bold text-fikir-cream">
@@ -63,16 +74,15 @@ export default function TiendaPage() {
                 </div>
               </div>
               <div className="p-6">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="font-heading text-xl font-bold text-fikir-brown">
-                      {packs[0].name}
-                    </h3>
-                    <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
-                      {packs[0].description}
-                    </p>
-                  </div>
-                </div>
+                <h3 className="font-heading text-xl font-bold text-fikir-brown">
+                  {packs[0].name}
+                </h3>
+                <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
+                  {packs[0].description}
+                </p>
+                <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
+                  Perfecto para descubrir tu favorito
+                </p>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-body text-2xl font-semibold text-fikir-brown">
                     {packs[0].price.toFixed(2)}&euro;
@@ -92,7 +102,7 @@ export default function TiendaPage() {
             <div className="bg-fikir-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border-2 border-fikir-gold/30">
               <div className="relative aspect-video bg-gradient-to-br from-fikir-brown to-fikir-brown/80 flex items-center justify-center p-8">
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown">
-                  Ahorra un 13%
+                  Recomendada
                 </div>
                 <div className="text-center">
                   <Repeat className="h-12 w-12 text-fikir-gold mx-auto" />
@@ -102,14 +112,15 @@ export default function TiendaPage() {
                 </div>
               </div>
               <div className="p-6">
-                <div>
-                  <h3 className="font-heading text-xl font-bold text-fikir-brown">
-                    {packs[1].name}
-                  </h3>
-                  <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
-                    {packs[1].description}
-                  </p>
-                </div>
+                <h3 className="font-heading text-xl font-bold text-fikir-brown">
+                  {packs[1].name}
+                </h3>
+                <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
+                  {packs[1].description}
+                </p>
+                <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
+                  Recibe cafe cada mes sin preocuparte. Ahorra un 13%.
+                </p>
                 <div className="mt-4 flex items-center justify-between">
                   <div>
                     <span className="font-body text-2xl font-semibold text-fikir-brown">

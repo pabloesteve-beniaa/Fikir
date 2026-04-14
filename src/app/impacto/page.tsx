@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Droplets, Users, TrendingUp, Eye, Shield } from "lucide-react";
+import { ArrowRight, BookOpen, Droplets, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Impacto",
@@ -21,6 +21,10 @@ const projects = [
       { value: "3", label: "Aulas construidas" },
       { value: "500+", label: "Kits escolares" },
     ],
+    evidence: [
+      { date: "Marzo 2026", text: "Entrega de 150 kits escolares en Yirgacheffe", location: "Yirgacheffe, Etiopia" },
+      { date: "Enero 2026", text: "Inauguracion de la 3a aula del programa", location: "Yirgacheffe, Etiopia" },
+    ],
     color: "bg-fikir-green",
     accent: "text-fikir-green",
   },
@@ -35,6 +39,10 @@ const projects = [
       { value: "3", label: "Pozos construidos" },
       { value: "50+", label: "Familias con agua" },
       { value: "1000+", label: "Personas beneficiadas" },
+    ],
+    evidence: [
+      { date: "Febrero 2026", text: "Finalizacion del 3er pozo en comunidad rural de Nyeri", location: "Nyeri, Kenia" },
+      { date: "Noviembre 2025", text: "Instalacion de sistema de purificacion para 20 familias", location: "Nyeri, Kenia" },
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
@@ -92,15 +100,15 @@ export default function ImpactoPage() {
         </div>
       </section>
 
-      {/* Impact numbers */}
+      {/* Impact numbers - clean, no duplicates */}
       <section className="py-16 bg-fikir-cream-dark lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              { value: "100%", label: "Beneficio reinvertido" },
-              { value: "250+", label: "Personas beneficiadas" },
-              { value: "2", label: "Paises de impacto" },
+              { value: "+250", label: "Personas beneficiadas" },
               { value: "5", label: "Proyectos activos" },
+              { value: "3", label: "Pozos de agua construidos" },
+              { value: "3", label: "Aulas financiadas" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -115,7 +123,7 @@ export default function ImpactoPage() {
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Projects with evidence */}
       <section className="py-24 bg-fikir-white lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
@@ -123,56 +131,130 @@ export default function ImpactoPage() {
               Proyectos activos
             </h2>
             <p className="mt-4 font-body text-lg text-fikir-brown-light">
-              Cada cafe de Fikir esta vinculado a un proyecto real.
+              Cada cafe de Fikir esta vinculado a un proyecto real y verificable.
             </p>
           </div>
 
-          <div className="space-y-16">
+          <div className="space-y-20">
             {projects.map((project) => (
-              <div
-                key={project.title}
-                className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-16 items-start"
-              >
-                {/* Image placeholder */}
-                <div className={`${project.color} rounded-3xl p-12 flex items-center justify-center lg:col-span-2 aspect-video lg:aspect-square`}>
-                  <div className="text-center">
-                    <project.icon className="h-16 w-16 text-fikir-cream/60 mx-auto" />
-                    <p className="mt-4 font-heading text-2xl font-bold text-fikir-cream">
-                      {project.country}
-                    </p>
-                    <p className="font-body text-sm text-fikir-cream/70">
-                      {project.region}
-                    </p>
+              <div key={project.title}>
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-16 items-start">
+                  {/* Image placeholder */}
+                  <div className={`${project.color} rounded-3xl p-12 flex items-center justify-center lg:col-span-2 aspect-video lg:aspect-square`}>
+                    <div className="text-center">
+                      <project.icon className="h-16 w-16 text-fikir-cream/60 mx-auto" />
+                      <p className="mt-4 font-heading text-2xl font-bold text-fikir-cream">
+                        {project.country}
+                      </p>
+                      <p className="font-body text-sm text-fikir-cream/70">
+                        {project.region}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="lg:col-span-3 py-4">
-                  <p className={`font-body text-xs font-semibold tracking-[0.2em] uppercase ${project.accent}`}>
-                    {project.country} &middot; {project.region}
-                  </p>
-                  <h3 className="mt-3 font-heading text-3xl font-bold text-fikir-brown">
-                    {project.title}
-                  </h3>
-                  <p className="mt-4 font-body text-base leading-relaxed text-fikir-brown-light">
-                    {project.description}
-                  </p>
+                  {/* Content */}
+                  <div className="lg:col-span-3 py-4">
+                    <p className={`font-body text-xs font-semibold tracking-[0.2em] uppercase ${project.accent}`}>
+                      {project.country} &middot; {project.region}
+                    </p>
+                    <h3 className="mt-3 font-heading text-3xl font-bold text-fikir-brown">
+                      {project.title}
+                    </h3>
+                    <p className="mt-4 font-body text-base leading-relaxed text-fikir-brown-light">
+                      {project.description}
+                    </p>
 
-                  <div className="mt-8 grid grid-cols-3 gap-6">
-                    {project.stats.map((stat) => (
-                      <div key={stat.label}>
-                        <p className={`font-heading text-3xl font-bold ${project.accent}`}>
-                          {stat.value}
-                        </p>
-                        <p className="mt-1 font-body text-xs text-fikir-brown-light">
-                          {stat.label}
-                        </p>
+                    <div className="mt-8 grid grid-cols-3 gap-6">
+                      {project.stats.map((stat) => (
+                        <div key={stat.label}>
+                          <p className={`font-heading text-3xl font-bold ${project.accent}`}>
+                            {stat.value}
+                          </p>
+                          <p className="mt-1 font-body text-xs text-fikir-brown-light">
+                            {stat.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Evidence timeline */}
+                    <div className="mt-8 border-t border-fikir-brown/10 pt-6">
+                      <h4 className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-fikir-brown-light mb-4">
+                        Ultimas actualizaciones
+                      </h4>
+                      <div className="space-y-4">
+                        {project.evidence.map((ev) => (
+                          <div key={ev.date} className="flex gap-4">
+                            <div className="w-10 h-10 rounded-lg bg-fikir-cream-dark flex items-center justify-center shrink-0">
+                              <Camera className="h-4 w-4 text-fikir-brown-light" />
+                            </div>
+                            <div>
+                              <p className="font-body text-sm text-fikir-brown font-medium">
+                                {ev.text}
+                              </p>
+                              <div className="mt-1 flex items-center gap-3">
+                                <span className="flex items-center gap-1 font-body text-xs text-fikir-brown-light">
+                                  <Calendar className="h-3 w-3" /> {ev.date}
+                                </span>
+                                <span className="flex items-center gap-1 font-body text-xs text-fikir-brown-light">
+                                  <MapPin className="h-3 w-3" /> {ev.location}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Transparency section - NEW */}
+      <section className="py-24 bg-fikir-cream-dark lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+              Transparencia
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
+              A donde va tu dinero
+            </h2>
+            <p className="mt-4 font-body text-lg text-fikir-brown-light">
+              Este es nuestro modelo. Sin letra pequena.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div className="bg-fikir-white rounded-2xl p-8 text-center">
+                <p className="font-heading text-4xl font-bold text-fikir-brown">14,99&euro;</p>
+                <p className="mt-2 font-body text-sm text-fikir-brown-light">Precio por bolsa</p>
+                <div className="mt-4 pt-4 border-t border-fikir-brown/10">
+                  <p className="font-body text-xs text-fikir-brown-light uppercase tracking-wide">Ingresos</p>
+                </div>
+              </div>
+              <div className="bg-fikir-white rounded-2xl p-8 text-center">
+                <p className="font-heading text-4xl font-bold text-fikir-brown-light">~70%</p>
+                <p className="mt-2 font-body text-sm text-fikir-brown-light">Costes operativos</p>
+                <div className="mt-4 pt-4 border-t border-fikir-brown/10">
+                  <p className="font-body text-xs text-fikir-brown-light">Cafe verde, tueste, packaging, envio, logistica</p>
+                </div>
+              </div>
+              <div className="bg-fikir-green rounded-2xl p-8 text-center">
+                <p className="font-heading text-4xl font-bold text-fikir-cream">~30%</p>
+                <p className="mt-2 font-body text-sm text-fikir-cream/80">Beneficio reinvertido</p>
+                <div className="mt-4 pt-4 border-t border-fikir-cream/20">
+                  <p className="font-body text-xs text-fikir-cream/70">100% destinado a proyectos en Etiopia y Kenia</p>
+                </div>
+              </div>
+            </div>
+            <p className="mt-6 font-body text-xs text-fikir-brown-light/60 text-center">
+              Cifras orientativas. Publicaremos informes detallados periodicamente.
+            </p>
           </div>
         </div>
       </section>
@@ -185,7 +267,7 @@ export default function ImpactoPage() {
               Nuestro modelo
             </p>
             <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Como funciona Fikir
+              Por que funciona
             </h2>
           </div>
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Heart, Globe, Coffee, Sparkles } from "lucide-react";
+import { ArrowRight, Heart, Globe, Coffee, Sparkles, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
@@ -10,28 +10,34 @@ export const metadata: Metadata = {
 
 const timeline = [
   {
-    year: "El inicio",
-    title: "Una idea con proposito",
+    year: "2024",
+    title: "La semilla",
     description:
       "Fikir nace de una pregunta sencilla: que pasaria si un cafe de especialidad devolviera todo su beneficio a las comunidades donde se cultiva? No como caridad, sino como modelo.",
   },
   {
-    year: "El cafe",
-    title: "Busqueda de excelencia",
+    year: "2024",
+    title: "El primer viaje",
     description:
       "Viajamos a Etiopia y Kenia para encontrar los mejores granos. Cafes con puntuacion SCA superior a 85, cultivados con metodos tradicionales por familias caficultoras.",
   },
   {
-    year: "El impacto",
-    title: "El circulo se cierra",
+    year: "2025",
+    title: "Las primeras bolsas",
     description:
-      "Establecemos relaciones directas con cooperativas locales. Cada euro de beneficio se reinvierte en proyectos de educacion y acceso a agua potable en las comunidades de origen.",
+      "Lanzamos las dos primeras referencias: Etiopia Yirgacheffe y Kenia Nyeri. Los primeros clientes se convierten en los primeros embajadores del proyecto.",
   },
   {
-    year: "Hoy",
-    title: "Una comunidad que crece",
+    year: "2025",
+    title: "El impacto empieza",
     description:
-      "Cada persona que elige Fikir se une a un movimiento. No vendemos solo cafe: construimos un modelo donde el consumo consciente genera impacto real.",
+      "Financiamos el primer pozo de agua en Nyeri y los primeros kits escolares en Yirgacheffe. El circulo se cierra: el cafe vuelve a su origen.",
+  },
+  {
+    year: "2026",
+    title: "Hoy: una comunidad que crece",
+    description:
+      "Mas de 250 personas beneficiadas, 5 proyectos activos, 3 pozos construidos. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -83,7 +89,43 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      {/* Story / Timeline */}
+      {/* Founder letter - NEW */}
+      <section className="py-24 bg-fikir-cream-dark lg:py-32">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center">
+            {/* Founder photo placeholder */}
+            <div className="w-24 h-24 rounded-full bg-fikir-brown/10 flex items-center justify-center mb-8">
+              <User className="h-10 w-10 text-fikir-brown-light/40" />
+            </div>
+            <h2 className="font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
+              Una carta personal
+            </h2>
+            <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
+              <p>
+                Fikir no empezo como un negocio. Empezo como una frustracion: la de ver que los
+                paises que nos dan el mejor cafe del mundo son los que menos se benefician de el.
+              </p>
+              <p>
+                Quise hacer algo diferente. No una marca que dona un porcentaje para lavar su
+                imagen. Un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> vuelve
+                al origen. Sin salarios inflados, sin marketing millonario. Solo cafe y proposito.
+              </p>
+              <p>
+                Cada vez que alguien elige Fikir, esta diciendo que hay otra forma de hacer las
+                cosas. Y eso, para mi, vale mas que cualquier margen de beneficio.
+              </p>
+              <p className="font-semibold text-fikir-brown">
+                Gracias por ser parte de esto.
+              </p>
+            </div>
+            <p className="mt-6 font-heading text-xl italic text-fikir-gold">
+              &mdash; Fundador de Fikir Coffee
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Story / Timeline with dates */}
       <section className="py-24 bg-fikir-white lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
@@ -94,11 +136,11 @@ export default function NosotrosPage() {
 
           <div className="max-w-3xl mx-auto space-y-12">
             {timeline.map((item, index) => (
-              <div key={item.year} className="flex gap-8">
+              <div key={item.title} className="flex gap-8">
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full bg-fikir-gold/10 flex items-center justify-center shrink-0">
                     <span className="font-body text-xs font-bold text-fikir-gold">
-                      {String(index + 1).padStart(2, "0")}
+                      {item.year}
                     </span>
                   </div>
                   {index < timeline.length - 1 && (

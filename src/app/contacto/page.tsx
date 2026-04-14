@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -28,6 +28,33 @@ const contactInfo = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Cuanto tarda en llegar mi pedido?",
+    answer: "Los pedidos se envian en 24-48h laborables y llegan en 2-4 dias a cualquier punto de la peninsula. Recibiras un email con el numero de seguimiento.",
+  },
+  {
+    question: "Cual es la diferencia entre grano y molido?",
+    answer: "El cafe en grano conserva mejor la frescura y el aroma. Recomendamos grano si tienes molinillo. El molido es perfecto para cafetera italiana (moka), filtro o prensa francesa.",
+  },
+  {
+    question: "Como funciona la suscripcion?",
+    answer: "Recibes cafe fresco cada mes en tu puerta. Puedes elegir tu origen favorito, alternar entre los dos, y pausar o cancelar cuando quieras. Sin permanencia.",
+  },
+  {
+    question: "De verdad todo el beneficio va al origen?",
+    answer: "Si. Fikir es un proyecto sin animo de lucro. Despues de cubrir costes operativos (cafe verde, tueste, packaging, envio), el 100% del beneficio se reinvierte en proyectos de educacion y agua potable en Etiopia y Kenia.",
+  },
+  {
+    question: "Haceis regalos corporativos o para empresas?",
+    answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra pagina de Empresas o escribenos a hola@fikircoffee.com.",
+  },
+  {
+    question: "Que metodos de pago aceptais?",
+    answer: "Aceptamos tarjeta de credito/debito y Bizum. El pago se procesa de forma segura a traves de Shopify Payments.",
+  },
+];
+
 export default function ContactoPage() {
   return (
     <div className="pt-20 lg:pt-24">
@@ -43,8 +70,43 @@ export default function ContactoPage() {
             </h1>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
               Tienes preguntas sobre nuestro cafe, nuestro impacto o quieres
-              colaborar? Escríbenos. Estamos aqui para ti.
+              colaborar? Estamos aqui para ti.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section - NEW */}
+      <section className="py-24 bg-fikir-cream lg:py-32">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+              Preguntas frecuentes
+            </p>
+            <h2 className="mt-4 font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
+              Resolvemos tus dudas
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <details
+                key={faq.question}
+                className="group bg-fikir-white rounded-xl overflow-hidden"
+              >
+                <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                  <span className="font-body text-base font-medium text-fikir-brown pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown className="h-5 w-5 text-fikir-brown-light shrink-0 transition-transform duration-200 group-open:rotate-180" />
+                </summary>
+                <div className="px-6 pb-6 -mt-2">
+                  <p className="font-body text-sm leading-relaxed text-fikir-brown-light">
+                    {faq.answer}
+                  </p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
@@ -59,8 +121,7 @@ export default function ContactoPage() {
                 Informacion de contacto
               </h2>
               <p className="mt-4 font-body text-base text-fikir-brown-light leading-relaxed">
-                Si tienes preguntas sobre pedidos, impacto o cualquier otra
-                cosa, no dudes en escribirnos.
+                No has encontrado tu respuesta arriba? Escribenos directamente.
               </p>
 
               <div className="mt-10 space-y-8">
@@ -107,7 +168,7 @@ export default function ContactoPage() {
             <div className="lg:col-span-3">
               <div className="bg-fikir-cream rounded-2xl p-8 lg:p-12">
                 <h2 className="font-heading text-2xl font-bold text-fikir-brown mb-8">
-                  Envíanos un mensaje
+                  Envianos un mensaje
                 </h2>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
