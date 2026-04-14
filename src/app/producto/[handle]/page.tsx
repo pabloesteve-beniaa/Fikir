@@ -240,9 +240,13 @@ export default function ProductoPage() {
                     <span className="font-body text-sm text-fikir-brown">{product.impactWho}</span>
                   </div>
                   <div className="flex gap-3">
-                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Ultima act.</span>
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Ubicacion</span>
+                    <span className="font-body text-sm text-fikir-brown">{product.impactLocation}</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Estado</span>
                     <span className="font-body text-sm text-fikir-brown flex items-center gap-1">
-                      <Clock className="h-3 w-3" /> Abril 2026
+                      <Clock className="h-3 w-3" /> Activo
                     </span>
                   </div>
                 </div>

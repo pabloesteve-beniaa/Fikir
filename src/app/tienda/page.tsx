@@ -119,10 +119,10 @@ export default function TiendaPage() {
                   {packs[1].description}
                 </p>
                 <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
-                  Recibe cafe cada mes sin preocuparte. Ahorra un 13%.
+                  Recibelo cada mes sin preocuparte. Ahorra un 13%.
                 </p>
                 <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
-                  {["Sin permanencia", "Cancela cuando quieras", "Modifica o pausa"].map((t) => (
+                  {["Minimo 2 meses", "Cancela cuando quieras", "Modifica o pausa"].map((t) => (
                     <span key={t} className="flex items-center gap-1">
                       <CheckCircle className="h-3 w-3 text-fikir-green" />
                       <span className="font-body text-xs text-fikir-brown-light">{t}</span>

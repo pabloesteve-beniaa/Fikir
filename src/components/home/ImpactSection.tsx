@@ -4,20 +4,20 @@ import { ArrowRight, BookOpen, GraduationCap, Users } from "lucide-react";
 const stats = [
   {
     icon: BookOpen,
-    value: "200+",
-    label: "Ninos con acceso a educacion",
+    value: "Meki",
+    label: "Orfanato apoyado en Etiopia",
     color: "text-fikir-green",
   },
   {
     icon: GraduationCap,
-    value: "5",
-    label: "Proyectos infantiles activos",
+    value: "Dokolo",
+    label: "Proyecto infantil en Kenia",
     color: "text-fikir-terracotta",
   },
   {
     icon: Users,
-    value: "4",
-    label: "Comunidades cafetaleras apoyadas",
+    value: "100%",
+    label: "Beneficio reinvertido en infancia",
     color: "text-fikir-gold",
   },
 ];
@@ -33,13 +33,13 @@ export default function ImpactSection() {
               Nuestro impacto
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Cada taza construye
-              <br />el futuro de un nino
+              Proyectos reales,
+              <br />historias reales
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              No es marketing. Es nuestro modelo. Fikir existe para dar
-              oportunidades reales a los ninos que crecen en las comunidades
-              donde se cultiva tu cafe.
+              No es marketing. Son proyectos con los que el fundador de Fikir
+              tiene una conexion personal y directa. Lugares donde vivio,
+              trabajo y formo su vida.
             </p>
 
             <div className="mt-10 space-y-6">
@@ -47,11 +47,11 @@ export default function ImpactSection() {
                 <div className="w-2 h-2 mt-2 rounded-full bg-fikir-green shrink-0" />
                 <div>
                   <h4 className="font-body text-sm font-semibold text-fikir-brown">
-                    Etiopia &mdash; Educacion
+                    Meki, Etiopia &mdash; Orfanato
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    Aulas, material escolar y becas para ninos en las
-                    comunidades caficultoras de Yirgacheffe.
+                    El fundador de Fikir vivio y trabajo aqui durante anos.
+                    Tu cafe mejora directamente la vida de estos ninos.
                   </p>
                 </div>
               </div>
@@ -59,11 +59,11 @@ export default function ImpactSection() {
                 <div className="w-2 h-2 mt-2 rounded-full bg-fikir-terracotta shrink-0" />
                 <div>
                   <h4 className="font-body text-sm font-semibold text-fikir-brown">
-                    Kenia &mdash; Desarrollo infantil
+                    Dokolo, Kenia &mdash; Fundacion Pablo Horstmann
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    Programas educativos y de oportunidades para ninos
-                    en comunidades rurales de Nyeri.
+                    Nuevo proyecto para la infancia en desarrollo. Educacion
+                    y oportunidades para ninos en comunidades cafetaleras.
                   </p>
                 </div>
               </div>
@@ -73,7 +73,7 @@ export default function ImpactSection() {
               href="/impacto"
               className="mt-10 inline-flex items-center gap-2 font-body text-sm font-semibold text-fikir-green tracking-wide uppercase transition-colors duration-200 hover:text-fikir-green-light cursor-pointer"
             >
-              Ver todo nuestro impacto
+              Conocer toda la historia
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

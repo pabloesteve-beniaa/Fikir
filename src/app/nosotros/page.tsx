@@ -13,7 +13,7 @@ const timeline = [
     year: "2024",
     title: "La semilla",
     description:
-      "Fikir nace de una pregunta sencilla: que pasaria si un cafe de especialidad devolviera todo su beneficio a las comunidades donde se cultiva? No como caridad, sino como modelo.",
+      "Despues de vivir en Kenia y Etiopia y trabajar en un orfanato en Meki, nace la idea: crear un cafe de especialidad donde todo el beneficio vuelva a los ninos de las comunidades de origen.",
   },
   {
     year: "2024",
@@ -98,21 +98,17 @@ export default function NosotrosPage() {
               <User className="h-10 w-10 text-fikir-brown-light/40" />
             </div>
             <h2 className="font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
-              Una carta personal
+              Por que existe Fikir
             </h2>
             <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
               <p>
-                Fikir no empezo como un negocio. Empezo como una frustracion: la de ver que los
-                ninos que crecen donde nace el mejor cafe del mundo son los que menos oportunidades tienen.
+                Fikir no empezo como un negocio. Empezo despues de vivir en Kenia y Etiopia, de formar alli parte de mi vida y de trabajar en un orfanato en Meki durante dos anos.
               </p>
               <p>
-                Quise hacer algo diferente. No una marca que dona un porcentaje para lavar su
-                imagen. Un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia
-                en origen. Sin salarios inflados, sin marketing millonario. Solo cafe y proposito.
+                Cuando volvi, senti que le debia algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.
               </p>
               <p>
-                Cada vez que alguien elige Fikir, esta diciendo que hay otra forma de hacer las
-                cosas. Y eso, para mi, vale mas que cualquier margen de beneficio.
+                Hoy, cada bolsa de Fikir apoya al orfanato en Meki y un nuevo proyecto con la Fundacion Pablo Horstmann en Dokolo. Son lugares que conozco. Personas que conozco. No es un proyecto lejano. Es personal.
               </p>
               <p className="font-semibold text-fikir-brown">
                 Gracias por ser parte de esto.

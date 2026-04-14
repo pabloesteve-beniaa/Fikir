@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ArrowUpRight } from "lucide-react";
+import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ImageIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Impacto",
@@ -12,40 +12,40 @@ const projects = [
   {
     icon: BookOpen,
     country: "Etiopia",
-    region: "Yirgacheffe",
-    title: "Programa de educacion",
+    region: "Meki",
+    title: "Orfanato en Meki",
     description:
-      "Financiamos la construccion de aulas, suministro de material escolar y becas de estudio para ninos de las comunidades caficultoras. La educacion es la herramienta mas poderosa para romper el ciclo de pobreza. Tambien cubrimos necesidades basicas cuando es necesario.",
+      "El fundador de Fikir vivio y trabajo en este orfanato en Meki durante dos anos, seis meses de ellos en terreno. Esta conexion personal es el corazon de Fikir. Cada bolsa de Etiopia contribuye directamente a mejorar las condiciones de vida, el material educativo y las necesidades basicas de los ninos que aqui crecen.",
     stats: [
-      { value: "200+", label: "Ninos beneficiados" },
-      { value: "3", label: "Aulas construidas" },
-      { value: "500+", label: "Kits escolares" },
+      { value: "Proyecto activo", label: "" },
+      { value: "Conexion directa", label: "" },
+      { value: "Meki, Etiopia", label: "" },
     ],
     evidence: [
-      { date: "Marzo 2026", text: "Entrega de 150 kits escolares en Yirgacheffe", location: "Yirgacheffe, Etiopia" },
-      { date: "Enero 2026", text: "Inauguracion de la 3a aula del programa", location: "Yirgacheffe, Etiopia" },
+      { date: "2024-presente", text: "Apoyo continuo al orfanato donde el fundador vivio", location: "Meki, Etiopia" },
     ],
     color: "bg-fikir-green",
     accent: "text-fikir-green",
+    imagePlaceholder: "Foto del orfanato en Meki",
   },
   {
     icon: Heart,
     country: "Kenia",
-    region: "Nyeri",
-    title: "Desarrollo infantil",
+    region: "Dokolo",
+    title: "Fundacion Pablo Horstmann",
     description:
-      "Impulsamos programas de desarrollo integral para ninos en Nyeri: educacion temprana, actividades extraescolares y oportunidades que abren puertas. Invertir en la infancia es invertir en el futuro de comunidades enteras.",
+      "Junto a la Fundacion Pablo Horstmann, Fikir apoya el desarrollo de un nuevo proyecto para la infancia en Dokolo. Un compromiso que nace de la experiencia directa del fundador en Kenia y de la relacion con esta fundacion de referencia en cooperacion infantil.",
     stats: [
-      { value: "150+", label: "Ninos beneficiados" },
-      { value: "3", label: "Programas activos" },
-      { value: "2", label: "Comunidades apoyadas" },
+      { value: "En desarrollo", label: "" },
+      { value: "Fundacion Pablo Horstmann", label: "" },
+      { value: "Dokolo, Kenia", label: "" },
     ],
     evidence: [
-      { date: "Febrero 2026", text: "Lanzamiento del programa de educacion temprana en Nyeri", location: "Nyeri, Kenia" },
-      { date: "Noviembre 2025", text: "Inicio de actividades extraescolares para 80 ninos", location: "Nyeri, Kenia" },
+      { date: "2025-presente", text: "Desarrollo del proyecto infantil con Fundacion Pablo Horstmann", location: "Dokolo, Kenia" },
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
+    imagePlaceholder: "Foto del proyecto en Dokolo",
   },
 ];
 
@@ -92,23 +92,35 @@ export default function ImpactoPage() {
               <span className="text-fikir-gold">construye futuro</span>
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              No es solo un eslogan. Es nuestro modelo. El 100% del beneficio
-              de Fikir se reinvierte en proyectos para la infancia
-              en Etiopia y Kenia.
+              El 100% del beneficio de Fikir se reinvierte en proyectos para la infancia en Etiopia y Kenia.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Impact numbers - clean, no duplicates */}
+      {/* Mas que cafe */}
+      <section className="py-20 bg-fikir-white lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
+              Mas que cafe, oportunidades reales
+            </h2>
+            <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
+              Despues de vivir en Kenia y Etiopia y formar alli parte de su vida, el fundador de Fikir sintio una deuda personal con estas comunidades. Fikir nace de esa conexion: no como un proyecto distante, sino como algo profundamente personal.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact numbers */}
       <section className="py-16 bg-fikir-cream-dark lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
               { value: "+200", label: "Ninos beneficiados" },
-              { value: "5", label: "Proyectos activos" },
-              { value: "4", label: "Comunidades cafetaleras apoyadas" },
-              { value: "3", label: "Aulas financiadas" },
+              { value: "2", label: "Proyectos activos" },
+              { value: "2", label: "Comunidades apoyadas" },
+              { value: "100%", label: "Beneficio reinvertido" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -165,13 +177,10 @@ export default function ImpactoPage() {
                     </p>
 
                     <div className="mt-8 grid grid-cols-3 gap-6">
-                      {project.stats.map((stat) => (
-                        <div key={stat.label}>
-                          <p className={`font-heading text-3xl font-bold ${project.accent}`}>
+                      {project.stats.map((stat, idx) => (
+                        <div key={idx}>
+                          <p className={`font-heading text-sm font-bold ${project.accent}`}>
                             {stat.value}
-                          </p>
-                          <p className="mt-1 font-body text-xs text-fikir-brown-light">
-                            {stat.label}
                           </p>
                         </div>
                       ))}
@@ -205,6 +214,14 @@ export default function ImpactoPage() {
                         ))}
                       </div>
                     </div>
+
+                    {/* Image placeholder */}
+                    <div className="mt-8 aspect-video rounded-2xl bg-fikir-cream-dark flex flex-col items-center justify-center gap-3">
+                      <ImageIcon className="h-10 w-10 text-fikir-brown-light/40" />
+                      <p className="font-body text-sm text-fikir-brown-light/60">
+                        {project.imagePlaceholder}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -213,7 +230,7 @@ export default function ImpactoPage() {
         </div>
       </section>
 
-      {/* Transparency section - NEW */}
+      {/* Transparency section */}
       <section className="py-24 bg-fikir-cream-dark lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">

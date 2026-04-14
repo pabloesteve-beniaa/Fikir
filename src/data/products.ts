@@ -16,6 +16,7 @@ export interface Product {
   story: string;
   impact: string;
   impactProject: string;
+  impactLocation: string;
   impactWhat: string;
   impactWho: string;
   profileHint: string;
@@ -28,8 +29,8 @@ export const products: Product[] = [
   {
     id: "etiopia-yirgacheffe",
     handle: "etiopia",
-    name: "Etiopía",
-    origin: "Etiopía",
+    name: "Etiopia",
+    origin: "Etiopia",
     region: "Yirgacheffe",
     price: 14.99,
     currency: "EUR",
@@ -47,10 +48,11 @@ export const products: Product[] = [
     story:
       "Yirgacheffe es considerada la cuna del cafe. Aqui, a mas de 1.800 metros de altitud, las familias caficultoras cultivan con metodos tradicionales que se transmiten de generacion en generacion. Cada grano lleva consigo siglos de tradicion.",
     impact:
-      "Cada bolsa de Etiopia financia proyectos de educacion en las comunidades caficultoras de Yirgacheffe. Hasta ahora, hemos contribuido a la construccion de aulas y material escolar para mas de 200 ninos.",
-    impactProject: "Programa de educacion",
-    impactWhat: "Construccion de aulas, material escolar y becas",
-    impactWho: "200+ ninos en comunidades caficultoras de Yirgacheffe",
+      "Este cafe contribuye directamente a mejorar la vida de ninos en un orfanato en Meki, donde el fundador de Fikir convivio y trabajo durante anos. Una conexion personal y real con el origen.",
+    impactProject: "Orfanato en Meki",
+    impactLocation: "Meki, Etiopia",
+    impactWhat: "Mejora de condiciones, material educativo y necesidades basicas",
+    impactWho: "Ninos del orfanato donde el fundador vivio y trabajo",
     profileHint: "Ideal si te gustan los cafes suaves y florales",
     image: "/images/etiopia-product.jpg",
     imageAlt: "Bolsa de cafe Fikir Coffee Etiopia Yirgacheffe",
@@ -78,10 +80,11 @@ export const products: Product[] = [
     story:
       "En las faldas del Monte Kenia, a mas de 1.700 metros, los caficultores de Nyeri producen algunos de los cafes mas complejos del mundo. El suelo volcanico y el clima templado crean condiciones perfectas para un cafe excepcional.",
     impact:
-      "Cada bolsa de Kenia financia programas educativos y de desarrollo infantil en las comunidades caficultoras de Nyeri. Trabajamos directamente con cooperativas locales para que los ninos tengan acceso a oportunidades reales.",
-    impactProject: "Educacion y desarrollo infantil",
-    impactWhat: "Material escolar, programas educativos y necesidades basicas",
-    impactWho: "Ninos en comunidades caficultoras rurales de Nyeri",
+      "Este cafe apoya el desarrollo de un nuevo proyecto para la infancia junto a la Fundacion Pablo Horstmann en Dokolo. Un compromiso real con las comunidades que hacen posible tu cafe.",
+    impactProject: "Proyecto infantil con Fundacion Pablo Horstmann",
+    impactLocation: "Dokolo, Kenia",
+    impactWhat: "Desarrollo infantil, educacion y oportunidades",
+    impactWho: "Ninos en la comunidad de Dokolo",
     profileHint: "Ideal si prefieres intensidad y fruta",
     image: "/images/kenia-product.jpg",
     imageAlt: "Bolsa de cafe Fikir Coffee Kenia Nyeri",
