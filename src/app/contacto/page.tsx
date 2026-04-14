@@ -1,0 +1,189 @@
+import type { Metadata } from "next";
+import { Mail, MapPin, Clock } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contacto",
+  description:
+    "Contacta con Fikir Coffee. Estamos aqui para ayudarte con cualquier pregunta sobre nuestro cafe o nuestro impacto.",
+};
+
+const contactInfo = [
+  {
+    icon: Mail,
+    title: "Email",
+    value: "hola@fikircoffee.com",
+    description: "Te respondemos en menos de 24h",
+  },
+  {
+    icon: MapPin,
+    title: "Ubicacion",
+    value: "Espana",
+    description: "Envios a toda la peninsula",
+  },
+  {
+    icon: Clock,
+    title: "Horario",
+    value: "Lun - Vie, 9:00 - 18:00",
+    description: "Hora peninsular",
+  },
+];
+
+export default function ContactoPage() {
+  return (
+    <div className="pt-20 lg:pt-24">
+      {/* Hero */}
+      <section className="py-20 bg-fikir-brown lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+              Contacto
+            </p>
+            <h1 className="mt-4 font-heading text-5xl font-bold text-fikir-cream sm:text-6xl">
+              Hablemos
+            </h1>
+            <p className="mt-6 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
+              Tienes preguntas sobre nuestro cafe, nuestro impacto o quieres
+              colaborar? Escríbenos. Estamos aqui para ti.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact info + form */}
+      <section className="py-24 bg-fikir-white lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-5 lg:gap-24">
+            {/* Info */}
+            <div className="lg:col-span-2">
+              <h2 className="font-heading text-3xl font-bold text-fikir-brown">
+                Informacion de contacto
+              </h2>
+              <p className="mt-4 font-body text-base text-fikir-brown-light leading-relaxed">
+                Si tienes preguntas sobre pedidos, impacto o cualquier otra
+                cosa, no dudes en escribirnos.
+              </p>
+
+              <div className="mt-10 space-y-8">
+                {contactInfo.map((info) => (
+                  <div key={info.title} className="flex gap-4">
+                    <div className="w-12 h-12 rounded-full bg-fikir-gold/10 flex items-center justify-center shrink-0">
+                      <info.icon className="h-5 w-5 text-fikir-gold" />
+                    </div>
+                    <div>
+                      <h3 className="font-body text-sm font-semibold text-fikir-brown">
+                        {info.title}
+                      </h3>
+                      <p className="font-body text-base text-fikir-brown mt-0.5">
+                        {info.value}
+                      </p>
+                      <p className="font-body text-xs text-fikir-brown-light mt-1">
+                        {info.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Social */}
+              <div className="mt-10 pt-8 border-t border-fikir-brown/10">
+                <p className="font-body text-sm font-semibold text-fikir-brown mb-4">
+                  Siguenos
+                </p>
+                <div className="flex gap-4">
+                  {["Instagram", "TikTok", "LinkedIn"].map((social) => (
+                    <a
+                      key={social}
+                      href="#"
+                      className="px-4 py-2 rounded-full bg-fikir-cream font-body text-xs font-medium text-fikir-brown-light hover:bg-fikir-cream-dark transition-colors cursor-pointer"
+                    >
+                      {social}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Form */}
+            <div className="lg:col-span-3">
+              <div className="bg-fikir-cream rounded-2xl p-8 lg:p-12">
+                <h2 className="font-heading text-2xl font-bold text-fikir-brown mb-8">
+                  Envíanos un mensaje
+                </h2>
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="contact-name" className="block font-body text-sm font-medium text-fikir-brown mb-2">
+                        Nombre
+                      </label>
+                      <input
+                        type="text"
+                        id="contact-name"
+                        name="name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
+                        placeholder="Tu nombre"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="contact-email" className="block font-body text-sm font-medium text-fikir-brown mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="contact-email"
+                        name="email"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
+                        placeholder="tu@email.com"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block font-body text-sm font-medium text-fikir-brown mb-2">
+                      Asunto
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors cursor-pointer"
+                    >
+                      <option value="">Selecciona un tema</option>
+                      <option value="pedido">Sobre mi pedido</option>
+                      <option value="producto">Sobre el cafe</option>
+                      <option value="impacto">Sobre el impacto</option>
+                      <option value="empresa">Propuesta para empresas</option>
+                      <option value="colaborar">Quiero colaborar</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="contact-message" className="block font-body text-sm font-medium text-fikir-brown mb-2">
+                      Mensaje
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      rows={5}
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors resize-none"
+                      placeholder="Cuentanos..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full px-8 py-4 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
+                  >
+                    Enviar mensaje
+                  </button>
+                  <p className="font-body text-xs text-fikir-brown-light/60 text-center">
+                    Te respondemos en menos de 24 horas.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

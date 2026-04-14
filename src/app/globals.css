@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  /* === FIKIR COFFEE DESIGN TOKENS === */
+
+  /* Colors - extracted from brand packaging */
+  --color-fikir-green: #1B4332;
+  --color-fikir-green-light: #2D6A4F;
+  --color-fikir-terracotta: #92400E;
+  --color-fikir-terracotta-light: #B45309;
+  --color-fikir-cream: #FAF7F2;
+  --color-fikir-cream-dark: #F0EBE3;
+  --color-fikir-gold: #C4A76C;
+  --color-fikir-gold-light: #D4BC8B;
+  --color-fikir-brown: #2D2A26;
+  --color-fikir-brown-light: #5C5651;
+  --color-fikir-white: #FFFFFF;
+  --color-fikir-sage: #E8EDE8;
+
+  /* Typography */
+  --font-heading: 'Cormorant', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-fikir-cream);
+  color: var(--color-fikir-brown);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-fikir-gold-light);
+  color: var(--color-fikir-brown);
+}
+
+/* Smooth focus */
+*:focus-visible {
+  outline: 2px solid var(--color-fikir-gold);
+  outline-offset: 2px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
