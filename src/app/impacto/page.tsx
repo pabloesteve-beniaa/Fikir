@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Droplets, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ArrowUpRight } from "lucide-react";
+import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Impacto",
   description:
-    "Descubre como Fikir Coffee reinvierte el 100% de sus beneficios en proyectos sociales en Etiopia y Kenia.",
+    "Descubre como Fikir Coffee reinvierte el 100% de sus beneficios en proyectos para la infancia en Etiopia y Kenia.",
 };
 
 const projects = [
@@ -15,7 +15,7 @@ const projects = [
     region: "Yirgacheffe",
     title: "Programa de educacion",
     description:
-      "Financiamos la construccion de aulas, suministro de material escolar y becas de estudio para ninos de las comunidades caficultoras. La educacion es la herramienta mas poderosa para romper el ciclo de pobreza.",
+      "Financiamos la construccion de aulas, suministro de material escolar y becas de estudio para ninos de las comunidades caficultoras. La educacion es la herramienta mas poderosa para romper el ciclo de pobreza. Tambien cubrimos necesidades basicas cuando es necesario.",
     stats: [
       { value: "200+", label: "Ninos beneficiados" },
       { value: "3", label: "Aulas construidas" },
@@ -29,20 +29,20 @@ const projects = [
     accent: "text-fikir-green",
   },
   {
-    icon: Droplets,
+    icon: Heart,
     country: "Kenia",
     region: "Nyeri",
-    title: "Acceso a agua potable",
+    title: "Desarrollo infantil",
     description:
-      "Construimos pozos y sistemas de purificacion de agua en comunidades rurales que dependen de fuentes no seguras. El acceso a agua limpia transforma la salud y la calidad de vida de familias enteras.",
+      "Impulsamos programas de desarrollo integral para ninos en Nyeri: educacion temprana, actividades extraescolares y oportunidades que abren puertas. Invertir en la infancia es invertir en el futuro de comunidades enteras.",
     stats: [
-      { value: "3", label: "Pozos construidos" },
-      { value: "50+", label: "Familias con agua" },
-      { value: "1000+", label: "Personas beneficiadas" },
+      { value: "150+", label: "Ninos beneficiados" },
+      { value: "3", label: "Programas activos" },
+      { value: "2", label: "Comunidades apoyadas" },
     ],
     evidence: [
-      { date: "Febrero 2026", text: "Finalizacion del 3er pozo en comunidad rural de Nyeri", location: "Nyeri, Kenia" },
-      { date: "Noviembre 2025", text: "Instalacion de sistema de purificacion para 20 familias", location: "Nyeri, Kenia" },
+      { date: "Febrero 2026", text: "Lanzamiento del programa de educacion temprana en Nyeri", location: "Nyeri, Kenia" },
+      { date: "Noviembre 2025", text: "Inicio de actividades extraescolares para 80 ninos", location: "Nyeri, Kenia" },
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
@@ -72,7 +72,7 @@ const principles = [
     icon: Users,
     title: "Comunidad primero",
     description:
-      "Los proyectos los eligen las comunidades. No imponemos soluciones desde fuera, acompanamos sus propias prioridades.",
+      "Los proyectos los eligen las comunidades, priorizando las necesidades de sus ninos. No imponemos soluciones desde fuera, acompanamos sus propias prioridades.",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function ImpactoPage() {
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
               No es solo un eslogan. Es nuestro modelo. El 100% del beneficio
-              de Fikir se reinvierte en proyectos de educacion y agua potable
+              de Fikir se reinvierte en proyectos para la infancia
               en Etiopia y Kenia.
             </p>
           </div>
@@ -105,9 +105,9 @@ export default function ImpactoPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              { value: "+250", label: "Personas beneficiadas" },
+              { value: "+200", label: "Ninos beneficiados" },
               { value: "5", label: "Proyectos activos" },
-              { value: "3", label: "Pozos de agua construidos" },
+              { value: "4", label: "Comunidades cafetaleras apoyadas" },
               { value: "3", label: "Aulas financiadas" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
@@ -248,7 +248,7 @@ export default function ImpactoPage() {
                 <p className="font-heading text-4xl font-bold text-fikir-cream">~30%</p>
                 <p className="mt-2 font-body text-sm text-fikir-cream/80">Beneficio reinvertido</p>
                 <div className="mt-4 pt-4 border-t border-fikir-cream/20">
-                  <p className="font-body text-xs text-fikir-cream/70">100% destinado a proyectos en Etiopia y Kenia</p>
+                  <p className="font-body text-xs text-fikir-cream/70">Reinvertido en infancia en Etiopia y Kenia</p>
                 </div>
               </div>
             </div>

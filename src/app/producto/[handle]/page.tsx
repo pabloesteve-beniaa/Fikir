@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { products } from "@/data/products";
-import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, Droplets } from "lucide-react";
+import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap } from "lucide-react";
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
@@ -46,7 +46,7 @@ export default function ProductoPage() {
       dot: "bg-fikir-terracotta",
       border: "border-fikir-terracotta/20",
       lightBg: "bg-fikir-terracotta/5",
-      impactIcon: Droplets,
+      impactIcon: GraduationCap,
     },
   };
 

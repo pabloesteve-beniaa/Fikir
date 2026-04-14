@@ -3,6 +3,7 @@ import PurposeSection from "@/components/home/PurposeSection";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
 import HowItWorks from "@/components/home/HowItWorks";
 import ImpactSection from "@/components/home/ImpactSection";
+import TransparencySection from "@/components/home/TransparencySection";
 import NewsletterSection from "@/components/home/NewsletterSection";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <FeaturedProducts />
       <HowItWorks />
       <ImpactSection />
+      <TransparencySection />
       <NewsletterSection />
     </>
   );

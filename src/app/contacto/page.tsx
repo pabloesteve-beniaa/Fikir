@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     question: "De verdad todo el beneficio va al origen?",
-    answer: "Si. Fikir es un proyecto sin animo de lucro. Despues de cubrir costes operativos (cafe verde, tueste, packaging, envio), el 100% del beneficio se reinvierte en proyectos de educacion y agua potable en Etiopia y Kenia.",
+    answer: "Si. Fikir es un proyecto sin animo de lucro. Despues de cubrir costes operativos (cafe verde, tueste, packaging, envio), el 100% del beneficio se reinvierte en proyectos para la infancia en comunidades cafetaleras de Etiopia y Kenia.",
   },
   {
     question: "Haceis regalos corporativos o para empresas?",

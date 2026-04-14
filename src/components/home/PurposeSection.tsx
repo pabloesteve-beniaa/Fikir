@@ -9,15 +9,15 @@ const values = [
   },
   {
     icon: Sprout,
-    title: "Impacto en origen",
+    title: "Proyectos para la infancia",
     description:
-      "Financiamos proyectos de educacion en Etiopia y acceso a agua potable en Kenia. Devolvemos al origen lo que el cafe nos da.",
+      "Financiamos educacion, material escolar y oportunidades para ninos en comunidades cafetaleras de Etiopia y Kenia.",
   },
   {
     icon: Users,
     title: "Comunidad global",
     description:
-      "Cada persona que toma una taza de Fikir se convierte en parte de un cambio real. Tu ritual diario tiene un proposito.",
+      "Cada persona que toma una taza de Fikir se convierte en parte de un cambio real. Tu cafe de cada manana tiene un proposito.",
   },
 ];
 
@@ -31,13 +31,13 @@ export default function PurposeSection() {
             Nuestro proposito
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-            Cafe que devuelve
-            <br />lo que recibe
+            Cafe que construye
+            <br />futuro para la infancia
           </h2>
           <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
             Fikir significa &ldquo;amor&rdquo; en amharico, la lengua de Etiopia.
-            Nace de la creencia de que un buen cafe puede hacer mucho mas que
-            despertar tus sentidos.
+            Nace de la creencia de que un buen cafe puede cambiar la vida de los
+            ninos que crecen donde se cultiva.
           </p>
         </div>
 

@@ -63,7 +63,7 @@ const process = [
     step: "03",
     icon: Sparkles,
     title: "Entregamos cafe + impacto",
-    description: "Recibes cafe excepcional y un certificado de impacto real para compartir con tu equipo.",
+    description: "Recibes cafe excepcional y un certificado de impacto en la infancia para compartir con tu equipo.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function EmpresasPage() {
               <span className="text-fikir-gold">para tu empresa</span>
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              Cafe de especialidad que genera impacto social real. Para tu
+              Cafe de especialidad que financia proyectos para la infancia en origen. Para tu
               oficina, tus clientes o tus eventos. Sin animo de lucro, con
               todo el sabor.
             </p>
@@ -175,7 +175,7 @@ export default function EmpresasPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
             {[
               { icon: Coffee, title: "Calidad SCA 85+", desc: "Cafe de especialidad, no cafe comercial" },
-              { icon: Heart, title: "Sin animo de lucro", desc: "Tu compra es impacto directo" },
+              { icon: Heart, title: "Sin animo de lucro", desc: "Tu compra financia la infancia en origen" },
               { icon: Building2, title: "RSC real", desc: "Certificado de impacto para tu empresa" },
               { icon: Gift, title: "Personalizable", desc: "Adaptamos el formato a tus necesidades" },
             ].map((item) => (

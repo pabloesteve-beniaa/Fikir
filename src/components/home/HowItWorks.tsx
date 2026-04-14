@@ -1,4 +1,4 @@
-import { ShoppingBag, Heart, Globe } from "lucide-react";
+import { ShoppingBag, Heart, Baby } from "lucide-react";
 
 const steps = [
   {
@@ -11,16 +11,16 @@ const steps = [
   {
     icon: Heart,
     step: "02",
-    title: "Generamos impacto",
+    title: "Reinvertimos el beneficio",
     description:
-      "Todo el beneficio de tu compra se reinvierte en proyectos sociales en las comunidades donde nace tu cafe.",
+      "Todo el beneficio de tu compra se destina integramente a proyectos en las comunidades donde nace tu cafe.",
   },
   {
-    icon: Globe,
+    icon: Baby,
     step: "03",
-    title: "Vuelve al origen",
+    title: "Financiamos proyectos infantiles",
     description:
-      "Educacion en Etiopia, agua potable en Kenia. Tu cafe financia proyectos reales con impacto medible.",
+      "Educacion, material escolar y oportunidades para ninos en comunidades cafetaleras. Tu cafe construye su futuro.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function HowItWorks() {
             De tu taza al origen
           </h2>
           <p className="mt-6 font-body text-lg leading-relaxed text-fikir-cream/80">
-            Un modelo transparente donde cada paso tiene un impacto directo.
+            Un modelo transparente donde cada paso tiene un impacto directo en la vida de los ninos.
           </p>
         </div>
 

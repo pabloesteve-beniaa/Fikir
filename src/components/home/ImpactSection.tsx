@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Droplets, Users } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap, Users } from "lucide-react";
 
 const stats = [
   {
@@ -9,15 +9,15 @@ const stats = [
     color: "text-fikir-green",
   },
   {
-    icon: Droplets,
-    value: "3",
-    label: "Pozos de agua potable financiados",
+    icon: GraduationCap,
+    value: "5",
+    label: "Proyectos infantiles activos",
     color: "text-fikir-terracotta",
   },
   {
     icon: Users,
-    value: "50+",
-    label: "Familias beneficiadas directamente",
+    value: "4",
+    label: "Comunidades cafetaleras apoyadas",
     color: "text-fikir-gold",
   },
 ];
@@ -33,12 +33,13 @@ export default function ImpactSection() {
               Nuestro impacto
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Cada taza deja huella
+              Cada taza construye
+              <br />el futuro de un nino
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              No es marketing. Es nuestro modelo. Fikir existe para devolver
-              al origen lo que el cafe nos da. Sin intermediarios, sin
-              beneficios ocultos. Transparencia total.
+              No es marketing. Es nuestro modelo. Fikir existe para dar
+              oportunidades reales a los ninos que crecen en las comunidades
+              donde se cultiva tu cafe.
             </p>
 
             <div className="mt-10 space-y-6">
@@ -49,8 +50,8 @@ export default function ImpactSection() {
                     Etiopia &mdash; Educacion
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    Construccion de aulas, material escolar y becas para
-                    ninos en las comunidades caficultoras de Yirgacheffe.
+                    Aulas, material escolar y becas para ninos en las
+                    comunidades caficultoras de Yirgacheffe.
                   </p>
                 </div>
               </div>
@@ -58,11 +59,11 @@ export default function ImpactSection() {
                 <div className="w-2 h-2 mt-2 rounded-full bg-fikir-terracotta shrink-0" />
                 <div>
                   <h4 className="font-body text-sm font-semibold text-fikir-brown">
-                    Kenia &mdash; Agua potable
+                    Kenia &mdash; Desarrollo infantil
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    Pozos de agua y sistemas de purificacion para las
-                    comunidades rurales de Nyeri.
+                    Programas educativos y de oportunidades para ninos
+                    en comunidades rurales de Nyeri.
                   </p>
                 </div>
               </div>

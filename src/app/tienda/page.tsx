@@ -25,7 +25,7 @@ export default function TiendaPage() {
             </h1>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
               Cafe de especialidad tostado en pequenos lotes. Cada bolsa que compras
-              financia proyectos de educacion y agua potable en origen.
+              financia proyectos para la infancia en comunidades cafetaleras.
             </p>
             {/* Trust line */}
             <div className="mt-4 flex flex-wrap justify-center gap-4">
@@ -121,6 +121,14 @@ export default function TiendaPage() {
                 <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
                   Recibe cafe cada mes sin preocuparte. Ahorra un 13%.
                 </p>
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+                  {["Sin permanencia", "Cancela cuando quieras", "Modifica o pausa"].map((t) => (
+                    <span key={t} className="flex items-center gap-1">
+                      <CheckCircle className="h-3 w-3 text-fikir-green" />
+                      <span className="font-body text-xs text-fikir-brown-light">{t}</span>
+                    </span>
+                  ))}
+                </div>
                 <div className="mt-4 flex items-center justify-between">
                   <div>
                     <span className="font-body text-2xl font-semibold text-fikir-brown">
@@ -148,10 +156,10 @@ export default function TiendaPage() {
       <section className="py-16 bg-fikir-green text-center lg:py-20">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
-            Cada bolsa financia proyectos de educacion en origen
+            Cada bolsa financia proyectos para la infancia en origen
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
-            El 100% de nuestro beneficio se reinvierte en las comunidades donde
+            El 100% de nuestro beneficio se reinvierte en proyectos infantiles en las comunidades donde
             nace tu cafe. Sin intermediarios.
           </p>
           <Link

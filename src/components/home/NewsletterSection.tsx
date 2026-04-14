@@ -22,20 +22,17 @@ export default function NewsletterSection() {
           </div>
 
           <h2 className="font-heading text-4xl font-bold text-fikir-cream sm:text-5xl">
-            Unete a Fikir y consigue un
-            <br />
-            <span className="text-fikir-gold">5% de descuento</span>
+            Forma parte de Fikir
           </h2>
           <p className="mt-4 font-body text-lg leading-relaxed text-fikir-cream/80">
-            Ademas, recibiras historias reales de impacto desde Etiopia y Kenia.
-            Se el primero en conocer nuevos origenes.
+            Consigue un <span className="font-semibold text-fikir-gold">5% de descuento</span> y recibe historias reales del impacto que generas con cada taza.
           </p>
 
           {/* What you get */}
           <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center sm:gap-6">
             {[
               { icon: Gift, text: "5% en tu primera compra" },
-              { icon: BookOpen, text: "Historias de impacto" },
+              { icon: BookOpen, text: "Historias reales de impacto" },
               { icon: Heart, text: "Novedades antes que nadie" },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-2 justify-center">
@@ -76,7 +73,7 @@ export default function NewsletterSection() {
           )}
 
           <p className="mt-4 font-body text-xs text-fikir-cream/40">
-            Sin spam. Solo cafe, impacto y cosas que importan. Puedes darte de baja cuando quieras.
+            Sin spam. Solo cafe, impacto y cosas que importan.
           </p>
         </div>
       </div>

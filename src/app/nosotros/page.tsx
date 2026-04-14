@@ -31,13 +31,13 @@ const timeline = [
     year: "2025",
     title: "El impacto empieza",
     description:
-      "Financiamos el primer pozo de agua en Nyeri y los primeros kits escolares en Yirgacheffe. El circulo se cierra: el cafe vuelve a su origen.",
+      "Financiamos los primeros kits escolares en Yirgacheffe y los primeros programas educativos en Nyeri. El cafe empieza a cambiar vidas.",
   },
   {
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "Mas de 250 personas beneficiadas, 5 proyectos activos, 3 pozos construidos. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "Mas de 200 ninos beneficiados, 5 proyectos activos, 4 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -81,9 +81,9 @@ export default function NosotrosPage() {
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
               En amharico, la lengua de Etiopia. Y eso es exactamente lo que
-              ponemos en cada bolsa: amor por el cafe, por las personas que lo
-              cultivan y por la idea de que las cosas se pueden hacer de otra
-              manera.
+              ponemos en cada bolsa: amor por el cafe, por los ninos que crecen
+              donde se cultiva y por la idea de que las cosas se pueden hacer de
+              otra manera.
             </p>
           </div>
         </div>
@@ -103,12 +103,12 @@ export default function NosotrosPage() {
             <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
               <p>
                 Fikir no empezo como un negocio. Empezo como una frustracion: la de ver que los
-                paises que nos dan el mejor cafe del mundo son los que menos se benefician de el.
+                ninos que crecen donde nace el mejor cafe del mundo son los que menos oportunidades tienen.
               </p>
               <p>
                 Quise hacer algo diferente. No una marca que dona un porcentaje para lavar su
-                imagen. Un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> vuelve
-                al origen. Sin salarios inflados, sin marketing millonario. Solo cafe y proposito.
+                imagen. Un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia
+                en origen. Sin salarios inflados, sin marketing millonario. Solo cafe y proposito.
               </p>
               <p>
                 Cada vez que alguien elige Fikir, esta diciendo que hay otra forma de hacer las

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Heart, CreditCard, Shield, Truck } from "lucide-react";
 
 const footerLinks = {
   tienda: [
@@ -25,6 +25,30 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-fikir-brown text-fikir-cream">
+      {/* Trust bar */}
+      <div className="border-b border-fikir-cream/10">
+        <div className="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+            <div className="flex items-center gap-2">
+              <Truck className="h-4 w-4 text-fikir-gold" />
+              <span className="font-body text-xs text-fikir-cream/70">Envio en 2-4 dias (Espana)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CreditCard className="h-4 w-4 text-fikir-gold" />
+              <span className="font-body text-xs text-fikir-cream/70">Tarjeta, Bizum</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Shield className="h-4 w-4 text-fikir-gold" />
+              <span className="font-body text-xs text-fikir-cream/70">Pago 100% seguro</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Heart className="h-4 w-4 text-fikir-gold" />
+              <span className="font-body text-xs text-fikir-cream/70">100% beneficio reinvertido</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
@@ -38,8 +62,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-fikir-cream/70 max-w-xs">
-              Cafe de especialidad sin animo de lucro. Todo el beneficio vuelve
-              al origen.
+              Cafe de especialidad sin animo de lucro. Todo el beneficio se reinvierte en proyectos para la infancia en origen.
             </p>
             <p className="mt-6 font-body text-sm italic text-fikir-gold">
               &ldquo;Cafe con impacto en su origen&rdquo;
@@ -115,7 +138,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Fikir Coffee. Todos los derechos reservados.
           </p>
           <p className="font-body text-xs text-fikir-cream/50 flex items-center gap-1">
-            Hecho con <Heart className="h-3 w-3 text-fikir-gold fill-fikir-gold" /> para devolver al origen
+            Hecho con <Heart className="h-3 w-3 text-fikir-gold fill-fikir-gold" /> para la infancia en origen
           </p>
         </div>
       </div>
