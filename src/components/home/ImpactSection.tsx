@@ -5,7 +5,7 @@ const stats = [
   {
     icon: BookOpen,
     value: "Meki",
-    label: "Orfanato apoyado en Etiopia",
+    label: "Orfanato apoyado en Etiopía",
     color: "text-fikir-green",
   },
   {
@@ -38,8 +38,8 @@ export default function ImpactSection() {
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
               No es marketing. Son proyectos con los que el fundador de Fikir
-              tiene una conexion personal y directa. Lugares donde vivio,
-              trabajo y formo su vida.
+              tiene una conexión personal y directa. Lugares donde vivió,
+              trabajó y formó su vida.
             </p>
 
             <div className="mt-10 space-y-6">
@@ -47,11 +47,11 @@ export default function ImpactSection() {
                 <div className="w-2 h-2 mt-2 rounded-full bg-fikir-green shrink-0" />
                 <div>
                   <h4 className="font-body text-sm font-semibold text-fikir-brown">
-                    Meki, Etiopia &mdash; Orfanato
+                    Meki, Etiopía &mdash; Orfanato
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    El fundador de Fikir vivio y trabajo aqui durante anos.
-                    Tu cafe mejora directamente la vida de estos ninos.
+                    El fundador de Fikir vivió y trabajó aquí durante años.
+                    Tu café mejora directamente la vida de estos niños.
                   </p>
                 </div>
               </div>
@@ -59,11 +59,11 @@ export default function ImpactSection() {
                 <div className="w-2 h-2 mt-2 rounded-full bg-fikir-terracotta shrink-0" />
                 <div>
                   <h4 className="font-body text-sm font-semibold text-fikir-brown">
-                    Dokolo, Kenia &mdash; Fundacion Pablo Horstmann
+                    Dokolo, Kenia &mdash; Fundación Pablo Horstmann
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    Nuevo proyecto para la infancia en desarrollo. Educacion
-                    y oportunidades para ninos en comunidades cafetaleras.
+                    Nuevo proyecto para la infancia en desarrollo. Educación
+                    y oportunidades para niños en comunidades cafetaleras.
                   </p>
                 </div>
               </div>

@@ -4,17 +4,17 @@ import { Building2, Gift, Heart, Coffee, CheckCircle, ArrowRight, MessageSquare,
 export const metadata: Metadata = {
   title: "Empresas",
   description:
-    "Cafe con proposito para tu empresa. Oficinas, eventos y regalos corporativos con impacto social.",
+    "Café con propósito para tu empresa. Oficinas, eventos y regalos corporativos con impacto social.",
 };
 
 const services = [
   {
     icon: Building2,
-    title: "Cafe para oficinas",
+    title: "Café para oficinas",
     description:
-      "Lleva cafe de especialidad a tu oficina. Tus empleados disfrutaran de un cafe excepcional mientras tu empresa apoya proyectos sociales en origen.",
+      "Lleva café de especialidad a tu oficina. Tus empleados disfrutarán de un café excepcional mientras tu empresa apoya proyectos sociales en origen.",
     features: [
-      "Cafe de especialidad SCA 85+",
+      "Café de especialidad SCA 85+",
       "Suministro recurrente personalizado",
       "Grano o molido segun tus necesidades",
       "Certificado de impacto social",
@@ -24,7 +24,7 @@ const services = [
     icon: Gift,
     title: "Regalos corporativos",
     description:
-      "Un regalo con significado. Packs personalizados de cafe de especialidad con la historia de impacto. Perfecto para clientes, partners y equipo.",
+      "Un regalo con significado. Packs personalizados de café de especialidad con la historia de impacto. Perfecto para clientes, partners y equipo.",
     features: [
       "Packs personalizados con tu marca",
       "Tarjeta con la historia de impacto",
@@ -36,12 +36,12 @@ const services = [
     icon: Heart,
     title: "RSC y eventos",
     description:
-      "Asocia tu marca con un proposito real. Fikir puede ser parte de tu estrategia de responsabilidad social corporativa o de tus eventos de empresa.",
+      "Asocia tu marca con un propósito real. Fikir puede ser parte de tu estrategia de responsabilidad social corporativa o de tus eventos de empresa.",
     features: [
       "Co-branding con impacto",
       "Informe de impacto personalizado",
       "Activaciones para eventos",
-      "Charlas sobre cafe e impacto social",
+      "Charlas sobre café e impacto social",
     ],
   },
 ];
@@ -51,19 +51,19 @@ const process = [
     step: "01",
     icon: MessageSquare,
     title: "Entendemos tu necesidad",
-    description: "Hablamos contigo para conocer que buscas: cafe para oficina, regalos, eventos o RSC.",
+    description: "Hablamos contigo para conocer que buscas: café para oficina, regalos, eventos o RSC.",
   },
   {
     step: "02",
     icon: Package,
-    title: "Disenamos tu propuesta",
+    title: "Diseñamos tu propuesta",
     description: "Te preparamos una propuesta personalizada con cantidades, formatos y branding adaptado.",
   },
   {
     step: "03",
     icon: Sparkles,
-    title: "Entregamos cafe + impacto",
-    description: "Recibes cafe excepcional y un certificado de impacto en la infancia para compartir con tu equipo.",
+    title: "Entregamos café + impacto",
+    description: "Recibes café excepcional y un certificado de impacto en la infancia para compartir con tu equipo.",
   },
 ];
 
@@ -78,13 +78,13 @@ export default function EmpresasPage() {
               Para empresas
             </p>
             <h1 className="mt-4 font-heading text-5xl font-bold text-fikir-cream sm:text-6xl lg:text-7xl">
-              Cafe con proposito
+              Café con propósito
               <br />
               <span className="text-fikir-gold">para tu empresa</span>
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              Cafe de especialidad que financia proyectos para la infancia en origen. Para tu
-              oficina, tus clientes o tus eventos. Sin animo de lucro, con
+              Café de especialidad que financia proyectos para la infancia en origen. Para tu
+              oficina, tus clientes o tus eventos. Sin ánimo de lucro, con
               todo el sabor.
             </p>
             <a
@@ -174,8 +174,8 @@ export default function EmpresasPage() {
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
             {[
-              { icon: Coffee, title: "Calidad SCA 85+", desc: "Cafe de especialidad, no cafe comercial" },
-              { icon: Heart, title: "Sin animo de lucro", desc: "Tu compra financia la infancia en origen" },
+              { icon: Coffee, title: "Calidad SCA 85+", desc: "Café de especialidad, no café comercial" },
+              { icon: Heart, title: "Sin ánimo de lucro", desc: "Tu compra financia la infancia en origen" },
               { icon: Building2, title: "RSC real", desc: "Certificado de impacto para tu empresa" },
               { icon: Gift, title: "Personalizable", desc: "Adaptamos el formato a tus necesidades" },
             ].map((item) => (
@@ -206,7 +206,7 @@ export default function EmpresasPage() {
               Solicitar propuesta en 24h
             </h2>
             <p className="mt-4 font-body text-base text-fikir-brown-light">
-              Cuentanos que necesitas y te respondemos con una propuesta personalizada en menos de 24 horas.
+              Cuéntanos que necesitas y te respondemos con una propuesta personalizada en menos de 24 horas.
             </p>
           </div>
 
@@ -259,8 +259,8 @@ export default function EmpresasPage() {
                 name="service"
                 className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors cursor-pointer"
               >
-                <option value="">Selecciona una opcion</option>
-                <option value="oficina">Cafe para oficina</option>
+                <option value="">Selecciona una opción</option>
+                <option value="oficina">Café para oficina</option>
                 <option value="regalo">Regalos corporativos</option>
                 <option value="rsc">RSC y eventos</option>
                 <option value="otro">Otro</option>
@@ -275,7 +275,7 @@ export default function EmpresasPage() {
                 name="message"
                 rows={4}
                 className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors resize-none"
-                placeholder="Cuentanos que necesitas..."
+                placeholder="Cuéntanos que necesitas..."
               />
             </div>
             <button

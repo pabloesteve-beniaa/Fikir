@@ -5,7 +5,7 @@ import { ArrowRight, Heart, Globe, Coffee, Sparkles, User } from "lucide-react";
 export const metadata: Metadata = {
   title: "Sobre nosotros",
   description:
-    "Conoce la historia de Fikir Coffee. Un proyecto sin animo de lucro que devuelve al origen lo que el cafe nos da.",
+    "Conoce la historia de Fikir Coffee. Un proyecto sin ánimo de lucro que devuelve al origen lo que el café nos da.",
 };
 
 const timeline = [
@@ -13,31 +13,31 @@ const timeline = [
     year: "2024",
     title: "La semilla",
     description:
-      "Despues de vivir en Kenia y Etiopia y trabajar en un orfanato en Meki, nace la idea: crear un cafe de especialidad donde todo el beneficio vuelva a los ninos de las comunidades de origen.",
+      "Despues de vivir en Kenia y Etiopía y trabajar en un orfanato en Meki, nace la idea: crear un café de especialidad donde todo el beneficio vuelva a los niños de las comunidades de origen.",
   },
   {
     year: "2024",
     title: "El primer viaje",
     description:
-      "Viajamos a Etiopia y Kenia para encontrar los mejores granos. Cafes con puntuacion SCA superior a 85, cultivados con metodos tradicionales por familias caficultoras.",
+      "Viajamos a Etiopía y Kenia para encontrar los mejores granos. Cafes con puntuación SCA superior a 85, cultivados con métodos tradicionales por familias caficultoras.",
   },
   {
     year: "2025",
     title: "Las primeras bolsas",
     description:
-      "Lanzamos las dos primeras referencias: Etiopia Yirgacheffe y Kenia Nyeri. Los primeros clientes se convierten en los primeros embajadores del proyecto.",
+      "Lanzamos las dos primeras referencias: Etiopía Yirgacheffe y Kenia Nyeri. Los primeros clientes se convierten en los primeros embajadores del proyecto.",
   },
   {
     year: "2025",
     title: "El impacto empieza",
     description:
-      "Financiamos los primeros kits escolares en Yirgacheffe y los primeros programas educativos en Nyeri. El cafe empieza a cambiar vidas.",
+      "Financiamos los primeros kits escolares en Yirgacheffe y los primeros programas educativos en Nyeri. El café empieza a cambiar vidas.",
   },
   {
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "Mas de 200 ninos beneficiados, 5 proyectos activos, 4 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "Mas de 200 niños beneficiados, 5 proyectos activos, 4 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -45,7 +45,7 @@ const values = [
   {
     icon: Heart,
     title: "Autenticidad",
-    description: "Sin greenwashing. Sin palabras vacias. Cada euro que decimos que va al origen, va al origen.",
+    description: "Sin greenwashing. Sin palabras vacías. Cada euro que decimos que va al origen, va al origen.",
   },
   {
     icon: Globe,
@@ -55,12 +55,12 @@ const values = [
   {
     icon: Coffee,
     title: "Excelencia",
-    description: "El impacto social no esta renido con la calidad. Nuestros cafes son excepcionales, porque el origen lo merece.",
+    description: "El impacto social no esta reñido con la calidad. Nuestros cafes son excepcionales, porque el origen lo merece.",
   },
   {
     icon: Sparkles,
-    title: "Proposito",
-    description: "No somos un negocio que dona. Somos un proyecto social que vende cafe para financiar su mision.",
+    title: "Propósito",
+    description: "No somos un negocio que dona. Somos un proyecto social que vende café para financiar su misión.",
   },
 ];
 
@@ -80,8 +80,8 @@ export default function NosotrosPage() {
               <span className="text-fikir-gold italic">amor</span>
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              En amharico, la lengua de Etiopia. Y eso es exactamente lo que
-              ponemos en cada bolsa: amor por el cafe, por los ninos que crecen
+              En amharico, la lengua de Etiopía. Y eso es exactamente lo que
+              ponemos en cada bolsa: amor por el café, por los niños que crecen
               donde se cultiva y por la idea de que las cosas se pueden hacer de
               otra manera.
             </p>
@@ -102,20 +102,20 @@ export default function NosotrosPage() {
             </h2>
             <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
               <p>
-                Fikir no empezo como un negocio. Empezo despues de vivir en Kenia y Etiopia, de formar alli parte de mi vida y de trabajar en un orfanato en Meki durante dos anos.
+                Fikir no empezó como un negocio. Empezo después de vivir en Kenia y Etiopía, de formar alli parte de mi vida y de trabajar en un orfanato en Meki durante dos años.
               </p>
               <p>
-                Cuando volvi, senti que le debia algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.
+                Cuando volví, sentí que le debía algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.
               </p>
               <p>
-                Hoy, cada bolsa de Fikir apoya al orfanato en Meki y un nuevo proyecto con la Fundacion Pablo Horstmann en Dokolo. Son lugares que conozco. Personas que conozco. No es un proyecto lejano. Es personal.
+                Hoy, cada bolsa de Fikir apoya al orfanato en Meki y un nuevo proyecto con la Fundación Pablo Horstmann en Dokolo. Son lugares que conozco. Personas que conozco. No es un proyecto lejano. Es personal.
               </p>
               <p className="font-semibold text-fikir-brown">
                 Gracias por ser parte de esto.
               </p>
             </div>
             <p className="mt-6 font-heading text-xl italic text-fikir-gold">
-              &mdash; Fundador de Fikir Coffee
+              &mdash; Pablo Esteve Rozas, fundador de Fikir Coffee
             </p>
           </div>
         </div>
@@ -201,13 +201,13 @@ export default function NosotrosPage() {
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
             Cada taza de Fikir es un acto de amor hacia las comunidades que
-            hacen posible tu cafe de cada manana.
+            hacen posible tu café de cada mañana.
           </p>
           <Link
             href="/tienda"
             className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
           >
-            Comprar cafe
+            Comprar café
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -82,7 +82,7 @@ export default function ProductCard({ product, badge }: { product: Product; badg
 
         {/* CTA */}
         <div className={`mt-6 flex items-center gap-2 font-body text-sm font-semibold text-fikir-brown-light ${colors.hover} transition-colors duration-200`}>
-          <span>Ver cafe</span>
+          <span>Ver café</span>
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
         </div>
       </div>

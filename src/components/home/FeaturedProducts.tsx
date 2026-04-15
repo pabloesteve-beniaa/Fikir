@@ -11,11 +11,11 @@ export default function FeaturedProducts() {
             Nuestros cafes
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-            Dos origenes, un proposito
+            Dos orígenes, un propósito
           </h2>
           <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-            Cafe de especialidad tostado con cuidado. Cada bolsa financia
-            proyectos de educacion en origen.
+            Café de especialidad tostado con cuidado. Cada bolsa financia
+            proyectos de educación en origen.
           </p>
         </div>
 

@@ -73,7 +73,7 @@ export default function NewsletterSection() {
           )}
 
           <p className="mt-4 font-body text-xs text-fikir-cream/40">
-            Sin spam. Solo cafe, impacto y cosas que importan.
+            Sin spam. Solo café, impacto y cosas que importan.
           </p>
         </div>
       </div>

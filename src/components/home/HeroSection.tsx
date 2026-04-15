@@ -15,19 +15,19 @@ export default function HeroSection() {
         <div className="max-w-3xl">
           {/* Tagline */}
           <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold mb-6">
-            Cafe de especialidad &middot; Sin animo de lucro
+            Café de especialidad &middot; Sin ánimo de lucro
           </p>
 
           {/* Main headline */}
           <h1 className="font-heading text-5xl font-bold leading-tight text-fikir-cream sm:text-6xl lg:text-7xl xl:text-8xl">
-            Este cafe cambia
+            Este café cambia
             <br />
-            <span className="text-fikir-gold">mas que tu manana</span>
+            <span className="text-fikir-gold">más que tu mañana</span>
           </h1>
 
           {/* Clear value proposition - childhood focused */}
           <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-fikir-cream/90 sm:text-xl">
-            Cafe de especialidad de Kenia y Etiopia.
+            Café de especialidad de Kenia y Etiopía.
             <br />
             <span className="font-semibold text-fikir-cream">100% del beneficio se reinvierte</span> en proyectos para la infancia en comunidades cafetaleras.
           </p>
@@ -35,8 +35,8 @@ export default function HeroSection() {
           {/* Micro trust badges */}
           <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:gap-6">
             {[
-              "Cafe de especialidad",
-              "Sin animo de lucro",
+              "Café de especialidad",
+              "Sin ánimo de lucro",
               "Impacto real en origen",
             ].map((badge) => (
               <div key={badge} className="flex items-center gap-2">
@@ -52,7 +52,7 @@ export default function HeroSection() {
               href="/tienda"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light hover:shadow-lg cursor-pointer"
             >
-              Comprar cafe
+              Comprar café
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
@@ -63,26 +63,19 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          {/* Impact metrics - childhood first, coffee secondary */}
+          {/* Trust metrics - real data only */}
           <div className="mt-16 flex flex-wrap items-center gap-8 border-t border-fikir-cream/10 pt-8">
             <div>
-              <p className="font-heading text-3xl font-bold text-fikir-gold">+200</p>
-              <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
-                Ninos beneficiados
-              </p>
-            </div>
-            <div className="w-px h-12 bg-fikir-cream/10" />
-            <div>
-              <p className="font-heading text-3xl font-bold text-fikir-gold">5</p>
+              <p className="font-heading text-3xl font-bold text-fikir-gold">2</p>
               <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
                 Proyectos activos
               </p>
             </div>
             <div className="w-px h-12 bg-fikir-cream/10" />
             <div>
-              <p className="font-heading text-3xl font-bold text-fikir-gold">4</p>
+              <p className="font-heading text-3xl font-bold text-fikir-gold">2</p>
               <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
-                Comunidades apoyadas
+                Comunidades
               </p>
             </div>
             <div className="w-px h-12 bg-fikir-cream/10" />
@@ -90,6 +83,13 @@ export default function HeroSection() {
               <p className="font-heading text-3xl font-bold text-fikir-gold">100%</p>
               <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
                 Beneficio reinvertido
+              </p>
+            </div>
+            <div className="w-px h-12 bg-fikir-cream/10" />
+            <div>
+              <p className="font-heading text-3xl font-bold text-fikir-gold">85+</p>
+              <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
+                Puntuación SCA
               </p>
             </div>
           </div>

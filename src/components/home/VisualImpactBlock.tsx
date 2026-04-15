@@ -9,16 +9,16 @@ export default function VisualImpactBlock() {
             Impacto real
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-            Donde tu cafe cambia vidas
+            Donde tu café cambia vidas
           </h2>
           <p className="mt-4 font-body text-lg text-fikir-brown-light leading-relaxed">
-            Cada taza financia oportunidades reales para ninos en comunidades como
-            Meki (Etiopia) y Dokolo (Kenia).
+            Cada taza financia oportunidades reales para niños en comunidades como
+            Meki (Etiopía) y Dokolo (Kenia).
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-          {/* Etiopia - Meki */}
+          {/* Etiopía - Meki */}
           <div className="rounded-2xl overflow-hidden bg-fikir-cream">
             <div className="aspect-video bg-fikir-green/10 flex items-center justify-center">
               <div className="text-center p-8">
@@ -32,15 +32,15 @@ export default function VisualImpactBlock() {
               <div className="flex items-center gap-2 mb-3">
                 <MapPin className="h-4 w-4 text-fikir-green" />
                 <span className="font-body text-xs font-semibold text-fikir-green uppercase tracking-wide">
-                  Meki, Etiopia
+                  Meki, Etiopía
                 </span>
               </div>
               <h3 className="font-heading text-xl font-bold text-fikir-brown">
                 Orfanato en Meki
               </h3>
               <p className="mt-2 font-body text-sm text-fikir-brown-light leading-relaxed">
-                Donde el fundador de Fikir vivio y trabajo durante anos.
-                Tu cafe mejora directamente las condiciones de vida de estos ninos.
+                Donde el fundador de Fikir vivió y trabajó durante años.
+                Tu café mejora directamente las condiciones de vida de estos niños.
               </p>
             </div>
           </div>
@@ -63,11 +63,11 @@ export default function VisualImpactBlock() {
                 </span>
               </div>
               <h3 className="font-heading text-xl font-bold text-fikir-brown">
-                Fundacion Pablo Horstmann
+                Fundación Pablo Horstmann
               </h3>
               <p className="mt-2 font-body text-sm text-fikir-brown-light leading-relaxed">
                 Nuevo proyecto para la infancia en desarrollo.
-                Educacion, oportunidades y futuro para ninos en Dokolo.
+                Educación, oportunidades y futuro para niños en Dokolo.
               </p>
             </div>
           </div>

@@ -75,10 +75,10 @@ export default function ProductoPage() {
               {/* Urgency badge */}
               <div className="absolute top-6 left-6 flex flex-col gap-2">
                 <span className="px-3 py-1.5 rounded-full bg-fikir-cream/15 backdrop-blur-sm font-body text-xs font-semibold text-fikir-cream">
-                  Tostado en pequenos lotes
+                  Tostado en pequeños lotes
                 </span>
                 <span className="px-3 py-1.5 rounded-full bg-fikir-gold/90 font-body text-xs font-semibold text-fikir-brown">
-                  Edicion limitada
+                  Edición limitada
                 </span>
               </div>
               <div className="text-center">
@@ -102,7 +102,7 @@ export default function ProductoPage() {
             {/* Right: Product info */}
             <div className="py-4 lg:py-8">
               <h1 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-                Cafe {product.name}
+                Café {product.name}
               </h1>
               <p className="mt-2 font-body text-base text-fikir-brown-light">
                 {product.region}, {product.origin} &middot; {product.weight}
@@ -150,7 +150,7 @@ export default function ProductoPage() {
                 <div className="flex items-center gap-3">
                   <Award className={`h-5 w-5 ${colors.accent} shrink-0`} />
                   <div>
-                    <p className="font-body text-xs text-fikir-brown-light uppercase">Puntuacion SCA</p>
+                    <p className="font-body text-xs text-fikir-brown-light uppercase">Puntuación SCA</p>
                     <p className="font-body text-sm font-medium text-fikir-brown">{product.scaScore}</p>
                   </div>
                 </div>
@@ -192,8 +192,8 @@ export default function ProductoPage() {
               {/* Trust block ABOVE buy button */}
               <div className="mt-6 flex flex-col gap-2 p-4 rounded-xl bg-fikir-cream-dark/70">
                 {[
-                  { icon: Award, text: "Cafe de especialidad (SCA " + product.scaScore + ")" },
-                  { icon: Truck, text: "Envio en 2-4 dias laborables en Espana" },
+                  { icon: Award, text: "Café de especialidad (SCA " + product.scaScore + ")" },
+                  { icon: Truck, text: "Envío en 2-4 días laborables en España" },
                   { icon: Heart, text: "100% del beneficio reinvertido en origen" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2.5">
@@ -219,7 +219,7 @@ export default function ProductoPage() {
                   </div>
                   <div>
                     <h3 className="font-heading text-lg font-bold text-fikir-brown">
-                      Impacto de este cafe
+                      Impacto de este café
                     </h3>
                     <p className={`font-body text-xs ${colors.accent} font-semibold uppercase tracking-wide`}>
                       {product.origin}
@@ -240,7 +240,7 @@ export default function ProductoPage() {
                     <span className="font-body text-sm text-fikir-brown">{product.impactWho}</span>
                   </div>
                   <div className="flex gap-3">
-                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Ubicacion</span>
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Ubicación</span>
                     <span className="font-body text-sm text-fikir-brown">{product.impactLocation}</span>
                   </div>
                   <div className="flex gap-3">

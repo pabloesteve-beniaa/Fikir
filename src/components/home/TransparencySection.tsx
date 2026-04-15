@@ -10,10 +10,10 @@ export default function TransparencySection() {
             Transparencia
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-            Donde va tu dinero
+            Dónde va tu dinero
           </h2>
           <p className="mt-4 font-body text-lg text-fikir-brown-light">
-            Nuestro modelo es simple. Sin letra pequena.
+            Nuestro modelo es simple. Sin letra pequeña.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function TransparencySection() {
               <p className="font-heading text-4xl font-bold text-fikir-brown-light">~70%</p>
               <p className="mt-2 font-body text-sm text-fikir-brown-light">Costes operativos</p>
               <div className="mt-4 pt-4 border-t border-fikir-brown/10">
-                <p className="font-body text-xs text-fikir-brown-light">Cafe, tueste, packaging, envio</p>
+                <p className="font-body text-xs text-fikir-brown-light">Café, tueste, packaging, envío</p>
               </div>
             </div>
             <div className="bg-fikir-green rounded-2xl p-8 text-center">
@@ -42,7 +42,7 @@ export default function TransparencySection() {
             </div>
           </div>
           <p className="mt-6 font-body text-xs text-fikir-brown-light/60 text-center">
-            Cifras orientativas. Publicaremos informes detallados periodicamente.
+            Desglose aproximado. Actualizaremos con datos reales a medida que crezcamos.
           </p>
           <div className="mt-6 text-center">
             <Link

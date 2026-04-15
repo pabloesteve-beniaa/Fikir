@@ -4,7 +4,7 @@ import { Mail, MapPin, Clock, ChevronDown } from "lucide-react";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Contacta con Fikir Coffee. Estamos aqui para ayudarte con cualquier pregunta sobre nuestro cafe o nuestro impacto.",
+    "Contacta con Fikir Coffee. Estamos aquí para ayudarte con cualquier pregunta sobre nuestro café o nuestro impacto.",
 };
 
 const contactInfo = [
@@ -16,9 +16,9 @@ const contactInfo = [
   },
   {
     icon: MapPin,
-    title: "Ubicacion",
-    value: "Espana",
-    description: "Envios a toda la peninsula",
+    title: "Ubicación",
+    value: "España",
+    description: "Envíos a toda la península",
   },
   {
     icon: Clock,
@@ -31,27 +31,27 @@ const contactInfo = [
 const faqs = [
   {
     question: "Cuanto tarda en llegar mi pedido?",
-    answer: "Los pedidos se envian en 24-48h laborables y llegan en 2-4 dias a cualquier punto de la peninsula. Recibiras un email con el numero de seguimiento.",
+    answer: "Los pedidos se envian en 24-48h laborables y llegan en 2-4 días a cualquier punto de la península. Recibirás un email con el número de seguimiento.",
   },
   {
     question: "Cual es la diferencia entre grano y molido?",
-    answer: "El cafe en grano conserva mejor la frescura y el aroma. Recomendamos grano si tienes molinillo. El molido es perfecto para cafetera italiana (moka), filtro o prensa francesa.",
+    answer: "El café en grano conserva mejor la frescura y el aroma. Recomendamos grano si tienes molinillo. El molido es perfecto para cafetera italiana (moka), filtro o prensa francesa.",
   },
   {
-    question: "Como funciona la suscripcion?",
-    answer: "Recibes cafe fresco cada mes en tu puerta. Puedes elegir tu origen favorito, alternar entre los dos, y pausar o cancelar cuando quieras. Sin permanencia.",
+    question: "Cómo funciona la suscripción?",
+    answer: "Recibes café fresco cada mes en tu puerta. Puedes elegir tu origen favorito, alternar entre los dos, y pausar o cancelar cuando quieras. Sin permanencia.",
   },
   {
     question: "De verdad todo el beneficio va al origen?",
-    answer: "Si. Fikir es un proyecto sin animo de lucro. Despues de cubrir costes operativos (cafe verde, tueste, packaging, envio), el 100% del beneficio se reinvierte en proyectos para la infancia en comunidades cafetaleras de Etiopia y Kenia.",
+    answer: "Si. Fikir es un proyecto sin ánimo de lucro. Despues de cubrir costes operativos (café verde, tueste, packaging, envío), el 100% del beneficio se reinvierte en proyectos para la infancia en comunidades cafetaleras de Etiopía y Kenia.",
   },
   {
-    question: "Haceis regalos corporativos o para empresas?",
+    question: "Hacéis regalos corporativos o para empresas?",
     answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra pagina de Empresas o escribenos a hola@fikircoffee.com.",
   },
   {
-    question: "Que metodos de pago aceptais?",
-    answer: "Aceptamos tarjeta de credito/debito y Bizum. El pago se procesa de forma segura a traves de Shopify Payments.",
+    question: "Que métodos de pago aceptais?",
+    answer: "Aceptamos tarjeta de crédito/débito y Bizum. El pago se procesa de forma segura a traves de Shopify Payments.",
   },
 ];
 
@@ -69,8 +69,8 @@ export default function ContactoPage() {
               Hablemos
             </h1>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              Tienes preguntas sobre nuestro cafe, nuestro impacto o quieres
-              colaborar? Estamos aqui para ti.
+              Tienes preguntas sobre nuestro café, nuestro impacto o quieres
+              colaborar? Estamos aquí para ti.
             </p>
           </div>
         </div>
@@ -118,10 +118,10 @@ export default function ContactoPage() {
             {/* Info */}
             <div className="lg:col-span-2">
               <h2 className="font-heading text-3xl font-bold text-fikir-brown">
-                Informacion de contacto
+                Información de contacto
               </h2>
               <p className="mt-4 font-body text-base text-fikir-brown-light leading-relaxed">
-                No has encontrado tu respuesta arriba? Escribenos directamente.
+                No has encontrado tu respuesta arriba? Escríbenos directamente.
               </p>
 
               <div className="mt-10 space-y-8">
@@ -148,7 +148,7 @@ export default function ContactoPage() {
               {/* Social */}
               <div className="mt-10 pt-8 border-t border-fikir-brown/10">
                 <p className="font-body text-sm font-semibold text-fikir-brown mb-4">
-                  Siguenos
+                  Síguenos
                 </p>
                 <div className="flex gap-4">
                   {["Instagram", "TikTok", "LinkedIn"].map((social) => (
@@ -168,7 +168,7 @@ export default function ContactoPage() {
             <div className="lg:col-span-3">
               <div className="bg-fikir-cream rounded-2xl p-8 lg:p-12">
                 <h2 className="font-heading text-2xl font-bold text-fikir-brown mb-8">
-                  Envianos un mensaje
+                  Envíanos un mensaje
                 </h2>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -210,7 +210,7 @@ export default function ContactoPage() {
                     >
                       <option value="">Selecciona un tema</option>
                       <option value="pedido">Sobre mi pedido</option>
-                      <option value="producto">Sobre el cafe</option>
+                      <option value="producto">Sobre el café</option>
                       <option value="impacto">Sobre el impacto</option>
                       <option value="empresa">Propuesta para empresas</option>
                       <option value="colaborar">Quiero colaborar</option>
@@ -227,7 +227,7 @@ export default function ContactoPage() {
                       rows={5}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors resize-none"
-                      placeholder="Cuentanos..."
+                      placeholder="Cuéntanos..."
                     />
                   </div>
                   <button

@@ -3,10 +3,10 @@ import { Heart, CreditCard, Shield, Truck } from "lucide-react";
 
 const footerLinks = {
   tienda: [
-    { name: "Etiopia Yirgacheffe", href: "/producto/etiopia" },
+    { name: "Etiopía Yirgacheffe", href: "/producto/etiopia" },
     { name: "Kenia Nyeri", href: "/producto/kenia" },
-    { name: "Pack Degustacion", href: "/tienda" },
-    { name: "Suscripcion", href: "/tienda" },
+    { name: "Pack Degustación", href: "/tienda" },
+    { name: "Suscripción", href: "/tienda" },
   ],
   marca: [
     { name: "Nosotros", href: "/nosotros" },
@@ -15,10 +15,10 @@ const footerLinks = {
     { name: "Contacto", href: "/contacto" },
   ],
   legal: [
-    { name: "Politica de privacidad", href: "#" },
-    { name: "Terminos y condiciones", href: "#" },
-    { name: "Politica de cookies", href: "#" },
-    { name: "Envios y devoluciones", href: "#" },
+    { name: "Política de privacidad", href: "#" },
+    { name: "Términos y condiciones", href: "#" },
+    { name: "Política de cookies", href: "#" },
+    { name: "Envíos y devoluciones", href: "#" },
   ],
 };
 
@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
             <div className="flex items-center gap-2">
               <Truck className="h-4 w-4 text-fikir-gold" />
-              <span className="font-body text-xs text-fikir-cream/70">Envio en 2-4 dias (Espana)</span>
+              <span className="font-body text-xs text-fikir-cream/70">Envío en 2-4 días (España)</span>
             </div>
             <div className="flex items-center gap-2">
               <CreditCard className="h-4 w-4 text-fikir-gold" />
@@ -62,10 +62,10 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-fikir-cream/70 max-w-xs">
-              Cafe de especialidad sin animo de lucro. Todo el beneficio se reinvierte en proyectos para la infancia en origen.
+              Café de especialidad sin ánimo de lucro. Todo el beneficio se reinvierte en proyectos para la infancia en origen.
             </p>
             <p className="mt-6 font-body text-sm italic text-fikir-gold">
-              &ldquo;Cafe con impacto en su origen&rdquo;
+              &ldquo;Café con impacto en su origen&rdquo;
             </p>
           </div>
 

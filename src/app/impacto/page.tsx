@@ -5,24 +5,24 @@ import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, 
 export const metadata: Metadata = {
   title: "Impacto",
   description:
-    "Descubre como Fikir Coffee reinvierte el 100% de sus beneficios en proyectos para la infancia en Etiopia y Kenia.",
+    "Descubre como Fikir Coffee reinvierte el 100% de sus beneficios en proyectos para la infancia en Etiopía y Kenia.",
 };
 
 const projects = [
   {
     icon: BookOpen,
-    country: "Etiopia",
+    country: "Etiopía",
     region: "Meki",
     title: "Orfanato en Meki",
     description:
-      "El fundador de Fikir vivio y trabajo en este orfanato en Meki durante dos anos, seis meses de ellos en terreno. Esta conexion personal es el corazon de Fikir. Cada bolsa de Etiopia contribuye directamente a mejorar las condiciones de vida, el material educativo y las necesidades basicas de los ninos que aqui crecen.",
+      "El fundador de Fikir vivió y trabajó en este orfanato en Meki durante dos años, seis meses de ellos en terreno. Esta conexión personal es el corazón de Fikir. Cada bolsa de Etiopía contribuye directamente a mejorar las condiciones de vida, el material educativo y las necesidades basicas de los niños que aquí crecen.",
     stats: [
       { value: "Proyecto activo", label: "" },
-      { value: "Conexion directa", label: "" },
-      { value: "Meki, Etiopia", label: "" },
+      { value: "Conexión directa", label: "" },
+      { value: "Meki, Etiopía", label: "" },
     ],
     evidence: [
-      { date: "2024-presente", text: "Apoyo continuo al orfanato donde el fundador vivio", location: "Meki, Etiopia" },
+      { date: "2024-presente", text: "Apoyo continuo al orfanato donde el fundador vivió", location: "Meki, Etiopía" },
     ],
     color: "bg-fikir-green",
     accent: "text-fikir-green",
@@ -32,16 +32,16 @@ const projects = [
     icon: Heart,
     country: "Kenia",
     region: "Dokolo",
-    title: "Fundacion Pablo Horstmann",
+    title: "Fundación Pablo Horstmann",
     description:
-      "Junto a la Fundacion Pablo Horstmann, Fikir apoya el desarrollo de un nuevo proyecto para la infancia en Dokolo. Un compromiso que nace de la experiencia directa del fundador en Kenia y de la relacion con esta fundacion de referencia en cooperacion infantil.",
+      "Junto a la Fundación Pablo Horstmann, Fikir apoya el desarrollo de un nuevo proyecto para la infancia en Dokolo. Un compromiso que nace de la experiencia directa del fundador en Kenia y de la relación con esta fundación de referencia en cooperación infantil.",
     stats: [
       { value: "En desarrollo", label: "" },
-      { value: "Fundacion Pablo Horstmann", label: "" },
+      { value: "Fundación Pablo Horstmann", label: "" },
       { value: "Dokolo, Kenia", label: "" },
     ],
     evidence: [
-      { date: "2025-presente", text: "Desarrollo del proyecto infantil con Fundacion Pablo Horstmann", location: "Dokolo, Kenia" },
+      { date: "2025-presente", text: "Desarrollo del proyecto infantil con Fundación Pablo Horstmann", location: "Dokolo, Kenia" },
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
@@ -54,13 +54,13 @@ const principles = [
     icon: TrendingUp,
     title: "100% reinvertido",
     description:
-      "No retenemos beneficios. Todo el excedente despues de cubrir costes operativos se destina integramente a proyectos en origen.",
+      "No retenemos beneficios. Todo el excedente después de cubrir costes operativos se destina íntegramente a proyectos en origen.",
   },
   {
     icon: Eye,
     title: "Transparencia total",
     description:
-      "Publicamos informes periodicos sobre a donde va cada euro. Creemos que la rendicion de cuentas es la base de la confianza.",
+      "Publicamos informes periódicos sobre a donde va cada euro. Creemos que la rendición de cuentas es la base de la confianza.",
   },
   {
     icon: Shield,
@@ -72,7 +72,7 @@ const principles = [
     icon: Users,
     title: "Comunidad primero",
     description:
-      "Los proyectos los eligen las comunidades, priorizando las necesidades de sus ninos. No imponemos soluciones desde fuera, acompanamos sus propias prioridades.",
+      "Los proyectos los eligen las comunidades, priorizando las necesidades de sus niños. No imponemos soluciones desde fuera, acompañamos sus propias prioridades.",
   },
 ];
 
@@ -87,26 +87,26 @@ export default function ImpactoPage() {
               Nuestro impacto
             </p>
             <h1 className="mt-4 font-heading text-5xl font-bold text-fikir-cream sm:text-6xl lg:text-7xl">
-              Tu cafe
+              Tu café
               <br />
               <span className="text-fikir-gold">construye futuro</span>
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              El 100% del beneficio de Fikir se reinvierte en proyectos para la infancia en Etiopia y Kenia.
+              El 100% del beneficio de Fikir se reinvierte en proyectos para la infancia en Etiopía y Kenia.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mas que cafe */}
+      {/* Mas que café */}
       <section className="py-20 bg-fikir-white lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Mas que cafe, oportunidades reales
+              Mas que café, oportunidades reales
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              Despues de vivir en Kenia y Etiopia y formar alli parte de su vida, el fundador de Fikir sintio una deuda personal con estas comunidades. Fikir nace de esa conexion: no como un proyecto distante, sino como algo profundamente personal.
+              Despues de vivir en Kenia y Etiopía y formar alli parte de su vida, el fundador de Fikir sintió una deuda personal con estas comunidades. Fikir nace de esa conexión: no como un proyecto distante, sino como algo profundamente personal.
             </p>
           </div>
         </div>
@@ -117,10 +117,10 @@ export default function ImpactoPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              { value: "+200", label: "Ninos beneficiados" },
               { value: "2", label: "Proyectos activos" },
               { value: "2", label: "Comunidades apoyadas" },
               { value: "100%", label: "Beneficio reinvertido" },
+              { value: "85+", label: "Puntuación SCA" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -143,7 +143,7 @@ export default function ImpactoPage() {
               Proyectos activos
             </h2>
             <p className="mt-4 font-body text-lg text-fikir-brown-light">
-              Cada cafe de Fikir esta vinculado a un proyecto real y verificable.
+              Cada café de Fikir esta vinculado a un proyecto real y verificable.
             </p>
           </div>
 
@@ -241,7 +241,7 @@ export default function ImpactoPage() {
               A donde va tu dinero
             </h2>
             <p className="mt-4 font-body text-lg text-fikir-brown-light">
-              Este es nuestro modelo. Sin letra pequena.
+              Este es nuestro modelo. Sin letra pequeña.
             </p>
           </div>
 
@@ -258,19 +258,19 @@ export default function ImpactoPage() {
                 <p className="font-heading text-4xl font-bold text-fikir-brown-light">~70%</p>
                 <p className="mt-2 font-body text-sm text-fikir-brown-light">Costes operativos</p>
                 <div className="mt-4 pt-4 border-t border-fikir-brown/10">
-                  <p className="font-body text-xs text-fikir-brown-light">Cafe verde, tueste, packaging, envio, logistica</p>
+                  <p className="font-body text-xs text-fikir-brown-light">Café verde, tueste, packaging, envío, logistica</p>
                 </div>
               </div>
               <div className="bg-fikir-green rounded-2xl p-8 text-center">
                 <p className="font-heading text-4xl font-bold text-fikir-cream">~30%</p>
                 <p className="mt-2 font-body text-sm text-fikir-cream/80">Beneficio reinvertido</p>
                 <div className="mt-4 pt-4 border-t border-fikir-cream/20">
-                  <p className="font-body text-xs text-fikir-cream/70">Reinvertido en infancia en Etiopia y Kenia</p>
+                  <p className="font-body text-xs text-fikir-cream/70">Reinvertido en infancia en Etiopía y Kenia</p>
                 </div>
               </div>
             </div>
             <p className="mt-6 font-body text-xs text-fikir-brown-light/60 text-center">
-              Cifras orientativas. Publicaremos informes detallados periodicamente.
+              Desglose aproximado. Actualizaremos con datos reales a medida que crezcamos.
             </p>
           </div>
         </div>
@@ -317,14 +317,14 @@ export default function ImpactoPage() {
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
             Con cada taza de Fikir, estas apoyando directamente a comunidades
-            en Etiopia y Kenia. Tu cafe de la manana tiene mas poder del que
+            en Etiopía y Kenia. Tu café de la mañana tiene mas poder del que
             crees.
           </p>
           <Link
             href="/tienda"
             className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
           >
-            Comprar cafe con impacto
+            Comprar café con impacto
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
