@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Building2, Gift, Heart, Coffee, CheckCircle } from "lucide-react";
+import { Building2, Gift, Heart, Coffee, CheckCircle, ArrowRight, MessageSquare, Package, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Empresas",
   description:
-    "Cafe con proposito para tu empresa. Oficinas, eventos y regalos corporativos con impacto social.",
+    "Café con propósito para tu empresa. Oficinas, eventos y regalos corporativos con impacto social.",
 };
 
 const services = [
   {
     icon: Building2,
-    title: "Cafe para oficinas",
+    title: "Café para oficinas",
     description:
-      "Lleva cafe de especialidad a tu oficina. Tus empleados disfrutaran de un cafe excepcional mientras tu empresa apoya proyectos sociales en origen.",
+      "Lleva café de especialidad a tu oficina. Tus empleados disfrutarán de un café excepcional mientras tu empresa apoya proyectos sociales en origen.",
     features: [
-      "Cafe de especialidad SCA 85+",
+      "Café de especialidad SCA 85+",
       "Suministro recurrente personalizado",
       "Grano o molido segun tus necesidades",
       "Certificado de impacto social",
@@ -24,7 +24,7 @@ const services = [
     icon: Gift,
     title: "Regalos corporativos",
     description:
-      "Un regalo con significado. Packs personalizados de cafe de especialidad con la historia de impacto. Perfecto para clientes, partners y equipo.",
+      "Un regalo con significado. Packs personalizados de café de especialidad con la historia de impacto. Perfecto para clientes, partners y equipo.",
     features: [
       "Packs personalizados con tu marca",
       "Tarjeta con la historia de impacto",
@@ -36,13 +36,34 @@ const services = [
     icon: Heart,
     title: "RSC y eventos",
     description:
-      "Asocia tu marca con un proposito real. Fikir puede ser parte de tu estrategia de responsabilidad social corporativa o de tus eventos de empresa.",
+      "Asocia tu marca con un propósito real. Fikir puede ser parte de tu estrategia de responsabilidad social corporativa o de tus eventos de empresa.",
     features: [
       "Co-branding con impacto",
       "Informe de impacto personalizado",
       "Activaciones para eventos",
-      "Charlas sobre cafe e impacto social",
+      "Charlas sobre café e impacto social",
     ],
+  },
+];
+
+const process = [
+  {
+    step: "01",
+    icon: MessageSquare,
+    title: "Entendemos tu necesidad",
+    description: "Hablamos contigo para conocer que buscas: café para oficina, regalos, eventos o RSC.",
+  },
+  {
+    step: "02",
+    icon: Package,
+    title: "Diseñamos tu propuesta",
+    description: "Te preparamos una propuesta personalizada con cantidades, formatos y branding adaptado.",
+  },
+  {
+    step: "03",
+    icon: Sparkles,
+    title: "Entregamos café + impacto",
+    description: "Recibes café excepcional y un certificado de impacto en la infancia para compartir con tu equipo.",
   },
 ];
 
@@ -57,15 +78,22 @@ export default function EmpresasPage() {
               Para empresas
             </p>
             <h1 className="mt-4 font-heading text-5xl font-bold text-fikir-cream sm:text-6xl lg:text-7xl">
-              Cafe con proposito
+              Café con propósito
               <br />
               <span className="text-fikir-gold">para tu empresa</span>
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              Cafe de especialidad que genera impacto social real. Para tu
-              oficina, tus clientes o tus eventos. Sin animo de lucro, con
+              Café de especialidad que financia proyectos para la infancia en origen. Para tu
+              oficina, tus clientes o tus eventos. Sin ánimo de lucro, con
               todo el sabor.
             </p>
+            <a
+              href="#contacto-b2b"
+              className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
+            >
+              Solicitar propuesta en 24h
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
@@ -104,8 +132,40 @@ export default function EmpresasPage() {
         </div>
       </section>
 
-      {/* Why Fikir */}
+      {/* How we work - NEW process block */}
       <section className="py-24 bg-fikir-cream lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+              Proceso
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
+              Como trabajamos
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-4xl mx-auto">
+            {process.map((item) => (
+              <div key={item.step} className="text-center p-8 rounded-2xl bg-fikir-white">
+                <div className="mx-auto w-14 h-14 rounded-full bg-fikir-gold/10 flex items-center justify-center relative">
+                  <item.icon className="h-6 w-6 text-fikir-gold" />
+                  <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-fikir-gold flex items-center justify-center font-body text-[10px] font-bold text-fikir-brown">
+                    {item.step}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-heading text-lg font-bold text-fikir-brown">
+                  {item.title}
+                </h3>
+                <p className="mt-2 font-body text-sm text-fikir-brown-light leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Fikir */}
+      <section className="py-24 bg-fikir-white lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -114,8 +174,8 @@ export default function EmpresasPage() {
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
             {[
-              { icon: Coffee, title: "Calidad SCA 85+", desc: "Cafe de especialidad, no cafe comercial" },
-              { icon: Heart, title: "Sin animo de lucro", desc: "Tu compra es impacto directo" },
+              { icon: Coffee, title: "Calidad SCA 85+", desc: "Café de especialidad, no café comercial" },
+              { icon: Heart, title: "Sin ánimo de lucro", desc: "Tu compra financia la infancia en origen" },
               { icon: Building2, title: "RSC real", desc: "Certificado de impacto para tu empresa" },
               { icon: Gift, title: "Personalizable", desc: "Adaptamos el formato a tus necesidades" },
             ].map((item) => (
@@ -135,18 +195,18 @@ export default function EmpresasPage() {
         </div>
       </section>
 
-      {/* Contact form */}
-      <section className="py-24 bg-fikir-white lg:py-32">
+      {/* Contact form with strong CTA */}
+      <section id="contacto-b2b" className="py-24 bg-fikir-cream lg:py-32">
         <div className="mx-auto max-w-2xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
-              Contacto B2B
+              Empecemos
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Hablemos
+              Solicitar propuesta en 24h
             </h2>
             <p className="mt-4 font-body text-base text-fikir-brown-light">
-              Cuentanos que necesitas y te preparamos una propuesta personalizada.
+              Cuéntanos que necesitas y te respondemos con una propuesta personalizada en menos de 24 horas.
             </p>
           </div>
 
@@ -160,7 +220,7 @@ export default function EmpresasPage() {
                   type="text"
                   id="company"
                   name="company"
-                  className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-cream font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
                   placeholder="Nombre de la empresa"
                 />
               </div>
@@ -172,7 +232,7 @@ export default function EmpresasPage() {
                   type="text"
                   id="b2b-name"
                   name="name"
-                  className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-cream font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -186,7 +246,7 @@ export default function EmpresasPage() {
                 id="b2b-email"
                 name="email"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-cream font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
+                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
                 placeholder="tu@empresa.com"
               />
             </div>
@@ -197,10 +257,10 @@ export default function EmpresasPage() {
               <select
                 id="service"
                 name="service"
-                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-cream font-body text-sm text-fikir-brown focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors cursor-pointer"
+                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors cursor-pointer"
               >
-                <option value="">Selecciona una opcion</option>
-                <option value="oficina">Cafe para oficina</option>
+                <option value="">Selecciona una opción</option>
+                <option value="oficina">Café para oficina</option>
                 <option value="regalo">Regalos corporativos</option>
                 <option value="rsc">RSC y eventos</option>
                 <option value="otro">Otro</option>
@@ -214,16 +274,19 @@ export default function EmpresasPage() {
                 id="b2b-message"
                 name="message"
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-cream font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors resize-none"
-                placeholder="Cuentanos que necesitas..."
+                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors resize-none"
+                placeholder="Cuéntanos que necesitas..."
               />
             </div>
             <button
               type="submit"
               className="w-full px-8 py-4 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
             >
-              Enviar propuesta
+              Solicitar propuesta en 24h
             </button>
+            <p className="font-body text-xs text-fikir-brown-light/60 text-center">
+              Sin compromiso. Te respondemos en menos de 24 horas.
+            </p>
           </form>
         </div>
       </section>

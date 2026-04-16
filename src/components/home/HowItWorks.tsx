@@ -1,26 +1,26 @@
-import { ShoppingBag, Heart, Globe } from "lucide-react";
+import { ShoppingBag, Heart, Baby } from "lucide-react";
 
 const steps = [
   {
     icon: ShoppingBag,
     step: "01",
-    title: "Compras tu cafe",
+    title: "Compras tu café",
     description:
-      "Elige entre nuestros origenes de Etiopia o Kenia. Cafe de especialidad, tostado con cuidado, directo a tu puerta.",
+      "Elige entre nuestros orígenes de Etiopía o Kenia. Café de especialidad, tostado con cuidado, directo a tu puerta.",
   },
   {
     icon: Heart,
     step: "02",
-    title: "Generamos impacto",
+    title: "Reinvertimos el beneficio",
     description:
-      "Todo el beneficio de tu compra se reinvierte en proyectos sociales en las comunidades donde nace tu cafe.",
+      "Todo el beneficio de tu compra se destina íntegramente a proyectos en las comunidades donde nace tu café.",
   },
   {
-    icon: Globe,
+    icon: Baby,
     step: "03",
-    title: "Vuelve al origen",
+    title: "Financiamos proyectos infantiles",
     description:
-      "Educacion en Etiopia, agua potable en Kenia. Tu cafe financia proyectos reales con impacto medible.",
+      "Educación, material escolar y oportunidades para niños en comunidades cafetaleras. Tu café construye su futuro.",
   },
 ];
 
@@ -31,13 +31,13 @@ export default function HowItWorks() {
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
-            Como funciona
+            Cómo funciona
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-cream sm:text-5xl">
             De tu taza al origen
           </h2>
           <p className="mt-6 font-body text-lg leading-relaxed text-fikir-cream/80">
-            Un modelo transparente donde cada paso tiene un impacto directo.
+            Un modelo transparente donde cada paso tiene un impacto directo en la vida de los niños.
           </p>
         </div>
 

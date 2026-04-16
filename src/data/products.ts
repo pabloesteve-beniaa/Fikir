@@ -11,10 +11,15 @@ export interface Product {
   scaScore: string;
   flavorNotes: string[];
   roast: string;
-  variants: { id: string; name: string }[];
+  variants: { id: string; name: string; helper: string }[];
   description: string;
   story: string;
   impact: string;
+  impactProject: string;
+  impactLocation: string;
+  impactWhat: string;
+  impactWho: string;
+  profileHint: string;
   image: string;
   imageAlt: string;
   color: "green" | "terracotta";
@@ -32,20 +37,25 @@ export const products: Product[] = [
     weight: "250g",
     process: "Lavado",
     scaScore: "85+",
-    flavorNotes: ["Floral", "Citrico", "Bergamota"],
+    flavorNotes: ["Floral", "Cítrico", "Bergamota"],
     roast: "Medio",
     variants: [
-      { id: "etiopia-grano", name: "Grano" },
-      { id: "etiopia-molido", name: "Molido" },
+      { id: "etiopia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
+      { id: "etiopia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
     ],
     description:
-      "Cafe de especialidad de la region de Yirgacheffe, cuna del cafe. Notas florales delicadas con toques citricos y un final a bergamota que lo hacen unico.",
+      "Café de especialidad de la región de Yirgacheffe, cuna del café. Notas florales delicadas con toques citricos y un final a bergamota que lo hacen único.",
     story:
-      "Yirgacheffe es considerada la cuna del cafe. Aqui, a mas de 1.800 metros de altitud, las familias caficultoras cultivan con metodos tradicionales que se transmiten de generacion en generacion. Cada grano lleva consigo siglos de tradicion.",
+      "Yirgacheffe es considerada la cuna del café. Aqui, a más de 1.800 metros de altitud, las familias caficultoras cultivan con métodos tradicionales que se transmiten de generación en generación. Cada grano lleva consigo siglos de tradición.",
     impact:
-      "Cada bolsa de Etiopia financia proyectos de educacion en las comunidades caficultoras de Yirgacheffe. Hasta ahora, hemos contribuido a la construccion de aulas y material escolar para mas de 200 ninos.",
+      "Este café contribuye directamente a mejorar la vida de niños en un orfanato en Meki, donde el fundador de Fikir convivio y trabajó durante años. Una conexión personal y real con el origen.",
+    impactProject: "Orfanato en Meki",
+    impactLocation: "Meki, Etiopía",
+    impactWhat: "Mejora de condiciones, material educativo y necesidades básicas",
+    impactWho: "Niños del orfanato donde el fundador vivió y trabajó",
+    profileHint: "Ideal si te gustan los cafés suaves y florales",
     image: "/images/etiopia-product.jpg",
-    imageAlt: "Bolsa de cafe Fikir Coffee Etiopia Yirgacheffe",
+    imageAlt: "Bolsa de café Fikir Coffee Etiopía Yirgacheffe",
     color: "green",
   },
   {
@@ -59,20 +69,25 @@ export const products: Product[] = [
     weight: "250g",
     process: "Lavado",
     scaScore: "86+",
-    flavorNotes: ["Grosella negra", "Frutos rojos", "Citrico"],
+    flavorNotes: ["Grosella negra", "Frutos rojos", "Cítrico"],
     roast: "Medio",
     variants: [
-      { id: "kenia-grano", name: "Grano" },
-      { id: "kenia-molido", name: "Molido" },
+      { id: "kenia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
+      { id: "kenia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
     ],
     description:
-      "Cafe de especialidad de la region de Nyeri. Un perfil vibrante con notas de grosella negra, frutos rojos y un final citrico brillante.",
+      "Café de especialidad de la región de Nyeri. Un perfil vibrante con notas de grosella negra, frutos rojos y un final cítrico brillante.",
     story:
-      "En las faldas del Monte Kenia, a mas de 1.700 metros, los caficultores de Nyeri producen algunos de los cafes mas complejos del mundo. El suelo volcanico y el clima templado crean condiciones perfectas para un cafe excepcional.",
+      "En las faldas del Monte Kenia, a más de 1.700 metros, los caficultores de Nyeri producen algunos de los cafes más complejos del mundo. El suelo volcánico y el clima templado crean condiciones perfectas para un café excepcional.",
     impact:
-      "Cada bolsa de Kenia apoya programas de acceso a agua potable en las comunidades rurales de Nyeri. Trabajamos directamente con cooperativas locales para garantizar que el beneficio llega a quien mas lo necesita.",
+      "Este café apoya el desarrollo de un nuevo proyecto para la infancia junto a la Fundación Pablo Horstmann en Dokolo. Un compromiso real con las comunidades que hacen posible tu café.",
+    impactProject: "Proyecto infantil con Fundación Pablo Horstmann",
+    impactLocation: "Dokolo, Kenia",
+    impactWhat: "Desarrollo infantil, educación y oportunidades",
+    impactWho: "Niños en la comunidad de Dokolo",
+    profileHint: "Ideal si prefieres intensidad y fruta",
     image: "/images/kenia-product.jpg",
-    imageAlt: "Bolsa de cafe Fikir Coffee Kenia Nyeri",
+    imageAlt: "Bolsa de café Fikir Coffee Kenia Nyeri",
     color: "terracotta",
   },
 ];
@@ -81,8 +96,8 @@ export const packs = [
   {
     id: "pack-degustacion",
     handle: "pack-degustacion",
-    name: "Pack Degustacion",
-    description: "Descubre los dos origenes de Fikir. Incluye 1 bolsa de Etiopia + 1 bolsa de Kenia (250g cada una).",
+    name: "Pack Degustación",
+    description: "Descubre los dos orígenes de Fikir. Incluye 1 bolsa de Etiopía + 1 bolsa de Kenia (250g cada una).",
     price: 27.99,
     currency: "EUR",
     image: "/images/pack-degustacion.jpg",
@@ -90,8 +105,8 @@ export const packs = [
   {
     id: "suscripcion-mensual",
     handle: "suscripcion",
-    name: "Suscripcion Mensual",
-    description: "Recibe cafe fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
+    name: "Suscripción Mensual",
+    description: "Recibe café fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
     price: 12.99,
     currency: "EUR",
     image: "/images/suscripcion.jpg",

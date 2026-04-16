@@ -3,21 +3,21 @@ import { Heart, Sprout, Users } from "lucide-react";
 const values = [
   {
     icon: Heart,
-    title: "Sin animo de lucro",
+    title: "Sin ánimo de lucro",
     description:
-      "Fikir no es un negocio. Es un proyecto con alma. Cada euro de beneficio se reinvierte en las comunidades donde nace nuestro cafe.",
+      "Fikir no es un negocio. Es un proyecto con alma. Cada euro de beneficio se reinvierte en las comunidades donde nace nuestro café.",
   },
   {
     icon: Sprout,
-    title: "Impacto en origen",
+    title: "Proyectos para la infancia",
     description:
-      "Financiamos proyectos de educacion en Etiopia y acceso a agua potable en Kenia. Devolvemos al origen lo que el cafe nos da.",
+      "Financiamos educación, material escolar y oportunidades para niños en comunidades cafetaleras de Etiopía y Kenia.",
   },
   {
     icon: Users,
     title: "Comunidad global",
     description:
-      "Cada persona que toma una taza de Fikir se convierte en parte de un cambio real. Tu ritual diario tiene un proposito.",
+      "Cada persona que toma una taza de Fikir se convierte en parte de un cambio real. Tu café de cada mañana tiene un propósito.",
   },
 ];
 
@@ -28,16 +28,16 @@ export default function PurposeSection() {
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
-            Nuestro proposito
+            Nuestro propósito
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-            Cafe que devuelve
-            <br />lo que recibe
+            Café que construye
+            <br />futuro para la infancia
           </h2>
           <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-            Fikir significa &ldquo;amor&rdquo; en amharico, la lengua de Etiopia.
-            Nace de la creencia de que un buen cafe puede hacer mucho mas que
-            despertar tus sentidos.
+            Fikir significa &ldquo;amor&rdquo; en amharico, la lengua de Etiopía.
+            Nace de la creencia de que un buen café puede cambiar la vida de los
+            niños que crecen donde se cultiva.
           </p>
         </div>
 

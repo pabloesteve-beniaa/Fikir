@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { products } from "@/data/products";
-import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart } from "lucide-react";
+import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap } from "lucide-react";
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
@@ -35,16 +35,23 @@ export default function ProductoPage() {
       button: "bg-fikir-green hover:bg-fikir-green-light",
       accent: "text-fikir-green",
       dot: "bg-fikir-green",
+      border: "border-fikir-green/20",
+      lightBg: "bg-fikir-green/5",
+      impactIcon: BookOpen,
     },
     terracotta: {
       bg: "bg-fikir-terracotta",
       button: "bg-fikir-terracotta hover:bg-fikir-terracotta-light",
       accent: "text-fikir-terracotta",
       dot: "bg-fikir-terracotta",
+      border: "border-fikir-terracotta/20",
+      lightBg: "bg-fikir-terracotta/5",
+      impactIcon: GraduationCap,
     },
   };
 
   const colors = colorMap[product.color];
+  const ImpactIcon = colors.impactIcon;
 
   return (
     <div className="pt-20 lg:pt-24">
@@ -64,7 +71,16 @@ export default function ProductoPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
             {/* Left: Product image area */}
-            <div className={`${colors.bg} rounded-3xl flex items-center justify-center p-12 aspect-square lg:aspect-auto lg:min-h-[600px]`}>
+            <div className={`${colors.bg} rounded-3xl flex items-center justify-center p-12 aspect-square lg:aspect-auto lg:min-h-[600px] relative`}>
+              {/* Urgency badge */}
+              <div className="absolute top-6 left-6 flex flex-col gap-2">
+                <span className="px-3 py-1.5 rounded-full bg-fikir-cream/15 backdrop-blur-sm font-body text-xs font-semibold text-fikir-cream">
+                  Tostado en pequeños lotes
+                </span>
+                <span className="px-3 py-1.5 rounded-full bg-fikir-gold/90 font-body text-xs font-semibold text-fikir-brown">
+                  Edición limitada
+                </span>
+              </div>
               <div className="text-center">
                 <p className="font-body text-sm tracking-[0.3em] uppercase text-fikir-cream/60">
                   Fikir Coffee
@@ -86,17 +102,20 @@ export default function ProductoPage() {
             {/* Right: Product info */}
             <div className="py-4 lg:py-8">
               <h1 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-                Cafe {product.name}
+                Café {product.name}
               </h1>
               <p className="mt-2 font-body text-base text-fikir-brown-light">
                 {product.region}, {product.origin} &middot; {product.weight}
               </p>
-              <p className="mt-2 font-heading text-3xl font-bold text-fikir-brown">
+              <p className="mt-1 font-body text-sm italic text-fikir-brown-light/80">
+                {product.profileHint}
+              </p>
+              <p className="mt-3 font-heading text-3xl font-bold text-fikir-brown">
                 {product.price.toFixed(2)}&euro;
               </p>
 
               {/* Flavor notes */}
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap gap-2">
                 {product.flavorNotes.map((note) => (
                   <span
                     key={note}
@@ -108,12 +127,12 @@ export default function ProductoPage() {
               </div>
 
               {/* Description */}
-              <p className="mt-6 font-body text-base leading-relaxed text-fikir-brown-light">
+              <p className="mt-5 font-body text-base leading-relaxed text-fikir-brown-light">
                 {product.description}
               </p>
 
               {/* Product specs */}
-              <div className="mt-8 grid grid-cols-2 gap-4">
+              <div className="mt-6 grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <MapPin className={`h-5 w-5 ${colors.accent} shrink-0`} />
                   <div>
@@ -131,7 +150,7 @@ export default function ProductoPage() {
                 <div className="flex items-center gap-3">
                   <Award className={`h-5 w-5 ${colors.accent} shrink-0`} />
                   <div>
-                    <p className="font-body text-xs text-fikir-brown-light uppercase">Puntuacion SCA</p>
+                    <p className="font-body text-xs text-fikir-brown-light uppercase">Puntuación SCA</p>
                     <p className="font-body text-sm font-medium text-fikir-brown">{product.scaScore}</p>
                   </div>
                 </div>
@@ -144,7 +163,7 @@ export default function ProductoPage() {
                 </div>
               </div>
 
-              {/* Variant selector */}
+              {/* Variant selector with helper text */}
               <div className="mt-8">
                 <p className="font-body text-sm font-semibold text-fikir-brown mb-3">
                   Formato
@@ -164,31 +183,73 @@ export default function ProductoPage() {
                     </button>
                   ))}
                 </div>
+                {/* Helper text for selected variant */}
+                <p className="mt-2 font-body text-xs text-fikir-brown-light/70 italic">
+                  {product.variants[selectedVariant].helper}
+                </p>
+              </div>
+
+              {/* Trust block ABOVE buy button */}
+              <div className="mt-6 flex flex-col gap-2 p-4 rounded-xl bg-fikir-cream-dark/70">
+                {[
+                  { icon: Award, text: "Café de especialidad (SCA " + product.scaScore + ")" },
+                  { icon: Truck, text: "Envío en 2-4 días laborables en España" },
+                  { icon: Heart, text: "100% del beneficio reinvertido en origen" },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-center gap-2.5">
+                    <CheckCircle className="h-4 w-4 text-fikir-green shrink-0" />
+                    <span className="font-body text-sm text-fikir-brown-light">{item.text}</span>
+                  </div>
+                ))}
               </div>
 
               {/* Add to cart */}
               <button
-                className={`mt-8 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer`}
+                className={`mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer`}
               >
                 <ShoppingBag className="h-5 w-5" />
                 Comprar &mdash; {product.price.toFixed(2)}&euro;
               </button>
 
-              <p className="mt-3 font-body text-xs text-fikir-brown-light text-center">
-                Envio a toda Espana &middot; Entrega en 2-4 dias laborables
-              </p>
-
-              {/* Impact story */}
-              <div className="mt-10 p-6 rounded-2xl bg-fikir-cream-dark border border-fikir-gold/20">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`w-2 h-2 rounded-full ${colors.dot}`} />
-                  <h3 className="font-heading text-lg font-bold text-fikir-brown">
-                    Impacto de este cafe
-                  </h3>
+              {/* Impact card - structured */}
+              <div className={`mt-8 p-6 rounded-2xl ${colors.lightBg} border ${colors.border}`}>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-10 h-10 rounded-full ${colors.bg} flex items-center justify-center`}>
+                    <ImpactIcon className="h-5 w-5 text-fikir-cream" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-fikir-brown">
+                      Impacto de este café
+                    </h3>
+                    <p className={`font-body text-xs ${colors.accent} font-semibold uppercase tracking-wide`}>
+                      {product.origin}
+                    </p>
+                  </div>
                 </div>
-                <p className="font-body text-sm leading-relaxed text-fikir-brown-light">
-                  {product.impact}
-                </p>
+                <div className="space-y-3">
+                  <div className="flex gap-3">
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Proyecto</span>
+                    <span className="font-body text-sm text-fikir-brown">{product.impactProject}</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Financia</span>
+                    <span className="font-body text-sm text-fikir-brown">{product.impactWhat}</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Beneficia</span>
+                    <span className="font-body text-sm text-fikir-brown">{product.impactWho}</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Ubicación</span>
+                    <span className="font-body text-sm text-fikir-brown">{product.impactLocation}</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="font-body text-xs font-semibold text-fikir-brown-light uppercase w-20 shrink-0">Estado</span>
+                    <span className="font-body text-sm text-fikir-brown flex items-center gap-1">
+                      <Clock className="h-3 w-3" /> Activo
+                    </span>
+                  </div>
+                </div>
               </div>
 
               {/* Origin story */}

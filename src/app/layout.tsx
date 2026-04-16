@@ -6,24 +6,24 @@ import NewsletterPopup from "@/components/ui/NewsletterPopup";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fikir Coffee | Cafe de especialidad con impacto social",
+    default: "Fikir Coffee | Café de especialidad con impacto social",
     template: "%s | Fikir Coffee",
   },
   description:
-    "Cafe de especialidad de Etiopia y Kenia. Sin animo de lucro. Todo el beneficio se reinvierte en proyectos sociales en origen.",
+    "Café de especialidad de Etiopía y Kenia. Sin ánimo de lucro. Todo el beneficio se reinvierte en proyectos sociales en origen.",
   keywords: [
-    "cafe de especialidad",
-    "cafe etiopia",
-    "cafe kenia",
+    "café de especialidad",
+    "café etiopia",
+    "café kenia",
     "impacto social",
-    "cafe con proposito",
+    "café con propósito",
     "specialty coffee",
     "fikir coffee",
   ],
   openGraph: {
-    title: "Fikir Coffee | Cafe con impacto en su origen",
+    title: "Fikir Coffee | Café con impacto en su origen",
     description:
-      "Cafe de especialidad sin animo de lucro. Todo el beneficio vuelve al origen.",
+      "Café de especialidad sin ánimo de lucro. Todo el beneficio vuelve al origen.",
     type: "website",
     locale: "es_ES",
   },

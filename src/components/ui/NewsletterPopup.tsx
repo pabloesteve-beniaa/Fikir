@@ -40,7 +40,7 @@ export default function NewsletterPopup() {
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Suscribete a la newsletter"
+      aria-label="Suscríbete a la newsletter"
     >
       {/* Backdrop */}
       <div
@@ -66,11 +66,11 @@ export default function NewsletterPopup() {
               </div>
             </div>
             <h2 className="font-heading text-2xl font-bold text-fikir-brown text-center">
-              Unete a la comunidad Fikir
+              Únete a la comunidad Fikir
             </h2>
             <p className="mt-2 font-body text-sm text-fikir-brown-light text-center leading-relaxed">
-              Suscribete y recibe un <span className="font-semibold text-fikir-green">5% de descuento</span>{" "}
-              en tu primera compra. Ademas, seras el primero en conocer nuestro impacto.
+              Suscríbete y recibe un <span className="font-semibold text-fikir-green">5% de descuento</span>{" "}
+              en tu primera compra. Además, serás el primero en conocer nuestro impacto.
             </p>
             <form onSubmit={handleSubmit} className="mt-6 space-y-3">
               <input
@@ -90,7 +90,7 @@ export default function NewsletterPopup() {
               </button>
             </form>
             <p className="mt-3 font-body text-xs text-fikir-brown-light/60 text-center">
-              Sin spam. Solo cafe e impacto.
+              Sin spam. Solo café e impacto.
             </p>
           </>
         ) : (
