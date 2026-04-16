@@ -124,6 +124,22 @@ export default function NosotrosPage() {
             <p className="mt-6 font-heading text-xl italic text-fikir-gold">
               &mdash; Pablo Esteve Rozas, fundador de Fikir Coffee
             </p>
+
+            {/* Partner */}
+            <div className="mt-10 pt-8 border-t border-fikir-brown/10 flex items-center gap-4">
+              <div className="relative w-12 h-12 shrink-0">
+                <Image
+                  src="/images/logo-fph.png"
+                  alt="Logo Fundación Pablo Horstmann"
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                />
+              </div>
+              <p className="font-body text-sm text-fikir-brown-light text-left">
+                Colaboramos con la Fundación Pablo Horstmann en proyectos para la infancia.
+              </p>
+            </div>
           </div>
         </div>
       </section>

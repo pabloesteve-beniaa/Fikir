@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ImageIcon } from "lucide-react";
+import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Impacto",
@@ -214,13 +214,45 @@ export default function ImpactoPage() {
                       </div>
                     </div>
 
-                    {/* Image placeholder */}
-                    <div className="mt-8 aspect-video rounded-2xl bg-fikir-cream-dark flex flex-col items-center justify-center gap-3">
-                      <ImageIcon className="h-10 w-10 text-fikir-brown-light/40" />
-                      <p className="font-body text-sm text-fikir-brown-light/60">
-                        {project.imagePlaceholder}
-                      </p>
-                    </div>
+                    {/* Media: real photo for Meki, YouTube embed for Dokolo */}
+                    {project.region === "Meki" ? (
+                      <div className="mt-8 relative aspect-video rounded-2xl overflow-hidden">
+                        <Image
+                          src="/images/meki-grupo.jpg"
+                          alt="Pablo con los niños del orfanato en Meki"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 60vw"
+                        />
+                      </div>
+                    ) : (
+                      <div className="mt-8">
+                        <div className="relative aspect-video rounded-2xl overflow-hidden">
+                          <iframe
+                            src="https://www.youtube.com/embed/0HcMMGiaruw"
+                            title="Proyecto Fikir en Dokolo con Fundación Pablo Horstmann"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
+                        {/* FPH partner logo */}
+                        <div className="mt-4 flex items-center gap-3">
+                          <div className="relative w-10 h-10 shrink-0">
+                            <Image
+                              src="/images/logo-fph.png"
+                              alt="Logo Fundación Pablo Horstmann"
+                              fill
+                              className="object-contain"
+                              sizes="40px"
+                            />
+                          </div>
+                          <p className="font-body text-xs text-fikir-brown-light">
+                            En colaboración con la Fundación Pablo Horstmann
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
