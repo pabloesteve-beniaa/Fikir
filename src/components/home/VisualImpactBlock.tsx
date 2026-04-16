@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { MapPin } from "lucide-react";
+import Link from "next/link";
+import { MapPin, ArrowRight } from "lucide-react";
 
 export default function VisualImpactBlock() {
   return (
@@ -13,8 +14,8 @@ export default function VisualImpactBlock() {
             Donde tu café cambia vidas
           </h2>
           <p className="mt-4 font-body text-lg text-fikir-brown-light leading-relaxed">
-            Cada taza financia oportunidades reales para niños en comunidades como
-            Meki (Etiopía) y Dokolo (Kenia).
+            No es marketing. Son proyectos con los que el fundador de Fikir tiene una
+            conexión personal y directa. Lugares donde vivió, trabajó y formó su vida.
           </p>
         </div>
 
@@ -74,6 +75,17 @@ export default function VisualImpactBlock() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* CTA to full impact page */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/impacto"
+            className="inline-flex items-center gap-2 font-body text-sm font-semibold text-fikir-green tracking-wide uppercase transition-colors duration-200 hover:text-fikir-green-light cursor-pointer"
+          >
+            Conocer toda la historia
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
