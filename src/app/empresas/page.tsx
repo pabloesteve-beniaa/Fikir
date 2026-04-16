@@ -3,8 +3,12 @@ import { Building2, Gift, Heart, Coffee, CheckCircle, ArrowRight, MessageSquare,
 
 export const metadata: Metadata = {
   title: "Empresas",
-  description:
-    "Café con propósito para tu empresa. Oficinas, eventos y regalos corporativos con impacto social.",
+  description: "Café de especialidad para empresas. Oficinas, regalos corporativos y eventos con impacto social incluido.",
+  alternates: { canonical: "/empresas" },
+  openGraph: {
+    title: "Empresas | Fikir Coffee",
+    description: "Café de especialidad para empresas. Servicio personalizado, impacto social incluido.",
+  },
 };
 
 const services = [
@@ -16,7 +20,7 @@ const services = [
     features: [
       "Café de especialidad SCA 85+",
       "Suministro recurrente personalizado",
-      "Grano o molido segun tus necesidades",
+      "Grano o molido según tus necesidades",
       "Certificado de impacto social",
     ],
   },
@@ -51,7 +55,7 @@ const process = [
     step: "01",
     icon: MessageSquare,
     title: "Entendemos tu necesidad",
-    description: "Hablamos contigo para conocer que buscas: café para oficina, regalos, eventos o RSC.",
+    description: "Hablamos contigo para conocer qué buscas: café para oficina, regalos, eventos o RSC.",
   },
   {
     step: "02",
@@ -140,7 +144,7 @@ export default function EmpresasPage() {
               Proceso
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Como trabajamos
+              Cómo trabajamos
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-4xl mx-auto">
@@ -169,7 +173,7 @@ export default function EmpresasPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Por que Fikir para tu empresa
+              Por qué Fikir para tu empresa
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">

@@ -5,8 +5,13 @@ import { ArrowRight, Heart, Globe, Coffee, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
-  description:
-    "Conoce la historia de Fikir Coffee. Un proyecto sin ánimo de lucro que devuelve al origen lo que el café nos da.",
+  description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas. Café con propósito desde Etiopía y Kenia.",
+  alternates: { canonical: "/nosotros" },
+  openGraph: {
+    title: "Sobre nosotros | Fikir Coffee",
+    description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas.",
+    images: [{ url: "/images/fundador-pablo.jpg" }],
+  },
 };
 
 const timeline = [
@@ -14,13 +19,13 @@ const timeline = [
     year: "2024",
     title: "La semilla",
     description:
-      "Despues de vivir en Kenia y Etiopía y trabajar en un orfanato en Meki, nace la idea: crear un café de especialidad donde todo el beneficio vuelva a los niños de las comunidades de origen.",
+      "Después de vivir en Kenia y Etiopía y trabajar en un orfanato en Meki, nace la idea: crear un café de especialidad donde todo el beneficio vuelva a los niños de las comunidades de origen.",
   },
   {
     year: "2024",
     title: "El primer viaje",
     description:
-      "Viajamos a Etiopía y Kenia para encontrar los mejores granos. Cafes con puntuación SCA superior a 85, cultivados con métodos tradicionales por familias caficultoras.",
+      "Viajamos a Etiopía y Kenia para encontrar los mejores granos. Cafés con puntuación SCA superior a 85, cultivados con métodos tradicionales por familias caficultoras.",
   },
   {
     year: "2025",
@@ -38,7 +43,7 @@ const timeline = [
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "Mas de 200 niños beneficiados, 5 proyectos activos, 4 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "2 proyectos activos en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -56,7 +61,7 @@ const values = [
   {
     icon: Coffee,
     title: "Excelencia",
-    description: "El impacto social no esta reñido con la calidad. Nuestros cafes son excepcionales, porque el origen lo merece.",
+    description: "El impacto social no está reñido con la calidad. Nuestros cafés son excepcionales, porque el origen lo merece.",
   },
   {
     icon: Sparkles,
@@ -105,11 +110,11 @@ export default function NosotrosPage() {
               />
             </div>
             <h2 className="font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
-              Por que existe Fikir
+              Por qué existe Fikir
             </h2>
             <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
               <p>
-                Fikir no empezó como un negocio. Empezo después de vivir en Kenia y Etiopía, de formar alli parte de mi vida y de trabajar en un orfanato en Meki durante dos años.
+                Fikir no empezó como un negocio. Empezó después de vivir en Kenia y Etiopía, de formar allí parte de mi vida y de trabajar en un orfanato en Meki durante dos años.
               </p>
               <p>
                 Cuando volví, sentí que le debía algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.

@@ -57,6 +57,26 @@ export default function ProductoPage() {
 
   return (
     <div className="pt-20 lg:pt-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `Café ${product.name}`,
+            description: product.description,
+            image: `https://www.fikircafe.com${product.image}`,
+            brand: { "@type": "Brand", name: "Fikir Coffee" },
+            offers: {
+              "@type": "Offer",
+              price: product.price.toString(),
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: `https://www.fikircafe.com/producto/${product.handle}`,
+            },
+          }),
+        }}
+      />
       {/* Breadcrumb */}
       <div className="mx-auto max-w-7xl px-6 py-4 lg:px-8">
         <nav className="flex items-center gap-2 font-body text-sm text-fikir-brown-light">

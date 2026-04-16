@@ -46,9 +46,9 @@ export const products: Product[] = [
     description:
       "Café de especialidad de la región de Yirgacheffe, cuna del café. Notas florales delicadas con toques citricos y un final a bergamota que lo hacen único.",
     story:
-      "Yirgacheffe es considerada la cuna del café. Aqui, a más de 1.800 metros de altitud, las familias caficultoras cultivan con métodos tradicionales que se transmiten de generación en generación. Cada grano lleva consigo siglos de tradición.",
+      "Yirgacheffe es considerada la cuna del café. Aquí, a más de 1.800 metros de altitud, las familias caficultoras cultivan con métodos tradicionales que se transmiten de generación en generación. Cada grano lleva consigo siglos de tradición.",
     impact:
-      "Este café contribuye directamente a mejorar la vida de niños en un orfanato en Meki, donde el fundador de Fikir convivio y trabajó durante años. Una conexión personal y real con el origen.",
+      "Este café contribuye directamente a mejorar la vida de niños en un orfanato en Meki, donde el fundador de Fikir convivió y trabajó durante años. Una conexión personal y real con el origen.",
     impactProject: "Orfanato en Meki",
     impactLocation: "Meki, Etiopía",
     impactWhat: "Mejora de condiciones, material educativo y necesidades básicas",
