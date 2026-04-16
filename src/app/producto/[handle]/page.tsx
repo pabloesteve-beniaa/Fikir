@@ -55,6 +55,15 @@ export default function ProductoPage() {
   const ImpactIcon = colors.impactIcon;
   const lifestyleImage = product.handle === "etiopia" ? "/images/etiopia-lifestyle.jpg" : "/images/kenia-lifestyle.jpg";
 
+  // Product gallery - lifestyle shot + 3 process/detail shots (shared between origins)
+  const galleryImages = [
+    { src: lifestyleImage, alt: product.imageAlt },
+    { src: "/images/etiopia-granos.jpg", alt: "Granos de café Fikir" },
+    { src: "/images/etiopia-tostador.jpg", alt: "Proceso de tueste artesanal" },
+    { src: "/images/fikir-estanteria.jpg", alt: "Colección Fikir Coffee" },
+  ];
+  const [selectedImage, setSelectedImage] = useState(0);
+
   return (
     <div className="pt-20 lg:pt-24">
       <script
@@ -92,24 +101,51 @@ export default function ProductoPage() {
       <section className="pb-24 lg:pb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-            {/* Left: Product image area */}
-            <div className="relative rounded-3xl overflow-hidden aspect-square lg:aspect-auto lg:min-h-[600px]">
-              <Image
-                src={lifestyleImage}
-                alt={product.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-              {/* Urgency badges */}
-              <div className="absolute top-6 left-6 flex flex-col gap-2 z-10">
-                <span className="px-3 py-1.5 rounded-full bg-fikir-cream/15 backdrop-blur-sm font-body text-xs font-semibold text-fikir-cream">
-                  Tostado en pequeños lotes
-                </span>
-                <span className="px-3 py-1.5 rounded-full bg-fikir-gold/90 font-body text-xs font-semibold text-fikir-brown">
-                  Edición limitada
-                </span>
+            {/* Left: Product image gallery */}
+            <div>
+              {/* Main image */}
+              <div className="relative rounded-3xl overflow-hidden aspect-square lg:aspect-auto lg:min-h-[560px]">
+                <Image
+                  src={galleryImages[selectedImage].src}
+                  alt={galleryImages[selectedImage].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                {/* Urgency badges */}
+                <div className="absolute top-6 left-6 flex flex-col gap-2 z-10">
+                  <span className="px-3 py-1.5 rounded-full bg-fikir-cream/15 backdrop-blur-sm font-body text-xs font-semibold text-fikir-cream">
+                    Tostado en pequeños lotes
+                  </span>
+                  <span className="px-3 py-1.5 rounded-full bg-fikir-gold/90 font-body text-xs font-semibold text-fikir-brown">
+                    Edición limitada
+                  </span>
+                </div>
+              </div>
+
+              {/* Thumbnails */}
+              <div className="mt-4 grid grid-cols-4 gap-3">
+                {galleryImages.map((img, idx) => (
+                  <button
+                    key={img.src}
+                    onClick={() => setSelectedImage(idx)}
+                    aria-label={`Ver imagen ${idx + 1}`}
+                    className={`relative aspect-square rounded-xl overflow-hidden transition-all duration-200 cursor-pointer ${
+                      selectedImage === idx
+                        ? "ring-2 ring-fikir-gold ring-offset-2 ring-offset-fikir-cream"
+                        : "opacity-70 hover:opacity-100"
+                    }`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 25vw, 12vw"
+                    />
+                  </button>
+                ))}
               </div>
             </div>
 
