@@ -6,7 +6,7 @@ import { ArrowRight, Coffee, Repeat, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tienda",
-  description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a toda España en 2-4 días.",
+  description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a toda España en 3-5 días.",
   alternates: { canonical: "/tienda" },
   openGraph: {
     title: "Tienda | Fikir Coffee",
@@ -34,7 +34,7 @@ export default function TiendaPage() {
             </p>
             {/* Trust line */}
             <div className="mt-4 flex flex-wrap justify-center gap-4">
-              {["Envío en 2-4 días", "100% beneficio reinvertido", "SCA 85+"].map((item) => (
+              {["Envío 3-5 días · Gratis >50€", "100% beneficio reinvertido", "SCA 85+"].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
                   <CheckCircle className="h-3.5 w-3.5 text-fikir-green" />
                   <span className="font-body text-xs text-fikir-brown-light">{item}</span>

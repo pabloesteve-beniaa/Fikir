@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Heart, Globe, Coffee, Sparkles } from "lucide-react";
+import { ArrowRight, Heart, Globe, Coffee, Sparkles, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
@@ -100,13 +100,13 @@ export default function NosotrosPage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
             {/* Founder photo placeholder */}
-            <div className="w-24 h-24 rounded-full overflow-hidden mb-8 relative">
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-8 relative">
               <Image
                 src="/images/fundador-pablo.jpg"
                 alt="Pablo Esteve Rozas, fundador de Fikir Coffee"
                 fill
                 className="object-cover"
-                sizes="96px"
+                sizes="128px"
               />
             </div>
             <h2 className="font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
@@ -129,6 +129,15 @@ export default function NosotrosPage() {
             <p className="mt-6 font-heading text-xl italic text-fikir-gold">
               &mdash; Pablo Esteve Rozas, fundador de Fikir Coffee
             </p>
+            <a
+              href="https://www.linkedin.com/in/pabloesteverozas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 font-body text-sm text-fikir-brown-light hover:text-fikir-brown transition-colors cursor-pointer"
+            >
+              <ExternalLink className="h-4 w-4" />
+              LinkedIn
+            </a>
 
             {/* Partner */}
             <div className="mt-10 pt-8 border-t border-fikir-brown/10 flex items-center gap-4">

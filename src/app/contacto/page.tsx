@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock, ChevronDown } from "lucide-react";
+import { Mail, MapPin, Clock, ChevronDown, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -35,7 +35,7 @@ const contactInfo = [
 const faqs = [
   {
     question: "¿Cuánto tarda en llegar mi pedido?",
-    answer: "Los pedidos se envían en 24-48h laborables y llegan en 2-4 días a cualquier punto de la península. Recibirás un email con el número de seguimiento.",
+    answer: "Los pedidos se envían en 24-48h laborables y llegan en 3-5 días a cualquier punto de la península. Recibirás un email con el número de seguimiento.",
   },
   {
     question: "¿Cuál es la diferencia entre grano y molido?",
@@ -147,6 +147,22 @@ export default function ContactoPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* WhatsApp */}
+              <div className="mt-10 pt-8 border-t border-fikir-brown/10">
+                <a
+                  href="https://wa.me/3469754210"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  Escríbenos por WhatsApp
+                </a>
+                <p className="mt-2 font-body text-xs text-fikir-brown-light">
+                  Respondemos en horario laboral (Lun-Vie 9:00-18:00)
+                </p>
               </div>
 
               {/* Social */}

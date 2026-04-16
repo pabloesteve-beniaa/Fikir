@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
             <div className="flex items-center gap-2">
               <Truck className="h-4 w-4 text-fikir-gold" />
-              <span className="font-body text-xs text-fikir-cream/70">Envío en 2-4 días (España)</span>
+              <span className="font-body text-xs text-fikir-cream/70">Envío 3-5 días · Gratis a partir de 50€</span>
             </div>
             <div className="flex items-center gap-2">
               <CreditCard className="h-4 w-4 text-fikir-gold" />

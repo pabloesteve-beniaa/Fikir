@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
-import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap } from "lucide-react";
+import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
@@ -207,7 +207,7 @@ export default function ProductoPage() {
               <div className="mt-6 flex flex-col gap-2 p-4 rounded-xl bg-fikir-cream-dark/70">
                 {[
                   { icon: Award, text: "Café de especialidad (SCA " + product.scaScore + ")" },
-                  { icon: Truck, text: "Envío en 2-4 días laborables en España" },
+                  { icon: Truck, text: "Envío en 3-5 días · Gratis a partir de 50€" },
                   { icon: Heart, text: "100% del beneficio reinvertido en origen" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2.5">
@@ -274,6 +274,39 @@ export default function ProductoPage() {
                 <p className="font-body text-sm leading-relaxed text-fikir-brown-light">
                   {product.story}
                 </p>
+              </div>
+
+              {/* Product FAQ */}
+              <div className="mt-6">
+                <h3 className="font-heading text-lg font-bold text-fikir-brown mb-4">
+                  Preguntas frecuentes
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    {
+                      q: "¿Cómo debo preparar este café?",
+                      a: "Recomendamos cafetera italiana (moka), filtro, prensa francesa o AeroPress. Usa agua a 90-96°C y una proporción de 1:15 (café:agua)."
+                    },
+                    {
+                      q: "¿Cuánto tiempo se conserva fresco?",
+                      a: "Una vez abierto, consume en las 4-6 semanas siguientes para disfrutar de todo su aroma. Guárdalo en lugar fresco y seco, alejado de la luz."
+                    },
+                    {
+                      q: "¿Grano o molido?",
+                      a: "Si tienes molinillo, el grano conserva mejor la frescura. Si no, nuestro molido es perfecto para cafetera italiana, filtro o prensa francesa."
+                    },
+                  ].map((faq) => (
+                    <details key={faq.q} className="group">
+                      <summary className="flex items-center justify-between py-3 cursor-pointer list-none font-body text-sm font-medium text-fikir-brown">
+                        {faq.q}
+                        <ChevronDown className="h-4 w-4 text-fikir-brown-light shrink-0 transition-transform duration-200 group-open:rotate-180" />
+                      </summary>
+                      <p className="pb-3 font-body text-sm text-fikir-brown-light leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
