@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Heart, Globe, Coffee, Sparkles, User } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Heart, Globe, Coffee, Sparkles, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
-  description:
-    "Conoce la historia de Fikir Coffee. Un proyecto sin ánimo de lucro que devuelve al origen lo que el café nos da.",
+  description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas. Café con propósito desde Etiopía y Kenia.",
+  alternates: { canonical: "/nosotros" },
+  openGraph: {
+    title: "Sobre nosotros | Fikir Coffee",
+    description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas.",
+    images: [{ url: "/images/fundador-pablo.jpg" }],
+  },
 };
 
 const timeline = [
@@ -13,13 +19,13 @@ const timeline = [
     year: "2024",
     title: "La semilla",
     description:
-      "Despues de vivir en Kenia y Etiopía y trabajar en un orfanato en Meki, nace la idea: crear un café de especialidad donde todo el beneficio vuelva a los niños de las comunidades de origen.",
+      "Después de vivir en Kenia y Etiopía y trabajar en un orfanato en Meki, nace la idea: crear un café de especialidad donde todo el beneficio vuelva a los niños de las comunidades de origen.",
   },
   {
     year: "2024",
     title: "El primer viaje",
     description:
-      "Viajamos a Etiopía y Kenia para encontrar los mejores granos. Cafes con puntuación SCA superior a 85, cultivados con métodos tradicionales por familias caficultoras.",
+      "Viajamos a Etiopía y Kenia para encontrar los mejores granos. Cafés con puntuación SCA superior a 85, cultivados con métodos tradicionales por familias caficultoras.",
   },
   {
     year: "2025",
@@ -37,7 +43,7 @@ const timeline = [
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "Mas de 200 niños beneficiados, 5 proyectos activos, 4 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "2 proyectos activos en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -55,7 +61,7 @@ const values = [
   {
     icon: Coffee,
     title: "Excelencia",
-    description: "El impacto social no esta reñido con la calidad. Nuestros cafes son excepcionales, porque el origen lo merece.",
+    description: "El impacto social no está reñido con la calidad. Nuestros cafés son excepcionales, porque el origen lo merece.",
   },
   {
     icon: Sparkles,
@@ -94,15 +100,21 @@ export default function NosotrosPage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
             {/* Founder photo placeholder */}
-            <div className="w-24 h-24 rounded-full bg-fikir-brown/10 flex items-center justify-center mb-8">
-              <User className="h-10 w-10 text-fikir-brown-light/40" />
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-8 relative">
+              <Image
+                src="/images/fundador-pablo.jpg"
+                alt="Pablo Esteve Rozas, fundador de Fikir Coffee"
+                fill
+                className="object-cover"
+                sizes="128px"
+              />
             </div>
             <h2 className="font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
-              Por que existe Fikir
+              Por qué existe Fikir
             </h2>
             <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
               <p>
-                Fikir no empezó como un negocio. Empezo después de vivir en Kenia y Etiopía, de formar alli parte de mi vida y de trabajar en un orfanato en Meki durante dos años.
+                Fikir no empezó como un negocio. Empezó después de vivir en Kenia y Etiopía, de formar allí parte de mi vida y de trabajar en un orfanato en Meki durante dos años.
               </p>
               <p>
                 Cuando volví, sentí que le debía algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.
@@ -117,6 +129,31 @@ export default function NosotrosPage() {
             <p className="mt-6 font-heading text-xl italic text-fikir-gold">
               &mdash; Pablo Esteve Rozas, fundador de Fikir Coffee
             </p>
+            <a
+              href="https://www.linkedin.com/in/pabloesteverozas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 font-body text-sm text-fikir-brown-light hover:text-fikir-brown transition-colors cursor-pointer"
+            >
+              <ExternalLink className="h-4 w-4" />
+              LinkedIn
+            </a>
+
+            {/* Partner */}
+            <div className="mt-10 pt-8 border-t border-fikir-brown/10 flex items-center gap-4">
+              <div className="relative w-12 h-12 shrink-0">
+                <Image
+                  src="/images/logo-fph.png"
+                  alt="Logo Fundación Pablo Horstmann"
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                />
+              </div>
+              <p className="font-body text-sm text-fikir-brown-light text-left">
+                Colaboramos con la Fundación Pablo Horstmann en proyectos para la infancia.
+              </p>
+            </div>
           </div>
         </div>
       </section>

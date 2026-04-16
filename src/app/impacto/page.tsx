@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ImageIcon } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Impacto",
-  description:
-    "Descubre como Fikir Coffee reinvierte el 100% de sus beneficios en proyectos para la infancia en Etiopía y Kenia.",
+  description: "Conoce el impacto social de Fikir Coffee: proyectos activos en Meki (Etiopía) y Dokolo (Kenia) para la infancia en comunidades cafeteras.",
+  alternates: { canonical: "/impacto" },
+  openGraph: {
+    title: "Impacto | Fikir Coffee",
+    description: "Conoce el impacto social de Fikir Coffee: proyectos activos en Meki y Dokolo para la infancia.",
+    images: [{ url: "/images/meki-orfanato.jpg" }],
+  },
 };
 
 const projects = [
@@ -15,7 +21,7 @@ const projects = [
     region: "Meki",
     title: "Orfanato en Meki",
     description:
-      "El fundador de Fikir vivió y trabajó en este orfanato en Meki durante dos años, seis meses de ellos en terreno. Esta conexión personal es el corazón de Fikir. Cada bolsa de Etiopía contribuye directamente a mejorar las condiciones de vida, el material educativo y las necesidades basicas de los niños que aquí crecen.",
+      "El fundador de Fikir vivió y trabajó en este orfanato en Meki durante dos años, seis meses de ellos en terreno. Esta conexión personal es el corazón de Fikir. Cada bolsa de Etiopía contribuye directamente a mejorar las condiciones de vida, el material educativo y las necesidades básicas de los niños que aquí crecen.",
     stats: [
       { value: "Proyecto activo", label: "" },
       { value: "Conexión directa", label: "" },
@@ -64,7 +70,7 @@ const principles = [
   },
   {
     icon: Shield,
-    title: "Relacion directa",
+    title: "Relación directa",
     description:
       "Trabajamos directamente con cooperativas locales y organizaciones en terreno. Sin intermediarios que diluyan el impacto.",
   },
@@ -98,15 +104,15 @@ export default function ImpactoPage() {
         </div>
       </section>
 
-      {/* Mas que café */}
+      {/* Más que café */}
       <section className="py-20 bg-fikir-white lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Mas que café, oportunidades reales
+              Más que café, oportunidades reales
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              Despues de vivir en Kenia y Etiopía y formar alli parte de su vida, el fundador de Fikir sintió una deuda personal con estas comunidades. Fikir nace de esa conexión: no como un proyecto distante, sino como algo profundamente personal.
+              Después de vivir en Kenia y Etiopía y formar allí parte de su vida, el fundador de Fikir sintió una deuda personal con estas comunidades. Fikir nace de esa conexión: no como un proyecto distante, sino como algo profundamente personal.
             </p>
           </div>
         </div>
@@ -143,7 +149,7 @@ export default function ImpactoPage() {
               Proyectos activos
             </h2>
             <p className="mt-4 font-body text-lg text-fikir-brown-light">
-              Cada café de Fikir esta vinculado a un proyecto real y verificable.
+              Cada café de Fikir está vinculado a un proyecto real y verificable.
             </p>
           </div>
 
@@ -152,16 +158,14 @@ export default function ImpactoPage() {
               <div key={project.title}>
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-16 items-start">
                   {/* Image placeholder */}
-                  <div className={`${project.color} rounded-3xl p-12 flex items-center justify-center lg:col-span-2 aspect-video lg:aspect-square`}>
-                    <div className="text-center">
-                      <project.icon className="h-16 w-16 text-fikir-cream/60 mx-auto" />
-                      <p className="mt-4 font-heading text-2xl font-bold text-fikir-cream">
-                        {project.country}
-                      </p>
-                      <p className="font-body text-sm text-fikir-cream/70">
-                        {project.region}
-                      </p>
-                    </div>
+                  <div className="rounded-3xl overflow-hidden lg:col-span-2 relative aspect-video lg:aspect-square">
+                    <Image
+                      src={project.region === "Meki" ? "/images/meki-orfanato.jpg" : "/images/fundador-lalibela.jpg"}
+                      alt={project.region === "Meki" ? "Orfanato en Meki, Etiopía" : "Pablo en Kenia"}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                    />
                   </div>
 
                   {/* Content */}
@@ -215,13 +219,45 @@ export default function ImpactoPage() {
                       </div>
                     </div>
 
-                    {/* Image placeholder */}
-                    <div className="mt-8 aspect-video rounded-2xl bg-fikir-cream-dark flex flex-col items-center justify-center gap-3">
-                      <ImageIcon className="h-10 w-10 text-fikir-brown-light/40" />
-                      <p className="font-body text-sm text-fikir-brown-light/60">
-                        {project.imagePlaceholder}
-                      </p>
-                    </div>
+                    {/* Media: real photo for Meki, YouTube embed for Dokolo */}
+                    {project.region === "Meki" ? (
+                      <div className="mt-8 relative aspect-video rounded-2xl overflow-hidden">
+                        <Image
+                          src="/images/meki-grupo.jpg"
+                          alt="Pablo con los niños del orfanato en Meki"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 60vw"
+                        />
+                      </div>
+                    ) : (
+                      <div className="mt-8">
+                        <div className="relative aspect-video rounded-2xl overflow-hidden">
+                          <iframe
+                            src="https://www.youtube.com/embed/0HcMMGiaruw"
+                            title="Proyecto Fikir en Dokolo con Fundación Pablo Horstmann"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
+                        {/* FPH partner logo */}
+                        <div className="mt-4 flex items-center gap-3">
+                          <div className="relative w-10 h-10 shrink-0">
+                            <Image
+                              src="/images/logo-fph.png"
+                              alt="Logo Fundación Pablo Horstmann"
+                              fill
+                              className="object-contain"
+                              sizes="40px"
+                            />
+                          </div>
+                          <p className="font-body text-xs text-fikir-brown-light">
+                            En colaboración con la Fundación Pablo Horstmann
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -316,8 +352,8 @@ export default function ImpactoPage() {
             Se parte del cambio
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
-            Con cada taza de Fikir, estas apoyando directamente a comunidades
-            en Etiopía y Kenia. Tu café de la mañana tiene mas poder del que
+            Con cada taza de Fikir, estás apoyando directamente a comunidades
+            en Etiopía y Kenia. Tu café de la mañana tiene más poder del que
             crees.
           </p>
           <Link

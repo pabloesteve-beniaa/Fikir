@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Product } from "@/data/products";
 
@@ -24,24 +25,23 @@ export default function ProductCard({ product, badge }: { product: Product; badg
       className="group block bg-fikir-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
     >
       {/* Image area */}
-      <div className={`relative aspect-square ${colors.bg} flex items-center justify-center p-8`}>
-        <div className="text-center">
-          <span className="font-heading text-6xl font-bold text-fikir-cream/90 lg:text-7xl">
-            {product.origin}
-          </span>
-          <p className="mt-2 font-body text-sm text-fikir-cream/70">
-            {product.region}
-          </p>
-        </div>
+      <div className="relative aspect-square overflow-hidden">
+        <Image
+          src={product.image}
+          alt={product.imageAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
         {/* SCA Badge */}
-        <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-fikir-cream/20 backdrop-blur-sm">
+        <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-fikir-cream/20 backdrop-blur-sm z-10">
           <span className="font-body text-xs font-semibold text-fikir-cream">
             SCA {product.scaScore}
           </span>
         </div>
         {/* Optional marketing badge */}
         {badge && (
-          <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown">
+          <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown z-10">
             {badge}
           </div>
         )}

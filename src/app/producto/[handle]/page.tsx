@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { products } from "@/data/products";
-import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap } from "lucide-react";
+import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
@@ -52,9 +53,30 @@ export default function ProductoPage() {
 
   const colors = colorMap[product.color];
   const ImpactIcon = colors.impactIcon;
+  const lifestyleImage = product.handle === "etiopia" ? "/images/etiopia-lifestyle.jpg" : "/images/kenia-lifestyle.jpg";
 
   return (
     <div className="pt-20 lg:pt-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `Café ${product.name}`,
+            description: product.description,
+            image: `https://www.fikircafe.com${product.image}`,
+            brand: { "@type": "Brand", name: "Fikir Coffee" },
+            offers: {
+              "@type": "Offer",
+              price: product.price.toString(),
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: `https://www.fikircafe.com/producto/${product.handle}`,
+            },
+          }),
+        }}
+      />
       {/* Breadcrumb */}
       <div className="mx-auto max-w-7xl px-6 py-4 lg:px-8">
         <nav className="flex items-center gap-2 font-body text-sm text-fikir-brown-light">
@@ -71,31 +93,23 @@ export default function ProductoPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
             {/* Left: Product image area */}
-            <div className={`${colors.bg} rounded-3xl flex items-center justify-center p-12 aspect-square lg:aspect-auto lg:min-h-[600px] relative`}>
-              {/* Urgency badge */}
-              <div className="absolute top-6 left-6 flex flex-col gap-2">
+            <div className="relative rounded-3xl overflow-hidden aspect-square lg:aspect-auto lg:min-h-[600px]">
+              <Image
+                src={lifestyleImage}
+                alt={product.imageAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+              {/* Urgency badges */}
+              <div className="absolute top-6 left-6 flex flex-col gap-2 z-10">
                 <span className="px-3 py-1.5 rounded-full bg-fikir-cream/15 backdrop-blur-sm font-body text-xs font-semibold text-fikir-cream">
                   Tostado en pequeños lotes
                 </span>
                 <span className="px-3 py-1.5 rounded-full bg-fikir-gold/90 font-body text-xs font-semibold text-fikir-brown">
                   Edición limitada
                 </span>
-              </div>
-              <div className="text-center">
-                <p className="font-body text-sm tracking-[0.3em] uppercase text-fikir-cream/60">
-                  Fikir Coffee
-                </p>
-                <h2 className="mt-4 font-heading text-7xl font-bold text-fikir-cream lg:text-8xl">
-                  {product.origin}
-                </h2>
-                <p className="mt-2 font-heading text-2xl italic text-fikir-cream/70">
-                  {product.region}
-                </p>
-                <div className="mt-6 inline-block px-4 py-2 rounded-full bg-fikir-cream/10 backdrop-blur-sm">
-                  <span className="font-body text-sm text-fikir-cream">
-                    SCA {product.scaScore} &middot; Specialty
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -193,7 +207,7 @@ export default function ProductoPage() {
               <div className="mt-6 flex flex-col gap-2 p-4 rounded-xl bg-fikir-cream-dark/70">
                 {[
                   { icon: Award, text: "Café de especialidad (SCA " + product.scaScore + ")" },
-                  { icon: Truck, text: "Envío en 2-4 días laborables en España" },
+                  { icon: Truck, text: "Envío en 3-5 días · Gratis a partir de 50€" },
                   { icon: Heart, text: "100% del beneficio reinvertido en origen" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2.5">
@@ -260,6 +274,39 @@ export default function ProductoPage() {
                 <p className="font-body text-sm leading-relaxed text-fikir-brown-light">
                   {product.story}
                 </p>
+              </div>
+
+              {/* Product FAQ */}
+              <div className="mt-6">
+                <h3 className="font-heading text-lg font-bold text-fikir-brown mb-4">
+                  Preguntas frecuentes
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    {
+                      q: "¿Cómo debo preparar este café?",
+                      a: "Recomendamos cafetera italiana (moka), filtro, prensa francesa o AeroPress. Usa agua a 90-96°C y una proporción de 1:15 (café:agua)."
+                    },
+                    {
+                      q: "¿Cuánto tiempo se conserva fresco?",
+                      a: "Una vez abierto, consume en las 4-6 semanas siguientes para disfrutar de todo su aroma. Guárdalo en lugar fresco y seco, alejado de la luz."
+                    },
+                    {
+                      q: "¿Grano o molido?",
+                      a: "Si tienes molinillo, el grano conserva mejor la frescura. Si no, nuestro molido es perfecto para cafetera italiana, filtro o prensa francesa."
+                    },
+                  ].map((faq) => (
+                    <details key={faq.q} className="group">
+                      <summary className="flex items-center justify-between py-3 cursor-pointer list-none font-body text-sm font-medium text-fikir-brown">
+                        {faq.q}
+                        <ChevronDown className="h-4 w-4 text-fikir-brown-light shrink-0 transition-transform duration-200 group-open:rotate-180" />
+                      </summary>
+                      <p className="pb-3 font-body text-sm text-fikir-brown-light leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

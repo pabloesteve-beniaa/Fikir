@@ -6,8 +6,13 @@ import { ArrowRight, Coffee, Repeat, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tienda",
-  description:
-    "Compra café de especialidad de Etiopía y Kenia. Cada bolsa financia proyectos sociales en origen.",
+  description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a toda España en 3-5 días.",
+  alternates: { canonical: "/tienda" },
+  openGraph: {
+    title: "Tienda | Fikir Coffee",
+    description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual.",
+    images: [{ url: "/images/etiopia-product.jpg" }],
+  },
 };
 
 export default function TiendaPage() {
@@ -29,7 +34,7 @@ export default function TiendaPage() {
             </p>
             {/* Trust line */}
             <div className="mt-4 flex flex-wrap justify-center gap-4">
-              {["Envío en 2-4 días", "100% beneficio reinvertido", "SCA 85+"].map((item) => (
+              {["Envío 3-5 días · Gratis >50€", "100% beneficio reinvertido", "SCA 85+"].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
                   <CheckCircle className="h-3.5 w-3.5 text-fikir-green" />
                   <span className="font-body text-xs text-fikir-brown-light">{item}</span>
@@ -47,7 +52,7 @@ export default function TiendaPage() {
             Nuestros orígenes
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            <ProductCard product={products[0]} badge="Mas vendido" />
+            <ProductCard product={products[0]} badge="Más vendido" />
             <ProductCard product={products[1]} badge="Intenso y complejo" />
           </div>
         </div>
@@ -57,7 +62,7 @@ export default function TiendaPage() {
       <section className="py-16 bg-fikir-white lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-fikir-brown mb-12 text-center">
-            Mas opciones
+            Más opciones
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
             {/* Pack Degustación */}

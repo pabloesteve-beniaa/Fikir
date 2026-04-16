@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock, ChevronDown } from "lucide-react";
+import { Mail, MapPin, Clock, ChevronDown, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description:
-    "Contacta con Fikir Coffee. Estamos aquí para ayudarte con cualquier pregunta sobre nuestro café o nuestro impacto.",
+  description: "Contacta con Fikir Coffee. Preguntas frecuentes sobre envíos, productos, suscripciones y devoluciones.",
+  alternates: { canonical: "/contacto" },
+  openGraph: {
+    title: "Contacto | Fikir Coffee",
+    description: "Contacta con Fikir Coffee. Preguntas frecuentes sobre envíos y productos.",
+  },
 };
 
 const contactInfo = [
@@ -30,11 +34,11 @@ const contactInfo = [
 
 const faqs = [
   {
-    question: "Cuanto tarda en llegar mi pedido?",
-    answer: "Los pedidos se envian en 24-48h laborables y llegan en 2-4 días a cualquier punto de la península. Recibirás un email con el número de seguimiento.",
+    question: "¿Cuánto tarda en llegar mi pedido?",
+    answer: "Los pedidos se envían en 24-48h laborables y llegan en 3-5 días a cualquier punto de la península. Recibirás un email con el número de seguimiento.",
   },
   {
-    question: "Cual es la diferencia entre grano y molido?",
+    question: "¿Cuál es la diferencia entre grano y molido?",
     answer: "El café en grano conserva mejor la frescura y el aroma. Recomendamos grano si tienes molinillo. El molido es perfecto para cafetera italiana (moka), filtro o prensa francesa.",
   },
   {
@@ -43,15 +47,15 @@ const faqs = [
   },
   {
     question: "De verdad todo el beneficio va al origen?",
-    answer: "Si. Fikir es un proyecto sin ánimo de lucro. Despues de cubrir costes operativos (café verde, tueste, packaging, envío), el 100% del beneficio se reinvierte en proyectos para la infancia en comunidades cafetaleras de Etiopía y Kenia.",
+    answer: "Si. Fikir es un proyecto sin ánimo de lucro. Después de cubrir costes operativos (café verde, tueste, packaging, envío), el 100% del beneficio se reinvierte en proyectos para la infancia en comunidades cafetaleras de Etiopía y Kenia.",
   },
   {
     question: "Hacéis regalos corporativos o para empresas?",
-    answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra pagina de Empresas o escribenos a hola@fikircoffee.com.",
+    answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra página de Empresas o escríbenos a hola@fikircoffee.com.",
   },
   {
-    question: "Que métodos de pago aceptais?",
-    answer: "Aceptamos tarjeta de crédito/débito y Bizum. El pago se procesa de forma segura a traves de Shopify Payments.",
+    question: "¿Qué métodos de pago aceptáis?",
+    answer: "Aceptamos tarjeta de crédito/débito y Bizum. El pago se procesa de forma segura a través de Shopify Payments.",
   },
 ];
 
@@ -143,6 +147,22 @@ export default function ContactoPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* WhatsApp */}
+              <div className="mt-10 pt-8 border-t border-fikir-brown/10">
+                <a
+                  href="https://wa.me/3469754210"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  Escríbenos por WhatsApp
+                </a>
+                <p className="mt-2 font-body text-xs text-fikir-brown-light">
+                  Respondemos en horario laboral (Lun-Vie 9:00-18:00)
+                </p>
               </div>
 
               {/* Social */}
