@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, ImageIcon } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -152,16 +153,14 @@ export default function ImpactoPage() {
               <div key={project.title}>
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-16 items-start">
                   {/* Image placeholder */}
-                  <div className={`${project.color} rounded-3xl p-12 flex items-center justify-center lg:col-span-2 aspect-video lg:aspect-square`}>
-                    <div className="text-center">
-                      <project.icon className="h-16 w-16 text-fikir-cream/60 mx-auto" />
-                      <p className="mt-4 font-heading text-2xl font-bold text-fikir-cream">
-                        {project.country}
-                      </p>
-                      <p className="font-body text-sm text-fikir-cream/70">
-                        {project.region}
-                      </p>
-                    </div>
+                  <div className="rounded-3xl overflow-hidden lg:col-span-2 relative aspect-video lg:aspect-square">
+                    <Image
+                      src={project.region === "Meki" ? "/images/meki-orfanato.jpg" : "/images/fundador-lalibela.jpg"}
+                      alt={project.region === "Meki" ? "Orfanato en Meki, Etiopía" : "Pablo en Kenia"}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                    />
                   </div>
 
                   {/* Content */}

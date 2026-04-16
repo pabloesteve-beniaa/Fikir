@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Heart, Globe, Coffee, Sparkles, User } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Heart, Globe, Coffee, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
@@ -94,8 +95,14 @@ export default function NosotrosPage() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
             {/* Founder photo placeholder */}
-            <div className="w-24 h-24 rounded-full bg-fikir-brown/10 flex items-center justify-center mb-8">
-              <User className="h-10 w-10 text-fikir-brown-light/40" />
+            <div className="w-24 h-24 rounded-full overflow-hidden mb-8 relative">
+              <Image
+                src="/images/fundador-pablo.jpg"
+                alt="Pablo Esteve Rozas, fundador de Fikir Coffee"
+                fill
+                className="object-cover"
+                sizes="96px"
+              />
             </div>
             <h2 className="font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
               Por que existe Fikir

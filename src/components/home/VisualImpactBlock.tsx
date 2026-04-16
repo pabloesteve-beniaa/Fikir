@@ -1,4 +1,5 @@
-import { MapPin, ImageIcon } from "lucide-react";
+import Image from "next/image";
+import { MapPin } from "lucide-react";
 
 export default function VisualImpactBlock() {
   return (
@@ -20,13 +21,14 @@ export default function VisualImpactBlock() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
           {/* Etiopía - Meki */}
           <div className="rounded-2xl overflow-hidden bg-fikir-cream">
-            <div className="aspect-video bg-fikir-green/10 flex items-center justify-center">
-              <div className="text-center p-8">
-                <ImageIcon className="h-12 w-12 text-fikir-green/30 mx-auto" />
-                <p className="mt-3 font-body text-sm text-fikir-green/60">
-                  Foto del proyecto en Meki
-                </p>
-              </div>
+            <div className="relative aspect-video">
+              <Image
+                src="/images/meki-grupo.jpg"
+                alt="Niños del orfanato en Meki, Etiopía"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
             <div className="p-6">
               <div className="flex items-center gap-2 mb-3">
@@ -47,13 +49,14 @@ export default function VisualImpactBlock() {
 
           {/* Kenia - Dokolo */}
           <div className="rounded-2xl overflow-hidden bg-fikir-cream">
-            <div className="aspect-video bg-fikir-terracotta/10 flex items-center justify-center">
-              <div className="text-center p-8">
-                <ImageIcon className="h-12 w-12 text-fikir-terracotta/30 mx-auto" />
-                <p className="mt-3 font-body text-sm text-fikir-terracotta/60">
-                  Foto del proyecto en Dokolo
-                </p>
-              </div>
+            <div className="relative aspect-video">
+              <Image
+                src="/images/fundador-meki.jpg"
+                alt="Pablo trabajando con niños en el orfanato"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
             <div className="p-6">
               <div className="flex items-center gap-2 mb-3">
