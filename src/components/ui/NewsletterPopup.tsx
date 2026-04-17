@@ -7,6 +7,7 @@ export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const dismissed = localStorage.getItem("fikir-newsletter-dismissed");
@@ -24,13 +25,27 @@ export default function NewsletterPopup() {
     localStorage.setItem("fikir-newsletter-dismissed", "true");
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: Connect to email service (Mailchimp, Klaviyo, etc.)
-    setSubmitted(true);
-    setTimeout(() => {
-      handleClose();
-    }, 3000);
+    setIsLoading(true);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        console.error("Newsletter subscription error:", await res.json());
+      }
+    } catch (err) {
+      console.error("Newsletter fetch error:", err);
+    } finally {
+      setIsLoading(false);
+      setSubmitted(true);
+      setTimeout(() => handleClose(), 3000);
+    }
   }
 
   if (!isOpen) return null;
@@ -84,9 +99,10 @@ export default function NewsletterPopup() {
               />
               <button
                 type="submit"
-                className="w-full px-4 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
+                disabled={isLoading}
+                className="w-full px-4 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Quiero mi 5% de descuento
+                {isLoading ? "Enviando..." : "Quiero mi 5% de descuento"}
               </button>
             </form>
             <p className="mt-3 font-body text-xs text-fikir-brown-light/60 text-center">

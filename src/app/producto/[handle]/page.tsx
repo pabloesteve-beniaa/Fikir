@@ -5,12 +5,51 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
+import { createCheckout, isShopifyConfigured } from "@/lib/shopify";
 import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
   const product = products.find((p) => p.handle === handle);
   const [selectedVariant, setSelectedVariant] = useState(0);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  async function handleBuyClick() {
+    if (!product) return;
+
+    if (!isShopifyConfigured()) {
+      window.location.href = "/contacto";
+      return;
+    }
+
+    setCheckoutLoading(true);
+    try {
+      const variantId = product.variants[selectedVariant].id;
+      // variantId must be a Shopify GID (e.g. "gid://shopify/ProductVariant/123456").
+      // Set these in src/data/products.ts after creating the products in Shopify.
+      const data = (await createCheckout(variantId)) as {
+        checkoutCreate: {
+          checkout: { webUrl: string } | null;
+          checkoutUserErrors: { message: string }[];
+        };
+      };
+
+      const checkout = data?.checkoutCreate?.checkout;
+      if (checkout?.webUrl) {
+        window.location.href = checkout.webUrl;
+      } else {
+        const errors = data?.checkoutCreate?.checkoutUserErrors;
+        console.error("Checkout errors:", errors);
+        alert("No se pudo iniciar el proceso de compra. Por favor, contáctanos.");
+      }
+    } catch (err) {
+      console.error("Checkout error:", err);
+      alert("Error al conectar con la tienda. Por favor, inténtalo de nuevo.");
+    } finally {
+      setCheckoutLoading(false);
+    }
+  }
 
   if (!product) {
     return (
@@ -62,7 +101,6 @@ export default function ProductoPage() {
     { src: "/images/etiopia-tostador.jpg", alt: "Proceso de tueste artesanal" },
     { src: "/images/fikir-estanteria.jpg", alt: "Colección Fikir Coffee" },
   ];
-  const [selectedImage, setSelectedImage] = useState(0);
 
   return (
     <div className="pt-20 lg:pt-24">
@@ -255,10 +293,14 @@ export default function ProductoPage() {
 
               {/* Add to cart */}
               <button
-                className={`mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer`}
+                onClick={handleBuyClick}
+                disabled={checkoutLoading}
+                className={`mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 <ShoppingBag className="h-5 w-5" />
-                Comprar &mdash; {product.price.toFixed(2)}&euro;
+                {checkoutLoading
+                  ? "Redirigiendo..."
+                  : `Comprar — ${product.price.toFixed(2)}€`}
               </button>
 
               {/* Impact card - structured */}
