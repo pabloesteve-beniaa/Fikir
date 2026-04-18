@@ -80,15 +80,24 @@ export default function TiendaPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="font-heading text-xl font-bold text-fikir-brown">
+                <Link
+                  href={`/producto/${packs[0].handle}`}
+                  className="font-heading text-xl font-bold text-fikir-brown hover:text-fikir-green transition-colors"
+                >
                   {packs[0].name}
-                </h3>
+                </Link>
                 <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
                   {packs[0].description}
                 </p>
                 <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
                   Perfecto para descubrir tu favorito
                 </p>
+                <Link
+                  href={`/producto/${packs[0].handle}`}
+                  className="mt-2 inline-block font-body text-xs font-semibold text-fikir-green hover:underline uppercase tracking-wide"
+                >
+                  Ver detalles
+                </Link>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-body text-2xl font-semibold text-fikir-brown">
                     {packs[0].price.toFixed(2)}&euro;
@@ -116,15 +125,24 @@ export default function TiendaPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="font-heading text-xl font-bold text-fikir-brown">
+                <Link
+                  href={`/producto/${packs[1].handle}`}
+                  className="font-heading text-xl font-bold text-fikir-brown hover:text-fikir-green transition-colors"
+                >
                   {packs[1].name}
-                </h3>
+                </Link>
                 <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
                   {packs[1].description}
                 </p>
                 <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
                   Recíbelo cada mes sin preocuparte. Ahorra un 13%.
                 </p>
+                <Link
+                  href={`/producto/${packs[1].handle}`}
+                  className="mt-2 inline-block font-body text-xs font-semibold text-fikir-green hover:underline uppercase tracking-wide"
+                >
+                  Ver detalles
+                </Link>
                 <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
                   {["Mínimo 2 meses", "Cancela cuando quieras", "Modifica o pausa"].map((t) => (
                     <span key={t} className="flex items-center gap-1">
