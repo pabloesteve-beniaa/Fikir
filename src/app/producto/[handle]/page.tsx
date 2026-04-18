@@ -12,32 +12,30 @@ export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
   const product = products.find((p) => p.handle === handle);
   const [selectedVariant, setSelectedVariant] = useState(0);
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
 
   async function handleBuyClick() {
     if (!product) return;
 
     if (!isShopifyConfigured()) {
-      window.location.href = "/contacto";
+      window.open("https://fikir-cafe.myshopify.com", "_blank", "noopener,noreferrer");
       return;
     }
 
-    setCheckoutLoading(true);
+    setLoading(true);
     try {
       const variantId = product.variants[selectedVariant].id;
-      // variantId must be a Shopify GID (e.g. "gid://shopify/ProductVariant/123456").
-      // Set these in src/data/products.ts after creating the products in Shopify.
-      const data = (await createCheckout(variantId)) as {
+      const data = (await createCheckout(variantId, 1)) as {
         checkoutCreate: {
           checkout: { webUrl: string } | null;
           checkoutUserErrors: { message: string }[];
         };
       };
 
-      const checkout = data?.checkoutCreate?.checkout;
-      if (checkout?.webUrl) {
-        window.location.href = checkout.webUrl;
+      const checkoutUrl = data?.checkoutCreate?.checkout?.webUrl;
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
       } else {
         const errors = data?.checkoutCreate?.checkoutUserErrors;
         console.error("Checkout errors:", errors);
@@ -47,7 +45,7 @@ export default function ProductoPage() {
       console.error("Checkout error:", err);
       alert("Error al conectar con la tienda. Por favor, inténtalo de nuevo.");
     } finally {
-      setCheckoutLoading(false);
+      setLoading(false);
     }
   }
 
@@ -294,13 +292,11 @@ export default function ProductoPage() {
               {/* Add to cart */}
               <button
                 onClick={handleBuyClick}
-                disabled={checkoutLoading}
+                disabled={loading}
                 className={`mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 <ShoppingBag className="h-5 w-5" />
-                {checkoutLoading
-                  ? "Redirigiendo..."
-                  : `Comprar — ${product.price.toFixed(2)}€`}
+                {loading ? "Cargando..." : `Comprar — ${product.price.toFixed(2)}€`}
               </button>
 
               {/* Impact card - structured */}

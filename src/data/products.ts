@@ -101,6 +101,7 @@ export const packs = [
     price: 27.99,
     currency: "EUR",
     image: "/images/pack-degustacion.jpg",
+    shopifyVariantId: "gid://shopify/ProductVariant/56818921931130",
   },
   {
     id: "suscripcion-mensual",
@@ -111,5 +112,6 @@ export const packs = [
     currency: "EUR",
     image: "/images/suscripcion.jpg",
     note: "al mes",
+    shopifyVariantId: "gid://shopify/ProductVariant/56818922684794",
   },
 ];

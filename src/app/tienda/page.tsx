@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { products, packs } from "@/data/products";
 import ProductCard from "@/components/product/ProductCard";
-import { PackButton } from "@/components/shop/PackButtons";
+import PackButton from "@/components/tienda/PackButton";
 import { ArrowRight, Coffee, Repeat, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -93,7 +93,11 @@ export default function TiendaPage() {
                   <span className="font-body text-2xl font-semibold text-fikir-brown">
                     {packs[0].price.toFixed(2)}&euro;
                   </span>
-                  <PackButton label="Comprar" style="green" />
+                  <PackButton
+                    variantId={packs[0].shopifyVariantId}
+                    label="Comprar"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
+                  />
                 </div>
               </div>
             </div>
@@ -138,7 +142,11 @@ export default function TiendaPage() {
                       /mes
                     </span>
                   </div>
-                  <PackButton label="Suscribirse" style="gold" />
+                  <PackButton
+                    variantId={packs[1].shopifyVariantId}
+                    label="Suscribirse"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-gold-light cursor-pointer"
+                  />
                 </div>
               </div>
             </div>
