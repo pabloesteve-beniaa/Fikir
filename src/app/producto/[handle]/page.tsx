@@ -5,47 +5,34 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
-import { createCheckout, isShopifyConfigured } from "@/lib/shopify";
+import { useCart } from "@/context/CartContext";
 import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
   const product = products.find((p) => p.handle === handle);
   const [selectedVariant, setSelectedVariant] = useState(0);
-  const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [buyError, setBuyError] = useState<string | null>(null);
+  const { addItem, loading } = useCart();
 
   async function handleBuyClick() {
     if (!product) return;
 
-    if (!isShopifyConfigured()) {
-      window.open("https://fikir-cafe.myshopify.com", "_blank", "noopener,noreferrer");
+    const shopifyVariantId = product.variants[selectedVariant].shopifyVariantId;
+    if (!shopifyVariantId) {
+      setBuyError(
+        "Este producto todavía no está disponible para comprar online. Contáctanos para hacer un pedido."
+      );
       return;
     }
 
-    setLoading(true);
+    setBuyError(null);
     try {
-      const variantId = product.variants[selectedVariant].id;
-      const data = (await createCheckout(variantId, 1)) as {
-        checkoutCreate: {
-          checkout: { webUrl: string } | null;
-          checkoutUserErrors: { message: string }[];
-        };
-      };
-
-      const checkoutUrl = data?.checkoutCreate?.checkout?.webUrl;
-      if (checkoutUrl) {
-        window.location.href = checkoutUrl;
-      } else {
-        const errors = data?.checkoutCreate?.checkoutUserErrors;
-        console.error("Checkout errors:", errors);
-        alert("No se pudo iniciar el proceso de compra. Por favor, contáctanos.");
-      }
+      await addItem(shopifyVariantId, 1);
     } catch (err) {
-      console.error("Checkout error:", err);
-      alert("Error al conectar con la tienda. Por favor, inténtalo de nuevo.");
-    } finally {
-      setLoading(false);
+      console.error("Add to cart error:", err);
+      setBuyError("No hemos podido añadir el producto al carrito. Inténtalo de nuevo.");
     }
   }
 
@@ -296,8 +283,13 @@ export default function ProductoPage() {
                 className={`mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 <ShoppingBag className="h-5 w-5" />
-                {loading ? "Cargando..." : `Comprar — ${product.price.toFixed(2)}€`}
+                {loading ? "Añadiendo..." : `Comprar — ${product.price.toFixed(2)}€`}
               </button>
+              {buyError && (
+                <p className="mt-3 font-body text-sm text-red-600" role="alert">
+                  {buyError}
+                </p>
+              )}
 
               {/* Impact card - structured */}
               <div className={`mt-8 p-6 rounded-2xl ${colors.lightBg} border ${colors.border}`}>

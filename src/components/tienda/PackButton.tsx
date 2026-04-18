@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { createCheckout, isShopifyConfigured } from "@/lib/shopify";
+import { useCart } from "@/context/CartContext";
 
 interface PackButtonProps {
   variantId: string;
@@ -11,48 +11,35 @@ interface PackButtonProps {
 }
 
 export default function PackButton({ variantId, label, className }: PackButtonProps) {
-  const [loading, setLoading] = useState(false);
+  const { addItem, loading } = useCart();
+  const [error, setError] = useState<string | null>(null);
 
   async function handleClick() {
-    if (!isShopifyConfigured()) {
-      window.open("https://fikir-cafe.myshopify.com", "_blank", "noopener,noreferrer");
-      return;
-    }
-
-    setLoading(true);
+    setError(null);
     try {
-      const data = (await createCheckout(variantId, 1)) as {
-        checkoutCreate: {
-          checkout: { webUrl: string } | null;
-          checkoutUserErrors: { message: string }[];
-        };
-      };
-
-      const checkoutUrl = data?.checkoutCreate?.checkout?.webUrl;
-      if (checkoutUrl) {
-        window.location.href = checkoutUrl;
-      } else {
-        const errors = data?.checkoutCreate?.checkoutUserErrors;
-        console.error("Checkout errors:", errors);
-        alert("No se pudo iniciar el proceso de compra. Por favor, contáctanos.");
-      }
+      await addItem(variantId, 1);
     } catch (err) {
-      console.error("Checkout error:", err);
-      alert("Error al conectar con la tienda. Por favor, inténtalo de nuevo.");
-    } finally {
-      setLoading(false);
+      console.error("Pack add error:", err);
+      setError("No se pudo añadir al carrito. Inténtalo de nuevo.");
     }
   }
 
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      disabled={loading}
-      className={`${className} disabled:opacity-60 disabled:cursor-not-allowed`}
-    >
-      {loading ? "Cargando..." : label}
-      <ArrowRight className="h-4 w-4" />
-    </button>
+    <div>
+      <button
+        type="button"
+        onClick={handleClick}
+        disabled={loading}
+        className={`${className} disabled:opacity-60 disabled:cursor-not-allowed`}
+      >
+        {loading ? "Añadiendo..." : label}
+        <ArrowRight className="h-4 w-4" />
+      </button>
+      {error && (
+        <p className="mt-2 font-body text-xs text-red-600" role="alert">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }

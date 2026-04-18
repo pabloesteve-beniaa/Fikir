@@ -11,7 +11,7 @@ export interface Product {
   scaScore: string;
   flavorNotes: string[];
   roast: string;
-  variants: { id: string; name: string; helper: string }[];
+  variants: { id: string; name: string; helper: string; shopifyVariantId?: string }[];
   description: string;
   story: string;
   impact: string;
