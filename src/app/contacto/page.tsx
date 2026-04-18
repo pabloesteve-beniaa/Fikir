@@ -153,7 +153,7 @@ export default function ContactoPage() {
               {/* WhatsApp */}
               <div className="mt-10 pt-8 border-t border-fikir-brown/10">
                 <a
-                  href="https://wa.me/3469754210"
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34697544210"}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
