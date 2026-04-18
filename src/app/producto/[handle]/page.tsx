@@ -4,15 +4,20 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/data/products";
+import { products, packs } from "@/data/products";
 import { useCart } from "@/context/CartContext";
-import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
+import FaqAccordion from "@/components/product/FaqAccordion";
+import { ArrowLeft, ArrowRight, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap, Minus, Plus } from "lucide-react";
+
+const MIN_QTY = 1;
+const MAX_QTY = 10;
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
   const product = products.find((p) => p.handle === handle);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(MIN_QTY);
   const [buyError, setBuyError] = useState<string | null>(null);
   const { addItem, loading } = useCart();
 
@@ -29,12 +34,15 @@ export default function ProductoPage() {
 
     setBuyError(null);
     try {
-      await addItem(shopifyVariantId, 1);
+      await addItem(shopifyVariantId, quantity);
     } catch (err) {
       console.error("Add to cart error:", err);
       setBuyError("No hemos podido añadir el producto al carrito. Inténtalo de nuevo.");
     }
   }
+
+  const decrementQty = () => setQuantity((q) => Math.max(MIN_QTY, q - 1));
+  const incrementQty = () => setQuantity((q) => Math.min(MAX_QTY, q + 1));
 
   if (!product) {
     return (
@@ -276,14 +284,47 @@ export default function ProductoPage() {
                 ))}
               </div>
 
+              {/* Quantity selector */}
+              <div className="mt-6 flex items-center gap-4">
+                <p className="font-body text-sm font-semibold text-fikir-brown">Cantidad</p>
+                <div className="inline-flex items-center border-2 border-fikir-brown/20 rounded-lg">
+                  <button
+                    type="button"
+                    onClick={decrementQty}
+                    disabled={quantity <= MIN_QTY}
+                    aria-label="Restar cantidad"
+                    className="p-2 text-fikir-brown-light hover:text-fikir-brown disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    <Minus className="h-4 w-4" />
+                  </button>
+                  <span
+                    className="px-4 font-body text-base font-semibold text-fikir-brown tabular-nums"
+                    aria-live="polite"
+                  >
+                    {quantity}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={incrementQty}
+                    disabled={quantity >= MAX_QTY}
+                    aria-label="Sumar cantidad"
+                    className="p-2 text-fikir-brown-light hover:text-fikir-brown disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    <Plus className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+
               {/* Add to cart */}
               <button
                 onClick={handleBuyClick}
                 disabled={loading}
-                className={`mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
+                className={`mt-4 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 <ShoppingBag className="h-5 w-5" />
-                {loading ? "Añadiendo..." : `Comprar — ${product.price.toFixed(2)}€`}
+                {loading
+                  ? "Añadiendo..."
+                  : `Comprar — ${(product.price * quantity).toFixed(2)}€`}
               </button>
               {buyError && (
                 <p className="mt-3 font-body text-sm text-red-600" role="alert">
@@ -347,37 +388,114 @@ export default function ProductoPage() {
                 <h3 className="font-heading text-lg font-bold text-fikir-brown mb-4">
                   Preguntas frecuentes
                 </h3>
-                <div className="space-y-3">
-                  {[
+                <FaqAccordion
+                  items={[
                     {
                       q: "¿Cómo debo preparar este café?",
-                      a: "Recomendamos cafetera italiana (moka), filtro, prensa francesa o AeroPress. Usa agua a 90-96°C y una proporción de 1:15 (café:agua)."
+                      a: "Recomendamos cafetera italiana (moka), filtro, prensa francesa o AeroPress. Usa agua a 90-96°C y una proporción de 1:15 (café:agua).",
                     },
                     {
                       q: "¿Cuánto tiempo se conserva fresco?",
-                      a: "Una vez abierto, consume en las 4-6 semanas siguientes para disfrutar de todo su aroma. Guárdalo en lugar fresco y seco, alejado de la luz."
+                      a: "Una vez abierto, consume en las 4-6 semanas siguientes para disfrutar de todo su aroma. Guárdalo en lugar fresco y seco, alejado de la luz.",
                     },
                     {
                       q: "¿Grano o molido?",
-                      a: "Si tienes molinillo, el grano conserva mejor la frescura. Si no, nuestro molido es perfecto para cafetera italiana, filtro o prensa francesa."
+                      a: "Si tienes molinillo, el grano conserva mejor la frescura. Si no, nuestro molido es perfecto para cafetera italiana, filtro o prensa francesa.",
                     },
-                  ].map((faq) => (
-                    <details key={faq.q} className="group">
-                      <summary className="flex items-center justify-between py-3 cursor-pointer list-none font-body text-sm font-medium text-fikir-brown">
-                        {faq.q}
-                        <ChevronDown className="h-4 w-4 text-fikir-brown-light shrink-0 transition-transform duration-200 group-open:rotate-180" />
-                      </summary>
-                      <p className="pb-3 font-body text-sm text-fikir-brown-light leading-relaxed">
-                        {faq.a}
-                      </p>
-                    </details>
-                  ))}
-                </div>
+                  ]}
+                  defaultOpen={0}
+                />
               </div>
             </div>
           </div>
+
+          {/* Cross-sell block */}
+          <CrossSell currentHandle={product.handle} />
         </div>
       </section>
+    </div>
+  );
+}
+
+function CrossSell({ currentHandle }: { currentHandle: string }) {
+  const pack = packs.find((p) => p.handle === "pack-degustacion");
+  const otherOrigin = products.find(
+    (p) => p.handle !== currentHandle && (p.handle === "etiopia" || p.handle === "kenia")
+  );
+
+  const suggestions: { href: string; image: string; imageAlt: string; label: string; title: string; description: string; price: number }[] = [];
+
+  if (pack) {
+    suggestions.push({
+      href: `/producto/${pack.handle}`,
+      image: pack.image,
+      imageAlt: pack.name,
+      label: "Pack Degustación",
+      title: "¿Quieres probar los dos orígenes?",
+      description: pack.description,
+      price: pack.price,
+    });
+  }
+
+  // On Kenia's PDP, also suggest Etiopía (and vice versa)
+  if (currentHandle === "kenia" && otherOrigin) {
+    suggestions.push({
+      href: `/producto/${otherOrigin.handle}`,
+      image: otherOrigin.image,
+      imageAlt: otherOrigin.imageAlt,
+      label: otherOrigin.origin,
+      title: `Prueba también nuestro café de ${otherOrigin.origin}`,
+      description: otherOrigin.description,
+      price: otherOrigin.price,
+    });
+  }
+
+  if (suggestions.length === 0) return null;
+
+  return (
+    <div className="mt-16 lg:mt-20">
+      <h2 className="font-heading text-2xl font-bold text-fikir-brown mb-6 lg:text-3xl">
+        También te puede interesar
+      </h2>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {suggestions.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="group flex flex-col sm:flex-row gap-4 p-6 rounded-2xl bg-fikir-cream hover:shadow-lg transition-shadow duration-300"
+          >
+            <div className="relative w-full sm:w-32 h-32 rounded-xl overflow-hidden bg-fikir-white shrink-0">
+              <Image
+                src={item.image}
+                alt={item.imageAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 128px"
+              />
+            </div>
+            <div className="flex-1 flex flex-col">
+              <p className="font-body text-xs font-semibold tracking-wide uppercase text-fikir-gold">
+                {item.label}
+              </p>
+              <h3 className="mt-1 font-heading text-lg font-bold text-fikir-brown">
+                {item.title}
+              </h3>
+              <p className="mt-1 font-body text-sm text-fikir-brown-light line-clamp-2">
+                {item.description}
+              </p>
+              <div className="mt-auto pt-3 flex items-center justify-between">
+                <span className="font-heading text-lg font-bold text-fikir-brown">
+                  {item.price.toFixed(2)}€
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-fikir-green group-hover:gap-2 transition-all">
+                  Ver pack
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
