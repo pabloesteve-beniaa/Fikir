@@ -3,26 +3,43 @@
 import { useState } from "react";
 import { Gift, CheckCircle, Heart, BookOpen } from "lucide-react";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setIsLoading(true);
+    setErrorMsg(null);
 
+    if (!EMAIL_REGEX.test(email)) {
+      setErrorMsg("Introduce un email válido.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("loading");
     try {
-      await fetch("/api/newsletter", {
+      const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, honeypot }),
       });
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setErrorMsg(data?.error || "No hemos podido suscribirte. Inténtalo de nuevo.");
+        setStatus("error");
+      }
     } catch (err) {
       console.error("Newsletter error:", err);
-    } finally {
-      setIsLoading(false);
-      setSubmitted(true);
+      setErrorMsg("Error de conexión. Inténtalo de nuevo.");
+      setStatus("error");
     }
   }
 
@@ -55,11 +72,24 @@ export default function NewsletterSection() {
             ))}
           </div>
 
-          {!submitted ? (
+          {status !== "success" ? (
             <form
               onSubmit={handleSubmit}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 max-w-lg mx-auto"
+              noValidate
             >
+              {/* Honeypot — hidden from real users */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                className="hidden"
+                aria-hidden="true"
+              />
+
               <input
                 type="email"
                 required
@@ -71,19 +101,25 @@ export default function NewsletterSection() {
               />
               <button
                 type="submit"
-                disabled={isLoading}
+                disabled={status === "loading"}
                 className="px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-gold-light shrink-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {isLoading ? "Enviando..." : "Quiero mi descuento"}
+                {status === "loading" ? "Enviando..." : "Quiero mi descuento"}
               </button>
             </form>
           ) : (
             <div className="mt-8 flex items-center justify-center gap-3 p-4 rounded-lg bg-fikir-green/20">
               <CheckCircle className="h-5 w-5 text-fikir-gold" />
               <p className="font-body text-sm font-medium text-fikir-cream">
-                Bienvenido/a a Fikir. Revisa tu email para tu descuento.
+                ¡Revisa tu email! Te enviamos tu código de descuento.
               </p>
             </div>
+          )}
+
+          {status === "error" && errorMsg && (
+            <p className="mt-4 font-body text-sm text-fikir-gold" role="alert">
+              {errorMsg}
+            </p>
           )}
 
           <p className="mt-4 font-body text-xs text-fikir-cream/40">
