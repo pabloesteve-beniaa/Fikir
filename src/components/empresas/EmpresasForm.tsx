@@ -51,12 +51,12 @@ export default function EmpresasForm() {
         setForm({ empresa: "", nombre: "", email: "", servicio: "", mensaje: "" });
       } else {
         const data = await res.json().catch(() => ({}));
-        setErrorMsg(data?.error || "No hemos podido enviar tu solicitud. Inténtalo de nuevo.");
+        setErrorMsg(data?.error || "Ha ocurrido un error. Por favor inténtalo de nuevo.");
         setStatus("error");
       }
     } catch (err) {
       console.error("Empresas fetch error:", err);
-      setErrorMsg("Error de conexión. Inténtalo de nuevo.");
+      setErrorMsg("Ha ocurrido un error. Por favor inténtalo de nuevo.");
       setStatus("error");
     }
   }
@@ -67,10 +67,9 @@ export default function EmpresasForm() {
         <div className="w-16 h-16 rounded-full bg-fikir-green/10 flex items-center justify-center mx-auto mb-4">
           <CheckCircle className="h-8 w-8 text-fikir-green" />
         </div>
-        <h3 className="font-heading text-2xl font-bold text-fikir-brown">¡Solicitud recibida!</h3>
+        <h3 className="font-heading text-2xl font-bold text-fikir-brown">¡Propuesta solicitada!</h3>
         <p className="mt-2 font-body text-sm text-fikir-brown-light">
-          Te enviaremos una propuesta personalizada en menos de 24 horas laborables.
-          Revisa tu email: te hemos enviado un acuse de recibo.
+          Te contactaremos en menos de 24 horas.
         </p>
       </div>
     );

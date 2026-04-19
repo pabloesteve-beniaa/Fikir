@@ -38,6 +38,7 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         email: normalized,
         listIds: [listId],
+        attributes: { SOURCE: "newsletter-website" },
         updateEnabled: true,
       }),
     });
@@ -45,11 +46,11 @@ export async function POST(request: NextRequest) {
     const subscribed = status === 201 || status === 204;
     let alreadyExists = false;
     if (!subscribed) {
-      const body = data as { code?: string; message?: string };
-      if (body?.code === "duplicate_parameter") {
+      const errBody = data as { code?: string; message?: string };
+      if (errBody?.code === "duplicate_parameter") {
         alreadyExists = true;
       } else {
-        console.error("Brevo subscribe failed:", status, body);
+        console.error("Brevo subscribe failed:", status, errBody);
         return NextResponse.json(
           { error: "No se pudo completar la suscripción" },
           { status: 502 }

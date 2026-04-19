@@ -72,7 +72,14 @@ export default function NewsletterSection() {
             ))}
           </div>
 
-          {status !== "success" ? (
+          {status === "success" ? (
+            <div className="mt-8 flex items-center justify-center gap-3 p-4 rounded-lg bg-fikir-green/20">
+              <CheckCircle className="h-5 w-5 text-fikir-gold" />
+              <p className="font-body text-sm font-medium text-fikir-cream">
+                Bienvenido/a a Fikir. Revisa tu email para tu descuento.
+              </p>
+            </div>
+          ) : (
             <form
               onSubmit={handleSubmit}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 max-w-lg mx-auto"
@@ -107,13 +114,6 @@ export default function NewsletterSection() {
                 {status === "loading" ? "Enviando..." : "Quiero mi descuento"}
               </button>
             </form>
-          ) : (
-            <div className="mt-8 flex items-center justify-center gap-3 p-4 rounded-lg bg-fikir-green/20">
-              <CheckCircle className="h-5 w-5 text-fikir-gold" />
-              <p className="font-body text-sm font-medium text-fikir-cream">
-                ¡Revisa tu email! Te enviamos tu código de descuento.
-              </p>
-            </div>
           )}
 
           {status === "error" && errorMsg && (

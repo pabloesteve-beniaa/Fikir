@@ -50,12 +50,12 @@ export default function ContactForm() {
         setForm({ nombre: "", email: "", asunto: "", mensaje: "" });
       } else {
         const data = await res.json().catch(() => ({}));
-        setErrorMsg(data?.error || "No hemos podido enviar tu mensaje. Inténtalo de nuevo.");
+        setErrorMsg(data?.error || "Ha ocurrido un error. Por favor inténtalo de nuevo.");
         setStatus("error");
       }
     } catch (err) {
       console.error("Contact fetch error:", err);
-      setErrorMsg("Error de conexión. Inténtalo de nuevo.");
+      setErrorMsg("Ha ocurrido un error. Por favor inténtalo de nuevo.");
       setStatus("error");
     }
   }
@@ -68,8 +68,7 @@ export default function ContactForm() {
         </div>
         <h3 className="font-heading text-2xl font-bold text-fikir-brown">¡Mensaje enviado!</h3>
         <p className="mt-2 font-body text-sm text-fikir-brown-light">
-          Hemos recibido tu mensaje. Te responderemos en menos de 24 horas laborables.
-          Revisa tu bandeja de entrada: te hemos enviado un email de confirmación.
+          Te responderemos en menos de 24 horas.
         </p>
       </div>
     );
