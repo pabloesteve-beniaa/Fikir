@@ -1,6 +1,7 @@
 "use client";
 
-import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
+import { useState } from "react";
+import { X, Minus, Plus, Trash2, ShoppingBag, Tag } from "lucide-react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 
@@ -17,7 +18,49 @@ function formatMoney(amount: string, currencyCode: string): string {
 }
 
 export default function CartDrawer() {
-  const { cart, drawerOpen, closeDrawer, updateItem, removeItem, loading } = useCart();
+  const {
+    cart,
+    drawerOpen,
+    closeDrawer,
+    updateItem,
+    removeItem,
+    loading,
+    applyDiscountCode,
+    clearDiscountCodes,
+  } = useCart();
+
+  const [couponInput, setCouponInput] = useState("");
+  const [couponError, setCouponError] = useState<string | null>(null);
+  const [couponApplying, setCouponApplying] = useState(false);
+
+  const activeCoupon = cart?.discountCodes?.find((d) => d.applicable)?.code;
+  const rejectedCoupon = cart?.discountCodes?.find((d) => !d.applicable)?.code;
+
+  async function handleApplyCoupon(e: React.FormEvent) {
+    e.preventDefault();
+    setCouponError(null);
+    if (!couponInput.trim()) return;
+    setCouponApplying(true);
+    const { ok, applicable } = await applyDiscountCode(couponInput);
+    setCouponApplying(false);
+    if (!ok) {
+      setCouponError("No hemos podido aplicar el código. Inténtalo de nuevo.");
+      return;
+    }
+    if (!applicable) {
+      setCouponError("Este código no es válido para tu carrito.");
+      return;
+    }
+    setCouponInput("");
+  }
+
+  const subtotal = cart?.cost?.subtotalAmount;
+  const total = cart?.cost?.totalAmount;
+  const hasDiscount =
+    Boolean(activeCoupon) &&
+    subtotal &&
+    total &&
+    subtotal.amount !== total.amount;
 
   return (
     <>
@@ -70,6 +113,7 @@ export default function CartDrawer() {
             <ul className="space-y-6">
               {cart.lines.map((line) => {
                 const img = line.merchandise.image;
+                const sellingPlanName = line.sellingPlanAllocation?.sellingPlan?.name;
                 return (
                   <li key={line.id} className="flex gap-4">
                     <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-fikir-white shrink-0">
@@ -90,6 +134,11 @@ export default function CartDrawer() {
                       <p className="font-body text-xs text-fikir-brown-light mt-0.5">
                         {line.merchandise.title}
                       </p>
+                      {sellingPlanName && (
+                        <p className="font-body text-xs text-fikir-green mt-0.5">
+                          {sellingPlanName}
+                        </p>
+                      )}
                       <p className="mt-1 font-body text-sm font-medium text-fikir-brown">
                         {formatMoney(
                           line.cost.totalAmount.amount,
@@ -141,15 +190,72 @@ export default function CartDrawer() {
         {/* Footer */}
         {cart && cart.lines.length > 0 && (
           <footer className="border-t border-fikir-brown/10 px-6 py-5 space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="font-body text-sm text-fikir-brown-light">Subtotal</span>
-              <span className="font-heading text-lg font-bold text-fikir-brown">
-                {formatMoney(
-                  cart.cost.subtotalAmount.amount,
-                  cart.cost.subtotalAmount.currencyCode
-                )}
-              </span>
+            {/* Coupon */}
+            <div>
+              {activeCoupon ? (
+                <div className="flex items-center justify-between rounded-lg bg-fikir-green/10 px-3 py-2">
+                  <span className="flex items-center gap-2 font-body text-sm text-fikir-green font-semibold">
+                    <Tag className="h-4 w-4" />
+                    {activeCoupon}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={clearDiscountCodes}
+                    disabled={loading}
+                    className="font-body text-xs text-fikir-brown-light hover:text-fikir-brown underline cursor-pointer disabled:opacity-40"
+                  >
+                    Quitar
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleApplyCoupon} className="flex gap-2">
+                  <input
+                    type="text"
+                    value={couponInput}
+                    onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
+                    placeholder="Código de descuento"
+                    aria-label="Código de descuento"
+                    className="flex-1 px-3 py-2 rounded-md border border-fikir-brown/20 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/40"
+                  />
+                  <button
+                    type="submit"
+                    disabled={couponApplying || !couponInput.trim()}
+                    className="px-4 py-2 rounded-md bg-fikir-brown font-body text-sm font-semibold text-fikir-cream hover:bg-fikir-brown-light transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {couponApplying ? "..." : "Aplicar"}
+                  </button>
+                </form>
+              )}
+              {couponError && (
+                <p className="mt-1.5 font-body text-xs text-red-600" role="alert">
+                  {couponError}
+                </p>
+              )}
+              {!activeCoupon && rejectedCoupon && !couponError && (
+                <p className="mt-1.5 font-body text-xs text-fikir-brown-light">
+                  El código <span className="font-semibold">{rejectedCoupon}</span> no se puede aplicar a tu carrito.
+                </p>
+              )}
             </div>
+
+            {/* Totals */}
+            <div className="space-y-1">
+              {hasDiscount && subtotal && total && (
+                <div className="flex items-center justify-between font-body text-sm text-fikir-brown-light">
+                  <span>Subtotal</span>
+                  <span className="line-through">
+                    {formatMoney(subtotal.amount, subtotal.currencyCode)}
+                  </span>
+                </div>
+              )}
+              <div className="flex items-center justify-between">
+                <span className="font-body text-sm text-fikir-brown-light">Total</span>
+                <span className="font-heading text-lg font-bold text-fikir-brown">
+                  {total && formatMoney(total.amount, total.currencyCode)}
+                </span>
+              </div>
+            </div>
+
             <p className="font-body text-xs text-fikir-brown-light">
               Impuestos y envío calculados en el checkout.
             </p>

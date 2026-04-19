@@ -5,7 +5,9 @@ import {
   getCart,
   isShopifyConfigured,
   removeCartLines,
+  updateCartDiscountCodes,
   updateCartLines,
+  type CartLineInput,
 } from "@/lib/shopify";
 
 function configError() {
@@ -30,8 +32,11 @@ export async function GET(request: NextRequest) {
 
 /**
  * POST /api/cart
- * Body: { action: "create" } | { action: "add", cartId?, lines }
- *     | { action: "update", cartId, lines } | { action: "remove", cartId, lineIds }
+ * Body: { action: "create" } |
+ *       { action: "add", cartId?, lines: [{ merchandiseId, quantity, sellingPlanId? }] } |
+ *       { action: "update", cartId, lines: [{ id, quantity }] } |
+ *       { action: "remove", cartId, lineIds: [] } |
+ *       { action: "discount", cartId, codes: [string] }
  */
 export async function POST(request: NextRequest) {
   if (!isShopifyConfigured()) return configError();
@@ -46,7 +51,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "add") {
-      const lines = body.lines as { merchandiseId: string; quantity: number }[] | undefined;
+      const lines = body.lines as CartLineInput[] | undefined;
       if (!Array.isArray(lines) || lines.length === 0) {
         return NextResponse.json({ error: "lines requerido" }, { status: 400 });
       }
@@ -77,6 +82,15 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: "cartId y lineIds requeridos" }, { status: 400 });
       }
       const cart = await removeCartLines(cartId, lineIds);
+      return NextResponse.json({ cart });
+    }
+
+    if (action === "discount") {
+      const { cartId, codes } = body;
+      if (!cartId || !Array.isArray(codes)) {
+        return NextResponse.json({ error: "cartId y codes requeridos" }, { status: 400 });
+      }
+      const cart = await updateCartDiscountCodes(cartId, codes);
       return NextResponse.json({ cart });
     }
 

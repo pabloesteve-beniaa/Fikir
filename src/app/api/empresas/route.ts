@@ -1,17 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const BREVO_SMTP_URL = "https://api.brevo.com/v3/smtp/email";
-const TEAM_EMAIL = "hola@fikircafe.com";
-const TEAM_NAME = "Fikir Coffee";
-
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+import { escapeHtml, getContactEmail, getSender, sendEmail } from "@/lib/brevo";
 
 const SERVICE_LABELS: Record<string, string> = {
   oficina: "Café para oficina",
@@ -19,24 +7,6 @@ const SERVICE_LABELS: Record<string, string> = {
   rsc: "RSC y eventos",
   otro: "Otro",
 };
-
-async function sendBrevo(apiKey: string, payload: object): Promise<boolean> {
-  const res = await fetch(BREVO_SMTP_URL, {
-    method: "POST",
-    headers: {
-      "api-key": apiKey,
-      "Content-Type": "application/json",
-      accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-  if (res.status !== 201) {
-    const data = await res.json().catch(() => ({}));
-    console.error("Brevo email failed:", res.status, data);
-    return false;
-  }
-  return true;
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,8 +25,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email inválido" }, { status: 400 });
     }
 
-    const apiKey = process.env.BREVO_API_KEY;
-    if (!apiKey) {
+    if (!process.env.BREVO_API_KEY) {
       console.error("BREVO_API_KEY missing");
       return NextResponse.json({ error: "Servicio no configurado" }, { status: 500 });
     }
@@ -65,13 +34,11 @@ export async function POST(request: NextRequest) {
     const safeNombre = escapeHtml(nombre);
     const safeEmail = escapeHtml(email);
     const safeMensaje = escapeHtml(mensaje || "—");
-    const servicioLabel = SERVICE_LABELS[servicio] || escapeHtml(servicio || "No especificado");
+    const servicioLabel =
+      SERVICE_LABELS[servicio] || escapeHtml(servicio || "No especificado");
 
-    // 1. Notify team
-    const teamOk = await sendBrevo(apiKey, {
-      sender: { name: "Web Fikir Coffee B2B", email: TEAM_EMAIL },
-      to: [{ email: TEAM_EMAIL, name: TEAM_NAME }],
-      replyTo: { email },
+    const teamRes = await sendEmail({
+      to: { email: getContactEmail(), name: getSender().name },
       subject: `[B2B] ${servicioLabel} — ${empresa || nombre}`,
       htmlContent: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -88,12 +55,11 @@ export async function POST(request: NextRequest) {
           </div>
         </div>
       `,
+      replyTo: { email, name: nombre },
     });
 
-    // 2. Confirmation to lead
-    const userOk = await sendBrevo(apiKey, {
-      sender: { name: TEAM_NAME, email: TEAM_EMAIL },
-      to: [{ email, name: nombre }],
+    const userRes = await sendEmail({
+      to: { email, name: nombre },
       subject: "Hemos recibido tu propuesta — Fikir Coffee",
       htmlContent: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #444;">
@@ -102,8 +68,9 @@ export async function POST(request: NextRequest) {
           </div>
           <div style="padding: 32px; background: #FBF7F3; border-radius: 0 0 8px 8px;">
             <h2 style="color: #4A270D;">Hola ${safeNombre},</h2>
-            <p>Gracias por tu interés en Fikir Coffee para ${safeEmpresa === "—" ? "tu empresa" : safeEmpresa}. Revisaremos tu propuesta y te enviaremos una propuesta personalizada en menos de 24 horas laborables.</p>
-            <p>Mientras tanto, puedes leer más sobre nuestro <a href="https://www.fikircafe.com/impacto" style="color: #2E6B3E;">impacto en origen</a>.</p>
+            <p>Gracias por tu interés en Fikir Coffee para ${
+              safeEmpresa === "—" ? "tu empresa" : safeEmpresa
+            }. Revisaremos tu propuesta y te enviaremos una propuesta personalizada en menos de 24 horas laborables.</p>
             <hr style="border: 1px solid #E5DDD5; margin: 24px 0;" />
             <p style="font-size: 12px; color: #aaa;">Fikir Coffee · 100% del beneficio, 100% al origen.</p>
           </div>
@@ -111,7 +78,7 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    if (!teamOk) {
+    if (!teamRes.ok) {
       return NextResponse.json(
         { error: "No se pudo enviar el mensaje" },
         { status: 502 }
@@ -119,7 +86,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, confirmationSent: userOk },
+      { success: true, confirmationSent: userRes.ok },
       { status: 200 }
     );
   } catch (err) {

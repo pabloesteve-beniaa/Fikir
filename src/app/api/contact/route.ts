@@ -1,17 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const BREVO_SMTP_URL = "https://api.brevo.com/v3/smtp/email";
-const TEAM_EMAIL = "hola@fikircafe.com";
-const TEAM_NAME = "Fikir Coffee";
-
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+import { escapeHtml, getContactEmail, getSender, sendEmail } from "@/lib/brevo";
 
 const SUBJECT_LABELS: Record<string, string> = {
   pedido: "Sobre mi pedido",
@@ -21,24 +9,6 @@ const SUBJECT_LABELS: Record<string, string> = {
   colaborar: "Quiero colaborar",
   otro: "Otro",
 };
-
-async function sendBrevo(apiKey: string, payload: object): Promise<boolean> {
-  const res = await fetch(BREVO_SMTP_URL, {
-    method: "POST",
-    headers: {
-      "api-key": apiKey,
-      "Content-Type": "application/json",
-      accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-  if (res.status !== 201) {
-    const data = await res.json().catch(() => ({}));
-    console.error("Brevo email failed:", res.status, data);
-    return false;
-  }
-  return true;
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,23 +27,21 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email inválido" }, { status: 400 });
     }
 
-    const apiKey = process.env.BREVO_API_KEY;
-    if (!apiKey) {
+    if (!process.env.BREVO_API_KEY) {
       console.error("BREVO_API_KEY missing");
       return NextResponse.json({ error: "Servicio no configurado" }, { status: 500 });
     }
 
+    const teamEmail = getContactEmail();
     const safeNombre = escapeHtml(nombre);
     const safeEmail = escapeHtml(email);
     const safeMensaje = escapeHtml(mensaje);
     const subjectLabel = SUBJECT_LABELS[asunto] || escapeHtml(asunto || "Sin asunto");
 
-    // 1. Notify team
-    const teamOk = await sendBrevo(apiKey, {
-      sender: { name: "Web Fikir Coffee", email: TEAM_EMAIL },
-      to: [{ email: TEAM_EMAIL, name: TEAM_NAME }],
-      replyTo: { email },
-      subject: `[Contacto] ${subjectLabel} — ${nombre}`,
+    // 1. Team notification
+    const teamRes = await sendEmail({
+      to: { email: teamEmail, name: getSender().name },
+      subject: `Nuevo mensaje de contacto - fikircafe.com`,
       htmlContent: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #4A270D;">Nuevo mensaje de contacto</h2>
@@ -88,12 +56,12 @@ export async function POST(request: NextRequest) {
           </div>
         </div>
       `,
+      replyTo: { email, name: nombre },
     });
 
     // 2. Confirmation to user
-    const userOk = await sendBrevo(apiKey, {
-      sender: { name: TEAM_NAME, email: TEAM_EMAIL },
-      to: [{ email, name: nombre }],
+    const userRes = await sendEmail({
+      to: { email, name: nombre },
       subject: "Hemos recibido tu mensaje — Fikir Coffee",
       htmlContent: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #444;">
@@ -110,7 +78,7 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    if (!teamOk) {
+    if (!teamRes.ok) {
       return NextResponse.json(
         { error: "No se pudo enviar el mensaje" },
         { status: 502 }
@@ -118,7 +86,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, confirmationSent: userOk },
+      { success: true, confirmationSent: userRes.ok },
       { status: 200 }
     );
   } catch (err) {

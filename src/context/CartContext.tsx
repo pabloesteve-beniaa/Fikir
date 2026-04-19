@@ -18,9 +18,15 @@ interface CartContextValue {
   drawerOpen: boolean;
   openDrawer: () => void;
   closeDrawer: () => void;
-  addItem: (merchandiseId: string, quantity?: number) => Promise<void>;
+  addItem: (
+    merchandiseId: string,
+    quantity?: number,
+    sellingPlanId?: string
+  ) => Promise<void>;
   updateItem: (lineId: string, quantity: number) => Promise<void>;
   removeItem: (lineId: string) => Promise<void>;
+  applyDiscountCode: (code: string) => Promise<{ ok: boolean; applicable: boolean }>;
+  clearDiscountCodes: () => Promise<void>;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -41,7 +47,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // Restore cart from localStorage on mount
   useEffect(() => {
     const storedId = typeof window !== "undefined" ? localStorage.getItem(CART_ID_STORAGE_KEY) : null;
     if (!storedId) return;
@@ -56,14 +61,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         if (data?.cart) {
           setCart(data.cart);
         } else {
-          // Cart expired or not found
           localStorage.removeItem(CART_ID_STORAGE_KEY);
         }
       })
       .catch(() => localStorage.removeItem(CART_ID_STORAGE_KEY));
   }, []);
 
-  // Persist cartId whenever it changes
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (cart?.id) {
@@ -72,13 +75,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [cart?.id]);
 
   const addItem = useCallback(
-    async (merchandiseId: string, quantity = 1) => {
+    async (merchandiseId: string, quantity = 1, sellingPlanId?: string) => {
       setLoading(true);
       try {
+        const line: { merchandiseId: string; quantity: number; sellingPlanId?: string } = {
+          merchandiseId,
+          quantity,
+        };
+        if (sellingPlanId) line.sellingPlanId = sellingPlanId;
         const updated = await postCart({
           action: "add",
           cartId: cart?.id,
-          lines: [{ merchandiseId, quantity }],
+          lines: [line],
         });
         if (updated) setCart(updated);
         setDrawerOpen(true);
@@ -125,6 +133,49 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     [cart?.id]
   );
 
+  const applyDiscountCode = useCallback(
+    async (code: string) => {
+      if (!cart?.id) return { ok: false, applicable: false };
+      const trimmed = code.trim();
+      if (!trimmed) return { ok: false, applicable: false };
+      setLoading(true);
+      try {
+        const updated = await postCart({
+          action: "discount",
+          cartId: cart.id,
+          codes: [trimmed],
+        });
+        if (updated) setCart(updated);
+        const applicable = Boolean(
+          updated?.discountCodes?.find(
+            (d) => d.code.toLowerCase() === trimmed.toLowerCase() && d.applicable
+          )
+        );
+        return { ok: true, applicable };
+      } catch {
+        return { ok: false, applicable: false };
+      } finally {
+        setLoading(false);
+      }
+    },
+    [cart?.id]
+  );
+
+  const clearDiscountCodes = useCallback(async () => {
+    if (!cart?.id) return;
+    setLoading(true);
+    try {
+      const updated = await postCart({
+        action: "discount",
+        cartId: cart.id,
+        codes: [],
+      });
+      if (updated) setCart(updated);
+    } finally {
+      setLoading(false);
+    }
+  }, [cart?.id]);
+
   const value = useMemo<CartContextValue>(
     () => ({
       cart,
@@ -135,8 +186,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       addItem,
       updateItem,
       removeItem,
+      applyDiscountCode,
+      clearDiscountCodes,
     }),
-    [cart, loading, drawerOpen, addItem, updateItem, removeItem]
+    [cart, loading, drawerOpen, addItem, updateItem, removeItem, applyDiscountCode, clearDiscountCodes]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
