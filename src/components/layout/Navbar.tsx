@@ -16,7 +16,7 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { cart, openDrawer } = useCart();
+  const { cart, openCart } = useCart();
   const cartCount = cart?.totalQuantity ?? 0;
 
   return (
@@ -50,7 +50,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <button
               type="button"
-              onClick={openDrawer}
+              onClick={openCart}
               className="relative p-2 text-fikir-brown transition-colors duration-200 hover:text-fikir-green cursor-pointer"
               aria-label={cartCount > 0 ? `Abrir carrito (${cartCount} artículos)` : "Abrir carrito"}
             >

@@ -11,13 +11,13 @@ interface PackButtonProps {
 }
 
 export default function PackButton({ variantId, label, className }: PackButtonProps) {
-  const { addItem, loading } = useCart();
+  const { addToCart, loading } = useCart();
   const [error, setError] = useState<string | null>(null);
 
   async function handleClick() {
     setError(null);
     try {
-      await addItem(variantId, 1);
+      await addToCart(variantId, 1);
     } catch (err) {
       console.error("Pack add error:", err);
       setError("No se pudo añadir al carrito. Inténtalo de nuevo.");

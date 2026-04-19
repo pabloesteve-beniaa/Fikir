@@ -19,7 +19,7 @@ export default function ProductoPage() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(MIN_QTY);
   const [buyError, setBuyError] = useState<string | null>(null);
-  const { addItem, loading } = useCart();
+  const { addToCart, loading } = useCart();
 
   async function handleBuyClick() {
     if (!product) return;
@@ -34,7 +34,7 @@ export default function ProductoPage() {
 
     setBuyError(null);
     try {
-      await addItem(shopifyVariantId, quantity);
+      await addToCart(shopifyVariantId, quantity);
     } catch (err) {
       console.error("Add to cart error:", err);
       setBuyError("No hemos podido añadir el producto al carrito. Inténtalo de nuevo.");

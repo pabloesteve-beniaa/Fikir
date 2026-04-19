@@ -52,7 +52,7 @@ export default function SuscripcionClient({
 }: SuscripcionClientProps) {
   const [selectedPlanId, setSelectedPlanId] = useState(sellingPlans[0]?.id ?? "");
   const [buyError, setBuyError] = useState<string | null>(null);
-  const { addItem, loading } = useCart();
+  const { addToCart, loading } = useCart();
 
   async function handleSubscribeClick() {
     if (!variantId) {
@@ -67,7 +67,7 @@ export default function SuscripcionClient({
     }
     setBuyError(null);
     try {
-      await addItem(variantId, 1, selectedPlanId || undefined);
+      await addToCart(variantId, 1, selectedPlanId || undefined);
     } catch (err) {
       console.error("Subscription add error:", err);
       setBuyError("No hemos podido iniciar tu suscripción. Inténtalo de nuevo.");

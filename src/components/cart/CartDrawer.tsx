@@ -20,10 +20,10 @@ function formatMoney(amount: string, currencyCode: string): string {
 export default function CartDrawer() {
   const {
     cart,
-    drawerOpen,
-    closeDrawer,
-    updateItem,
-    removeItem,
+    isOpen,
+    closeCart,
+    updateCartItem,
+    removeFromCart,
     loading,
     applyDiscountCode,
     clearDiscountCodes,
@@ -67,27 +67,27 @@ export default function CartDrawer() {
       {/* Backdrop */}
       <div
         className={`fixed inset-0 z-[90] bg-fikir-brown/60 backdrop-blur-sm transition-opacity duration-300 ${
-          drawerOpen ? "opacity-100" : "pointer-events-none opacity-0"
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
-        onClick={closeDrawer}
+        onClick={closeCart}
         aria-hidden="true"
       />
 
       {/* Drawer */}
       <aside
         className={`fixed right-0 top-0 z-[95] h-full w-full max-w-md bg-fikir-cream shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
-          drawerOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-label="Carrito"
-        aria-hidden={!drawerOpen}
+        aria-hidden={!isOpen}
       >
         {/* Header */}
         <header className="flex items-center justify-between px-6 py-5 border-b border-fikir-brown/10">
           <h2 className="font-heading text-xl font-bold text-fikir-brown">Tu carrito</h2>
           <button
             type="button"
-            onClick={closeDrawer}
+            onClick={closeCart}
             aria-label="Cerrar carrito"
             className="p-1 text-fikir-brown-light hover:text-fikir-brown transition-colors cursor-pointer"
           >
@@ -150,7 +150,7 @@ export default function CartDrawer() {
                           <button
                             type="button"
                             disabled={loading || line.quantity <= 1}
-                            onClick={() => updateItem(line.id, line.quantity - 1)}
+                            onClick={() => updateCartItem(line.id, line.quantity - 1)}
                             className="p-1.5 text-fikir-brown-light hover:text-fikir-brown disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
                             aria-label="Restar cantidad"
                           >
@@ -162,7 +162,7 @@ export default function CartDrawer() {
                           <button
                             type="button"
                             disabled={loading}
-                            onClick={() => updateItem(line.id, line.quantity + 1)}
+                            onClick={() => updateCartItem(line.id, line.quantity + 1)}
                             className="p-1.5 text-fikir-brown-light hover:text-fikir-brown disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
                             aria-label="Sumar cantidad"
                           >
@@ -172,7 +172,7 @@ export default function CartDrawer() {
                         <button
                           type="button"
                           disabled={loading}
-                          onClick={() => removeItem(line.id)}
+                          onClick={() => removeFromCart(line.id)}
                           className="p-1 text-fikir-brown-light hover:text-red-600 disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
                           aria-label="Eliminar producto"
                         >

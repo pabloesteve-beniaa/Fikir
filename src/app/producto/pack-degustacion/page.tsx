@@ -30,7 +30,7 @@ export default function PackDegustacionPage() {
 
   const [quantity, setQuantity] = useState(MIN_QTY);
   const [buyError, setBuyError] = useState<string | null>(null);
-  const { addItem, loading } = useCart();
+  const { addToCart, loading } = useCart();
 
   if (!pack) return null;
 
@@ -41,7 +41,7 @@ export default function PackDegustacionPage() {
     }
     setBuyError(null);
     try {
-      await addItem(pack.shopifyVariantId, quantity);
+      await addToCart(pack.shopifyVariantId, quantity);
     } catch (err) {
       console.error("Add to cart error:", err);
       setBuyError("No hemos podido añadir el pack al carrito. Inténtalo de nuevo.");

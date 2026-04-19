@@ -45,14 +45,14 @@ export default function ShopifyProductCard({
   defaultVariantId,
   detailsOnly = false,
 }: ShopifyProductCardProps) {
-  const { addItem, loading } = useCart();
+  const { addToCart, loading } = useCart();
   const [error, setError] = useState<string | null>(null);
 
   async function handleBuy() {
     if (!defaultVariantId) return;
     setError(null);
     try {
-      await addItem(defaultVariantId, 1);
+      await addToCart(defaultVariantId, 1);
     } catch (err) {
       console.error("Add to cart error:", err);
       setError("No hemos podido añadir al carrito. Inténtalo de nuevo.");

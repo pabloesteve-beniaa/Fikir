@@ -15,16 +15,16 @@ const CART_ID_STORAGE_KEY = "fikir-cart-id";
 interface CartContextValue {
   cart: Cart | null;
   loading: boolean;
-  drawerOpen: boolean;
-  openDrawer: () => void;
-  closeDrawer: () => void;
-  addItem: (
+  isOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
+  addToCart: (
     merchandiseId: string,
     quantity?: number,
     sellingPlanId?: string
   ) => Promise<void>;
-  updateItem: (lineId: string, quantity: number) => Promise<void>;
-  removeItem: (lineId: string) => Promise<void>;
+  updateCartItem: (lineId: string, quantity: number) => Promise<void>;
+  removeFromCart: (lineId: string) => Promise<void>;
   applyDiscountCode: (code: string) => Promise<{ ok: boolean; applicable: boolean }>;
   clearDiscountCodes: () => Promise<void>;
 }
@@ -45,7 +45,7 @@ async function postCart(body: object): Promise<Cart | null> {
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<Cart | null>(null);
   const [loading, setLoading] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const storedId = typeof window !== "undefined" ? localStorage.getItem(CART_ID_STORAGE_KEY) : null;
@@ -74,7 +74,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [cart?.id]);
 
-  const addItem = useCallback(
+  const addToCart = useCallback(
     async (merchandiseId: string, quantity = 1, sellingPlanId?: string) => {
       setLoading(true);
       try {
@@ -89,7 +89,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           lines: [line],
         });
         if (updated) setCart(updated);
-        setDrawerOpen(true);
+        setIsOpen(true);
       } finally {
         setLoading(false);
       }
@@ -97,7 +97,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     [cart?.id]
   );
 
-  const updateItem = useCallback(
+  const updateCartItem = useCallback(
     async (lineId: string, quantity: number) => {
       if (!cart?.id) return;
       setLoading(true);
@@ -115,7 +115,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     [cart?.id]
   );
 
-  const removeItem = useCallback(
+  const removeFromCart = useCallback(
     async (lineId: string) => {
       if (!cart?.id) return;
       setLoading(true);
@@ -180,16 +180,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     () => ({
       cart,
       loading,
-      drawerOpen,
-      openDrawer: () => setDrawerOpen(true),
-      closeDrawer: () => setDrawerOpen(false),
-      addItem,
-      updateItem,
-      removeItem,
+      isOpen,
+      openCart: () => setIsOpen(true),
+      closeCart: () => setIsOpen(false),
+      addToCart,
+      updateCartItem,
+      removeFromCart,
       applyDiscountCode,
       clearDiscountCodes,
     }),
-    [cart, loading, drawerOpen, addItem, updateItem, removeItem, applyDiscountCode, clearDiscountCodes]
+    [cart, loading, isOpen, addToCart, updateCartItem, removeFromCart, applyDiscountCode, clearDiscountCodes]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
