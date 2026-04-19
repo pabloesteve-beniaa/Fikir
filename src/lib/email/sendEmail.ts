@@ -1,6 +1,9 @@
 import nodemailer, { type Transporter } from "nodemailer";
 
-const FROM = `"Fikir Coffee" <${process.env.BREVO_SENDER_EMAIL || "pablo.esteve@beniaa.com"}>`;
+// Verified sender while fikircafe.com domain is pending DNS propagation.
+const FROM_EMAIL = process.env.BREVO_SENDER_EMAIL || "pablo.esteve@beniaa.com";
+const FROM_NAME = process.env.BREVO_SENDER_NAME || "Fikir Coffee";
+const FROM = `"${FROM_NAME}" <${FROM_EMAIL}>`;
 
 let cachedTransporter: Transporter | null = null;
 

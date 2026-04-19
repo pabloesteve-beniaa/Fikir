@@ -5,15 +5,21 @@
 const BREVO_API = "https://api.brevo.com/v3";
 const DEFAULT_LIST_NAME = "Newsletter fikircafe.com";
 
+// Default sender/recipient while the fikircafe.com domain DNS is still
+// propagating in Brevo. Emails from hola@fikircafe.com would be silently
+// rejected by Brevo, so we default to the verified address.
+const DEFAULT_SENDER_EMAIL = "pablo.esteve@beniaa.com";
+const DEFAULT_CONTACT_EMAIL = "pablo.esteve@beniaa.com";
+
 export function getSender(): { name: string; email: string } {
   return {
     name: process.env.BREVO_SENDER_NAME || "Fikir Coffee",
-    email: process.env.BREVO_SENDER_EMAIL || "hola@fikircafe.com",
+    email: process.env.BREVO_SENDER_EMAIL || DEFAULT_SENDER_EMAIL,
   };
 }
 
 export function getContactEmail(): string {
-  return process.env.CONTACT_EMAIL || "hola@fikircafe.com";
+  return process.env.CONTACT_EMAIL || DEFAULT_CONTACT_EMAIL;
 }
 
 function apiKey(): string | null {

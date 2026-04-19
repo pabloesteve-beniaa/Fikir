@@ -40,8 +40,18 @@ export const products: Product[] = [
     flavorNotes: ["Floral", "Cítrico", "Bergamota"],
     roast: "Medio",
     variants: [
-      { id: "etiopia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
-      { id: "etiopia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
+      {
+        id: "etiopia-grano",
+        name: "Grano",
+        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707456921974",
+      },
+      {
+        id: "etiopia-molido",
+        name: "Molido",
+        helper: "Listo para cafetera italiana, filtro o prensa francesa.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707456954742",
+      },
     ],
     description:
       "Café de especialidad de la región de Yirgacheffe, cuna del café. Notas florales delicadas con toques citricos y un final a bergamota que lo hacen único.",
@@ -72,8 +82,18 @@ export const products: Product[] = [
     flavorNotes: ["Grosella negra", "Frutos rojos", "Cítrico"],
     roast: "Medio",
     variants: [
-      { id: "kenia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
-      { id: "kenia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
+      {
+        id: "kenia-grano",
+        name: "Grano",
+        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707478024566",
+      },
+      {
+        id: "kenia-molido",
+        name: "Molido",
+        helper: "Listo para cafetera italiana, filtro o prensa francesa.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707478057334",
+      },
     ],
     description:
       "Café de especialidad de la región de Nyeri. Un perfil vibrante con notas de grosella negra, frutos rojos y un final cítrico brillante.",
@@ -101,7 +121,7 @@ export const packs = [
     price: 27.99,
     currency: "EUR",
     image: "/images/pack-degustacion.jpg",
-    shopifyVariantId: "gid://shopify/ProductVariant/56818921931130",
+    shopifyVariantId: "gid://shopify/ProductVariant/57707504533878",
   },
   {
     id: "suscripcion-mensual",
@@ -112,6 +132,6 @@ export const packs = [
     currency: "EUR",
     image: "/images/suscripcion.jpg",
     note: "al mes",
-    shopifyVariantId: "gid://shopify/ProductVariant/56818922684794",
+    shopifyVariantId: "gid://shopify/ProductVariant/57707511611766",
   },
 ];

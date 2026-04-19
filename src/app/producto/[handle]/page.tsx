@@ -317,6 +317,7 @@ export default function ProductoPage() {
 
               {/* Add to cart */}
               <button
+                type="button"
                 onClick={handleBuyClick}
                 disabled={loading}
                 className={`mt-4 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}

@@ -212,6 +212,7 @@ export default function SuscripcionClient({
               </div>
 
               <button
+                type="button"
                 onClick={handleSubscribeClick}
                 disabled={loading || !availableForSale}
                 className="mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-fikir-gold hover:bg-fikir-gold-light font-body text-base font-semibold text-fikir-brown tracking-wide uppercase transition-colors duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
