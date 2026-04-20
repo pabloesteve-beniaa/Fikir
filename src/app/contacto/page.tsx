@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     question: "¿Hacéis regalos corporativos o para empresas?",
-    answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra página de Empresas o escríbenos a hola@fikircoffee.com.",
+    answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra página de Empresas o escríbenos a hola@fikircafe.com.",
   },
   {
     question: "¿Qué métodos de pago aceptáis?",
