@@ -5,8 +5,8 @@ const footerLinks = {
   tienda: [
     { name: "Etiopía Yirgacheffe", href: "/producto/etiopia" },
     { name: "Kenia Nyeri", href: "/producto/kenia" },
-    { name: "Pack Degustación", href: "/tienda" },
-    { name: "Suscripción", href: "/tienda" },
+    { name: "Pack Degustación", href: "/producto/pack-degustacion" },
+    { name: "Suscripción", href: "/producto/suscripcion" },
   ],
   marca: [
     { name: "Nosotros", href: "/nosotros" },

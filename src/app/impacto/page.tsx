@@ -5,11 +5,11 @@ import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, 
 
 export const metadata: Metadata = {
   title: "Impacto",
-  description: "Conoce el impacto social de Fikir Coffee: proyectos activos en Meki (Etiopía) y Dokolo (Kenia) para la infancia en comunidades cafeteras.",
+  description: "Conoce el impacto social de Fikir Coffee: proyectos en marcha en Meki (Etiopía) y Dokolo (Kenia) para la infancia en comunidades cafeteras.",
   alternates: { canonical: "/impacto" },
   openGraph: {
     title: "Impacto | Fikir Coffee",
-    description: "Conoce el impacto social de Fikir Coffee: proyectos activos en Meki y Dokolo para la infancia.",
+    description: "Conoce el impacto social de Fikir Coffee: proyectos en marcha en Meki y Dokolo para la infancia.",
     images: [{ url: "/images/meki-orfanato.jpg" }],
   },
 };
@@ -123,7 +123,7 @@ export default function ImpactoPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              { value: "2", label: "Proyectos activos" },
+              { value: "2", label: "Proyectos en marcha" },
               { value: "2", label: "Comunidades apoyadas" },
               { value: "100%", label: "Beneficio reinvertido" },
               { value: "85+", label: "Puntuación SCA" },
@@ -146,7 +146,7 @@ export default function ImpactoPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Proyectos activos
+              Proyectos en marcha
             </h2>
             <p className="mt-4 font-body text-lg text-fikir-brown-light">
               Cada café de Fikir está vinculado a un proyecto real y verificable.

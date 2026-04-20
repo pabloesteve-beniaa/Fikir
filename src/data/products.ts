@@ -120,7 +120,7 @@ export const packs = [
     description: "Descubre los dos orígenes de Fikir. Incluye 1 bolsa de Etiopía + 1 bolsa de Kenia (250g cada una).",
     price: 27.99,
     currency: "EUR",
-    image: "/images/pack-degustacion.jpg",
+    image: "/images/etiopia-ficha.jpg",
     shopifyVariantId: "gid://shopify/ProductVariant/57707504533878",
   },
   {
@@ -130,7 +130,7 @@ export const packs = [
     description: "Recibe café fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
     price: 12.99,
     currency: "EUR",
-    image: "/images/suscripcion.jpg",
+    image: "/images/fikir-estanteria.jpg",
     note: "al mes",
     shopifyVariantId: "gid://shopify/ProductVariant/57707511611766",
   },

@@ -43,7 +43,7 @@ const timeline = [
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "2 proyectos activos en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "2 proyectos en marcha en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 

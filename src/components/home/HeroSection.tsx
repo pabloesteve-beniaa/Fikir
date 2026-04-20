@@ -84,7 +84,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-fikir-gold shrink-0" />
               <p className="font-body text-xs text-fikir-cream/80 uppercase tracking-wide">
-                Proyectos activos en Etiopía y Kenia
+                Proyectos en marcha en Etiopía y Kenia
               </p>
             </div>
           </div>

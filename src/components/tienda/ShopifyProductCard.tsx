@@ -24,6 +24,22 @@ interface ShopifyProductCardProps {
   detailsOnly?: boolean;
 }
 
+// Local fallback imagery for products whose Shopify record has no featuredImage
+// yet. Keeps the DOM img tag always rendered and the layout consistent.
+const HANDLE_FALLBACK_IMAGE: Record<string, string> = {
+  etiopia: "/images/etiopia-product.jpg",
+  kenia: "/images/kenia-product.jpg",
+  "pack-degustacion": "/images/etiopia-ficha.jpg",
+  suscripcion: "/images/fikir-estanteria.jpg",
+  "fikir-coffee-edicion-001": "/images/fikir-estanteria.jpg",
+};
+const DEFAULT_FALLBACK = "/images/fikir-estanteria.jpg";
+
+function resolveImage(handle: string, shopifyUrl: string | null): string {
+  if (shopifyUrl) return shopifyUrl;
+  return HANDLE_FALLBACK_IMAGE[handle] || DEFAULT_FALLBACK;
+}
+
 function formatMoney(amount: string, currency: string): string {
   const n = Number(amount);
   try {
@@ -60,23 +76,19 @@ export default function ShopifyProductCard({
   }
 
   const canBuyInline = availableForSale && defaultVariantId && !detailsOnly;
+  const resolvedImage = resolveImage(handle, imageUrl);
+  const resolvedAlt = imageAlt || title;
 
   return (
     <article className="flex flex-col bg-fikir-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
       <Link href={`/producto/${handle}`} className="relative aspect-square block overflow-hidden bg-fikir-white">
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={imageAlt || title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 33vw"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-fikir-green to-fikir-terracotta">
-            <span className="font-heading text-2xl font-bold text-fikir-cream">{title}</span>
-          </div>
-        )}
+        <Image
+          src={resolvedImage}
+          alt={resolvedAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
         {!availableForSale && (
           <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-fikir-brown/90 font-body text-xs font-semibold text-fikir-cream uppercase tracking-wide">
             Agotado
@@ -125,3 +137,4 @@ export default function ShopifyProductCard({
     </article>
   );
 }
+
