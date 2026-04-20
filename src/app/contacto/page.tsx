@@ -16,7 +16,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "hola@fikircoffee.com",
+    value: "hola@fikircafe.com",
     description: "Te respondemos en menos de 24h",
   },
   {
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     question: "Hacéis regalos corporativos o para empresas?",
-    answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra página de Empresas o escríbenos a hola@fikircoffee.com.",
+    answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra página de Empresas o escríbenos a hola@fikircafe.com.",
   },
   {
     question: "¿Qué métodos de pago aceptáis?",

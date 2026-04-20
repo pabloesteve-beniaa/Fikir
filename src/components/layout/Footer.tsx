@@ -126,7 +126,7 @@ export default function Footer() {
             </ul>
             <div className="mt-6">
               <p className="font-body text-sm text-fikir-cream/70">
-                hola@fikircoffee.com
+                hola@fikircafe.com
               </p>
             </div>
           </div>
