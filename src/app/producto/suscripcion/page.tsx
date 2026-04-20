@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { packs } from "@/data/products";
 import { getProductByHandle, isShopifyConfigured, type SellingPlan } from "@/lib/shopify";
 import SuscripcionClient from "./SuscripcionClient";
+
+export const metadata: Metadata = {
+  title: { absolute: "Suscripción Mensual de Café · Fikir Coffee" },
+  alternates: { canonical: "/producto/suscripcion" },
+};
 
 // Force dynamic render so the page never depends on build-time network access.
 // If the Shopify fetch fails at build (e.g. no egress during build) the static
