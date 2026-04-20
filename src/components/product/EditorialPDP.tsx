@@ -7,7 +7,6 @@ import { products, packs, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import FaqAccordion from "@/components/product/FaqAccordion";
 import {
-  ArrowLeft,
   ArrowRight,
   ShoppingBag,
   MapPin,
