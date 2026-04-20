@@ -144,11 +144,6 @@ export default function EditorialPDP({ product, shopifyAvailable, shopifyPrice }
                   <span className="px-3 py-1.5 rounded-full bg-fikir-cream/15 backdrop-blur-sm font-body text-xs font-semibold text-fikir-cream">
                     Tostado en pequeños lotes
                   </span>
-                  {available && (
-                    <span className="px-3 py-1.5 rounded-full bg-fikir-gold/90 font-body text-xs font-semibold text-fikir-brown">
-                      Edición limitada
-                    </span>
-                  )}
                   {!available && (
                     <span className="px-3 py-1.5 rounded-full bg-fikir-brown/90 font-body text-xs font-semibold text-fikir-cream uppercase">
                       Agotado
@@ -194,6 +189,9 @@ export default function EditorialPDP({ product, shopifyAvailable, shopifyPrice }
               </p>
               <p className="mt-3 font-heading text-3xl font-bold text-fikir-brown">
                 {unitPrice.toFixed(2)}&euro;
+              </p>
+              <p className="mt-1 font-body text-xs text-fikir-brown-light/70">
+                IVA incluido · Envío gratis a partir de 50€
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2">
@@ -269,7 +267,8 @@ export default function EditorialPDP({ product, shopifyAvailable, shopifyPrice }
                 {[
                   { icon: Award, text: "Café de especialidad (SCA " + product.scaScore + ")" },
                   { icon: Truck, text: "Envío en 3-5 días · Gratis a partir de 50€" },
-                  { icon: Heart, text: "100% del beneficio reinvertido en origen" },
+                  { icon: Heart, text: "100% del beneficio neto reinvertido" },
+                  { icon: Leaf, text: "Packaging compostable" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2.5">
                     <CheckCircle className="h-4 w-4 text-fikir-green shrink-0" />

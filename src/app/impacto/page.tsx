@@ -98,7 +98,7 @@ export default function ImpactoPage() {
               <span className="text-fikir-gold">construye futuro</span>
             </h1>
             <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
-              El 100% del beneficio de Fikir se reinvierte en proyectos para la infancia en Etiopía y Kenia.
+              El 100% del beneficio neto —tras cubrir costes operativos— se reinvierte en proyectos para la infancia en Etiopía y Kenia.
             </p>
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function ImpactoPage() {
             {[
               { value: "2", label: "Proyectos en marcha" },
               { value: "2", label: "Comunidades apoyadas" },
-              { value: "100%", label: "Beneficio reinvertido" },
+              { value: "100%", label: "Beneficio neto reinvertido" },
               { value: "85+", label: "Puntuación SCA" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
@@ -267,7 +267,7 @@ export default function ImpactoPage() {
       </section>
 
       {/* Transparency section */}
-      <section className="py-24 bg-fikir-cream-dark lg:py-32">
+      <section id="transparencia" className="py-24 bg-fikir-cream-dark lg:py-32 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
@@ -360,7 +360,7 @@ export default function ImpactoPage() {
             href="/tienda"
             className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
           >
-            Comprar café con impacto
+            Tu primera bolsa, tu primer impacto →
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

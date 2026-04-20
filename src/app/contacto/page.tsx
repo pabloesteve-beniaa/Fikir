@@ -43,15 +43,15 @@ const faqs = [
     answer: "El café en grano conserva mejor la frescura y el aroma. Recomendamos grano si tienes molinillo. El molido es perfecto para cafetera italiana (moka), filtro o prensa francesa.",
   },
   {
-    question: "Cómo funciona la suscripción?",
+    question: "¿Cómo funciona la suscripción?",
     answer: "Recibes café fresco cada mes en tu puerta. Puedes elegir tu origen favorito, alternar entre los dos, y pausar o cancelar cuando quieras. Sin permanencia.",
   },
   {
-    question: "De verdad todo el beneficio va al origen?",
+    question: "¿De verdad todo el beneficio va al origen?",
     answer: "Si. Fikir es un proyecto sin ánimo de lucro. Después de cubrir costes operativos (café verde, tueste, packaging, envío), el 100% del beneficio se reinvierte en proyectos para la infancia en comunidades cafetaleras de Etiopía y Kenia.",
   },
   {
-    question: "Hacéis regalos corporativos o para empresas?",
+    question: "¿Hacéis regalos corporativos o para empresas?",
     answer: "Si. Ofrecemos packs personalizados para oficinas, eventos y regalos corporativos. Visita nuestra página de Empresas o escríbenos a hola@fikircafe.com.",
   },
   {

@@ -43,7 +43,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2">
               <Heart className="h-4 w-4 text-fikir-gold" />
-              <span className="font-body text-xs text-fikir-cream/70">100% beneficio reinvertido</span>
+              <span className="font-body text-xs text-fikir-cream/70">100% del beneficio neto reinvertido</span>
             </div>
           </div>
         </div>
