@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { products } from "@/data/products";
 import ProductCard from "@/components/product/ProductCard";
 
@@ -24,6 +25,19 @@ export default function FeaturedProducts() {
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+
+        {/* Subscription secondary CTA */}
+        <div className="mt-8 text-center">
+          <p className="font-body text-sm text-fikir-brown-light">
+            ¿Prefieres recibirlo cada mes? →{" "}
+            <Link
+              href="/producto/suscripcion"
+              className="font-semibold text-fikir-green hover:text-fikir-green-light underline underline-offset-4 transition-colors"
+            >
+              Suscripción desde 12,99€/mes
+            </Link>
+          </p>
         </div>
       </div>
     </section>

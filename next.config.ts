@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/producto/fikir-coffee-edicion-001",
+        destination: "/producto/etiopia",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

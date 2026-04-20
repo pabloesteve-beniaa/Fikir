@@ -34,7 +34,7 @@ export default function TiendaPage() {
             </p>
             {/* Trust line */}
             <div className="mt-4 flex flex-wrap justify-center gap-4">
-              {["Envío 3-5 días · Gratis >50€", "100% beneficio reinvertido", "SCA 85+"].map((item) => (
+              {["Envío 3-5 días · Gratis >50€", "100% del beneficio neto reinvertido", "Café tostado en pequeños lotes", "SCA 85+"].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
                   <CheckCircle className="h-3.5 w-3.5 text-fikir-green" />
                   <span className="font-body text-xs text-fikir-brown-light">{item}</span>
@@ -45,69 +45,18 @@ export default function TiendaPage() {
         </div>
       </section>
 
-      {/* Main Products */}
+      {/* Products */}
       <section className="py-16 bg-fikir-cream lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-fikir-brown mb-12 text-center">
-            Nuestros orígenes
+            Nuestros productos
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            <ProductCard product={products[0]} badge="Más vendido" />
-            <ProductCard product={products[1]} badge="Intenso y complejo" />
-          </div>
-        </div>
-      </section>
-
-      {/* Packs & Subscription */}
-      <section className="py-16 bg-fikir-white lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold text-fikir-brown mb-12 text-center">
-            Más opciones
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            {/* Pack Degustación */}
-            <div className="bg-fikir-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-              <div className="relative aspect-video bg-gradient-to-br from-fikir-green to-fikir-terracotta flex items-center justify-center p-8">
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown">
-                  Ideal para empezar
-                </div>
-                <div className="text-center">
-                  <Coffee className="h-12 w-12 text-fikir-cream/80 mx-auto" />
-                  <span className="mt-4 block font-heading text-3xl font-bold text-fikir-cream">
-                    Pack Degustación
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-heading text-xl font-bold text-fikir-brown">
-                  {packs[0].name}
-                </h3>
-                <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
-                  {packs[0].description}
-                </p>
-                <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
-                  Perfecto para descubrir tu favorito
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="font-body text-2xl font-semibold text-fikir-brown">
-                    {packs[0].price.toFixed(2)}&euro;
-                  </span>
-                  <Link
-                    href="#"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
-                  >
-                    Comprar
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Suscripción */}
-            <div className="bg-fikir-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border-2 border-fikir-gold/30">
+            {/* Suscripción — featured first */}
+            <div className="bg-fikir-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border-2 border-fikir-gold/30">
               <div className="relative aspect-video bg-gradient-to-br from-fikir-brown to-fikir-brown/80 flex items-center justify-center p-8">
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown">
-                  Recomendada
+                  Más popular
                 </div>
                 <div className="text-center">
                   <Repeat className="h-12 w-12 text-fikir-gold mx-auto" />
@@ -142,12 +91,56 @@ export default function TiendaPage() {
                     <span className="font-body text-sm text-fikir-brown-light ml-1">
                       /mes
                     </span>
+                    <p className="font-body text-xs text-fikir-brown-light/70 mt-1">
+                      Ahorra ~2€/mes vs compra unitaria · Pausa o cancela cuando quieras
+                    </p>
                   </div>
                   <Link
-                    href="#"
+                    href="/producto/suscripcion"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-gold-light cursor-pointer"
                   >
                     Suscribirse
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <ProductCard product={products[0]} badge="Más vendido" />
+            <ProductCard product={products[1]} badge="Intenso y complejo" />
+
+            {/* Pack Degustación */}
+            <div className="bg-fikir-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <div className="relative aspect-video bg-gradient-to-br from-fikir-green to-fikir-terracotta flex items-center justify-center p-8">
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-fikir-gold font-body text-xs font-semibold text-fikir-brown">
+                  Ideal para empezar
+                </div>
+                <div className="text-center">
+                  <Coffee className="h-12 w-12 text-fikir-cream/80 mx-auto" />
+                  <span className="mt-4 block font-heading text-3xl font-bold text-fikir-cream">
+                    Pack Degustación
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading text-xl font-bold text-fikir-brown">
+                  {packs[0].name}
+                </h3>
+                <p className="font-body text-sm text-fikir-brown-light mt-2 leading-relaxed">
+                  {packs[0].description}
+                </p>
+                <p className="mt-2 font-body text-sm italic text-fikir-brown-light/70">
+                  Perfecto para descubrir tu favorito
+                </p>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="font-body text-2xl font-semibold text-fikir-brown">
+                    {packs[0].price.toFixed(2)}&euro;
+                  </span>
+                  <Link
+                    href="/producto/pack-degustacion"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
+                  >
+                    Comprar
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -164,8 +157,7 @@ export default function TiendaPage() {
             Cada bolsa financia proyectos para la infancia en origen
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
-            El 100% de nuestro beneficio se reinvierte en proyectos infantiles en las comunidades donde
-            nace tu café. Sin intermediarios.
+            El 100% del beneficio neto —tras cubrir costes operativos— se reinvierte en proyectos para la infancia en origen. Sin intermediarios.
           </p>
           <Link
             href="/impacto"

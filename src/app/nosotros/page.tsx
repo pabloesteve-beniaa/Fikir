@@ -244,7 +244,7 @@ export default function NosotrosPage() {
             href="/tienda"
             className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
           >
-            Comprar café
+            Únete al proyecto — desde 14,99€
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

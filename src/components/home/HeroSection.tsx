@@ -20,16 +20,14 @@ export default function HeroSection() {
 
           {/* Main headline */}
           <h1 className="font-heading text-5xl font-bold leading-tight text-fikir-cream sm:text-6xl lg:text-7xl xl:text-8xl">
-            Este café cambia
+            Café de especialidad de Etiopía y Kenia.
             <br />
-            <span className="text-fikir-gold">más que tu mañana</span>
+            <span className="text-fikir-gold">El beneficio íntegro, para la infancia en origen.</span>
           </h1>
 
           {/* Clear value proposition - childhood focused */}
           <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-fikir-cream/90 sm:text-xl">
-            Café de especialidad de Kenia y Etiopía.
-            <br />
-            <span className="font-semibold text-fikir-cream">100% del beneficio se reinvierte</span> en proyectos para la infancia en comunidades cafetaleras.
+            Sin ánimo de lucro. Cada bolsa que compras financia directamente a los niños de las comunidades donde nace tu café.
           </p>
 
           {/* Micro trust badges */}
@@ -82,7 +80,7 @@ export default function HeroSection() {
             <div>
               <p className="font-heading text-3xl font-bold text-fikir-gold">100%</p>
               <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
-                Beneficio reinvertido
+                Beneficio neto reinvertido
               </p>
             </div>
             <div className="w-px h-12 bg-fikir-cream/10" />
