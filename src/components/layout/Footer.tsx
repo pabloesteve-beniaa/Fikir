@@ -5,8 +5,8 @@ const footerLinks = {
   tienda: [
     { name: "Etiopía Yirgacheffe", href: "/producto/etiopia" },
     { name: "Kenia Nyeri", href: "/producto/kenia" },
-    { name: "Pack Degustación", href: "/tienda" },
-    { name: "Suscripción", href: "/tienda" },
+    { name: "Pack Degustación", href: "/producto/pack-degustacion" },
+    { name: "Suscripción", href: "/producto/suscripcion" },
   ],
   marca: [
     { name: "Nosotros", href: "/nosotros" },
@@ -15,10 +15,10 @@ const footerLinks = {
     { name: "Contacto", href: "/contacto" },
   ],
   legal: [
-    { name: "Política de privacidad", href: "#" },
-    { name: "Términos y condiciones", href: "#" },
-    { name: "Política de cookies", href: "#" },
-    { name: "Envíos y devoluciones", href: "#" },
+    { name: "Política de privacidad", href: "/privacidad" },
+    { name: "Términos y condiciones", href: "/terminos" },
+    { name: "Política de cookies", href: "/cookies" },
+    { name: "Envíos y devoluciones", href: "/envios" },
   ],
 };
 
@@ -126,7 +126,7 @@ export default function Footer() {
             </ul>
             <div className="mt-6">
               <p className="font-body text-sm text-fikir-cream/70">
-                hola@fikircoffee.com
+                hola@fikircafe.com
               </p>
             </div>
           </div>

@@ -6,7 +6,8 @@ import { ArrowRight, Coffee, Repeat, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tienda",
-  description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a toda España en 3-5 días.",
+  description:
+    "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a toda España en 3-5 días.",
   alternates: { canonical: "/tienda" },
   openGraph: {
     title: "Tienda | Fikir Coffee",
@@ -29,10 +30,9 @@ export default function TiendaPage() {
               Café con propósito
             </h1>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              Café de especialidad tostado en pequeños lotes. Cada bolsa que compras
-              financia proyectos para la infancia en comunidades cafetaleras.
+              Café de especialidad tostado en pequeños lotes. Cada bolsa financia
+              proyectos para la infancia en comunidades cafetaleras.
             </p>
-            {/* Trust line */}
             <div className="mt-4 flex flex-wrap justify-center gap-4">
               {["Envío 3-5 días · Gratis >50€", "100% del beneficio neto reinvertido", "Café tostado en pequeños lotes", "SCA 85+"].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">

@@ -11,7 +11,7 @@ export interface Product {
   scaScore: string;
   flavorNotes: string[];
   roast: string;
-  variants: { id: string; name: string; helper: string }[];
+  variants: { id: string; name: string; helper: string; shopifyVariantId?: string }[];
   description: string;
   story: string;
   impact: string;
@@ -40,8 +40,18 @@ export const products: Product[] = [
     flavorNotes: ["Floral", "Cítrico", "Bergamota"],
     roast: "Medio",
     variants: [
-      { id: "etiopia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
-      { id: "etiopia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
+      {
+        id: "etiopia-grano",
+        name: "Grano",
+        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707456921974",
+      },
+      {
+        id: "etiopia-molido",
+        name: "Molido",
+        helper: "Listo para cafetera italiana, filtro o prensa francesa.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707456954742",
+      },
     ],
     description:
       "Café de especialidad de la región de Yirgacheffe, cuna del café. Notas florales delicadas con toques citricos y un final a bergamota que lo hacen único.",
@@ -72,8 +82,18 @@ export const products: Product[] = [
     flavorNotes: ["Grosella negra", "Frutos rojos", "Cítrico"],
     roast: "Medio",
     variants: [
-      { id: "kenia-grano", name: "Grano", helper: "Maxima frescura. Ideal si tienes molinillo." },
-      { id: "kenia-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
+      {
+        id: "kenia-grano",
+        name: "Grano",
+        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707478024566",
+      },
+      {
+        id: "kenia-molido",
+        name: "Molido",
+        helper: "Listo para cafetera italiana, filtro o prensa francesa.",
+        shopifyVariantId: "gid://shopify/ProductVariant/57707478057334",
+      },
     ],
     description:
       "Café de especialidad de la región de Nyeri. Un perfil vibrante con notas de grosella negra, frutos rojos y un final cítrico brillante.",
@@ -100,7 +120,8 @@ export const packs = [
     description: "Descubre los dos orígenes de Fikir. Incluye 1 bolsa de Etiopía + 1 bolsa de Kenia (250g cada una).",
     price: 27.99,
     currency: "EUR",
-    image: "/images/pack-degustacion.jpg",
+    image: "/images/etiopia-ficha.jpg",
+    shopifyVariantId: "gid://shopify/ProductVariant/57707504533878",
   },
   {
     id: "suscripcion-mensual",
@@ -109,7 +130,8 @@ export const packs = [
     description: "Recibe café fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
     price: 12.99,
     currency: "EUR",
-    image: "/images/suscripcion.jpg",
+    image: "/images/fikir-estanteria.jpg",
     note: "al mes",
+    shopifyVariantId: "gid://shopify/ProductVariant/57707511611766",
   },
 ];

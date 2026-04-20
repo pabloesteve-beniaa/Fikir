@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Clock, ChevronDown, MessageCircle } from "lucide-react";
+import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -15,7 +16,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "hola@fikircoffee.com",
+    value: "hola@fikircafe.com",
     description: "Te respondemos en menos de 24h",
   },
   {
@@ -152,7 +153,7 @@ export default function ContactoPage() {
               {/* WhatsApp */}
               <div className="mt-10 pt-8 border-t border-fikir-brown/10">
                 <a
-                  href="https://wa.me/3469754210"
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "34697544210"}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
@@ -186,81 +187,7 @@ export default function ContactoPage() {
 
             {/* Form */}
             <div className="lg:col-span-3">
-              <div className="bg-fikir-cream rounded-2xl p-8 lg:p-12">
-                <h2 className="font-heading text-2xl font-bold text-fikir-brown mb-8">
-                  Envíanos un mensaje
-                </h2>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="contact-name" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                        Nombre
-                      </label>
-                      <input
-                        type="text"
-                        id="contact-name"
-                        name="name"
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
-                        placeholder="Tu nombre"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-email" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="contact-email"
-                        name="email"
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
-                        placeholder="tu@email.com"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                      Asunto
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors cursor-pointer"
-                    >
-                      <option value="">Selecciona un tema</option>
-                      <option value="pedido">Sobre mi pedido</option>
-                      <option value="producto">Sobre el café</option>
-                      <option value="impacto">Sobre el impacto</option>
-                      <option value="empresa">Propuesta para empresas</option>
-                      <option value="colaborar">Quiero colaborar</option>
-                      <option value="otro">Otro</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="contact-message" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                      Mensaje
-                    </label>
-                    <textarea
-                      id="contact-message"
-                      name="message"
-                      rows={5}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors resize-none"
-                      placeholder="Cuéntanos..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full px-8 py-4 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
-                  >
-                    Enviar mensaje
-                  </button>
-                  <p className="font-body text-xs text-fikir-brown-light/60 text-center">
-                    Te respondemos en menos de 24 horas.
-                  </p>
-                </form>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>

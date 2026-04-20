@@ -10,7 +10,7 @@ export default function TransparencySection() {
             Transparencia
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-            Dónde va tu dinero
+            De cada 14,99€, ¿a dónde va?
           </h2>
           <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
             El 100% del beneficio neto —tras cubrir costes operativos— se reinvierte en proyectos para la infancia en origen.
