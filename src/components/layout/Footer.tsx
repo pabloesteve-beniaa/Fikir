@@ -15,10 +15,10 @@ const footerLinks = {
     { name: "Contacto", href: "/contacto" },
   ],
   legal: [
-    { name: "Política de privacidad", href: "#" },
-    { name: "Términos y condiciones", href: "#" },
-    { name: "Política de cookies", href: "#" },
-    { name: "Envíos y devoluciones", href: "#" },
+    { name: "Política de privacidad", href: "/privacidad" },
+    { name: "Términos y condiciones", href: "/terminos" },
+    { name: "Política de cookies", href: "/cookies" },
+    { name: "Envíos y devoluciones", href: "/envios" },
   ],
 };
 
