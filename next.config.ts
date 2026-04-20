@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       {
         source: "/producto/fikir-coffee-edicion-001",
         destination: "/producto/etiopia",
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },
