@@ -35,15 +35,15 @@ const timeline = [
   },
   {
     year: "2025",
-    title: "El impacto empieza",
+    title: "Primeras aportaciones a Meki",
     description:
-      "Financiamos los primeros kits escolares en Yirgacheffe y los primeros programas educativos en Nyeri. El café empieza a cambiar vidas.",
+      "Las primeras ventas se traducen en apoyo directo al orfanato de Meki, el proyecto con el que el fundador convivió durante años y que dio origen a Fikir.",
   },
   {
     year: "2026",
-    title: "Hoy: una comunidad que crece",
+    title: "Arranca Migori",
     description:
-      "2 proyectos en marcha en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "Comienza el Centro de Formación Profesional Kuria en Migori (Kenia), junto a la Fundación Pablo Horstmann. Tres años, 210 jóvenes y un itinerario de 12 meses en peluquería, carpintería y fontanería, con foco en igualdad de género y prevención de la mutilación genital femenina.",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function NosotrosPage() {
                 Cuando volví, sentí que le debía algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.
               </p>
               <p>
-                Hoy, cada bolsa de Fikir apoya al orfanato en Meki y un nuevo proyecto con la Fundación Pablo Horstmann en Dokolo. Son lugares que conozco. Personas que conozco. No es un proyecto lejano. Es personal.
+                Hoy, cada bolsa de Fikir apoya al orfanato en Meki &mdash;un lugar y unas personas que conozco&mdash; y el Centro de Formación Profesional Kuria en Migori (Kenia), junto a la Fundación Pablo Horstmann. No es un proyecto lejano. Es personal.
               </p>
               <p className="font-semibold text-fikir-brown">
                 Gracias por ser parte de esto.

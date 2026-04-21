@@ -219,7 +219,7 @@ export default function PackDegustacionClient() {
                 </h3>
                 <p className="mt-2 font-body text-sm text-fikir-brown-light">
                   Este pack financia nuestros dos proyectos simultáneamente: infancia en Meki
-                  (Etiopía) e infancia en Dokolo (Kenia).
+                  (Etiopía) y juventud Kuria en Migori (Kenia).
                 </p>
                 <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {etiopia && (
