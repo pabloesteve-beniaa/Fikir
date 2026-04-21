@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, Minus, Plus, Trash2, ShoppingBag, Tag } from "lucide-react";
+import { X, Minus, Plus, Trash2, ShoppingBag, Tag, Coffee } from "lucide-react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 
@@ -113,11 +113,13 @@ export default function CartDrawer() {
             <ul className="space-y-6">
               {cart.lines.map((line) => {
                 const img = line.merchandise.image;
+                const variantTitle = line.merchandise.title;
+                const showVariant = variantTitle && variantTitle !== "Default Title";
                 const sellingPlanName = line.sellingPlanAllocation?.sellingPlan?.name;
                 return (
                   <li key={line.id} className="flex gap-4">
-                    <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-fikir-white shrink-0">
-                      {img?.url && (
+                    <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-fikir-cream-dark shrink-0">
+                      {img?.url ? (
                         <Image
                           src={img.url}
                           alt={img.altText || line.merchandise.product.title}
@@ -125,15 +127,24 @@ export default function CartDrawer() {
                           className="object-cover"
                           sizes="80px"
                         />
+                      ) : (
+                        <div
+                          aria-hidden="true"
+                          className="flex h-full w-full items-center justify-center"
+                        >
+                          <Coffee className="h-7 w-7 text-fikir-brown-light/50" strokeWidth={1.25} />
+                        </div>
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-body text-sm font-semibold text-fikir-brown truncate">
                         {line.merchandise.product.title}
                       </p>
-                      <p className="font-body text-xs text-fikir-brown-light mt-0.5">
-                        {line.merchandise.title}
-                      </p>
+                      {showVariant && (
+                        <p className="font-body text-xs text-fikir-brown-light mt-0.5">
+                          {variantTitle}
+                        </p>
+                      )}
                       {sellingPlanName && (
                         <p className="font-body text-xs text-fikir-green mt-0.5">
                           {sellingPlanName}
