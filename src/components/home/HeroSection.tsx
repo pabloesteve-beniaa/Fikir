@@ -19,18 +19,18 @@ export default function HeroSection() {
             id="hero-title"
             className="mt-5 font-heading text-5xl font-medium leading-[1.05] tracking-tight text-fikir-brown sm:text-6xl lg:text-[72px]"
           >
-            Café que devuelve al origen
+            Bebes café de origen.
             <em className="mt-1 block font-normal italic text-fikir-gold">
-              todo lo que puede.
+              Financias proyectos en el origen.
             </em>
           </h1>
 
           <p className="mt-6 max-w-[52ch] font-body text-base leading-relaxed text-fikir-brown-light sm:text-lg">
-            De cada bolsa que compras, el{" "}
+            El{" "}
             <strong className="font-semibold text-fikir-brown">
               100% del beneficio neto
             </strong>{" "}
-            financia proyectos para la infancia en Etiopía y Kenia. Sin
+            vuelve a las comunidades que cultivan tu café. Etiopía · Kenia. Sin
             intermediarios. Sin greenwashing.
           </p>
 
