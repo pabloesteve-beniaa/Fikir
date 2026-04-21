@@ -5,11 +5,11 @@ import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, 
 
 export const metadata: Metadata = {
   title: "Impacto",
-  description: "Conoce el impacto social de Fikir Coffee: proyectos en marcha en Meki (Etiopía) y Dokolo (Kenia) para la infancia en comunidades cafeteras.",
+  description: "Conoce el impacto social de Fikir Coffee: proyectos en marcha en Meki (Etiopía) y Migori (Kenia) para la infancia y la juventud en comunidades cafeteras.",
   alternates: { canonical: "/impacto" },
   openGraph: {
     title: "Impacto | Fikir Coffee",
-    description: "Conoce el impacto social de Fikir Coffee: proyectos en marcha en Meki y Dokolo para la infancia.",
+    description: "Conoce el impacto social de Fikir Coffee: proyectos en marcha en Meki y Migori para la infancia y la juventud.",
     images: [{ url: "/images/meki-orfanato.jpg" }],
   },
 };
@@ -37,21 +37,21 @@ const projects = [
   {
     icon: Heart,
     country: "Kenia",
-    region: "Dokolo",
-    title: "Fundación Pablo Horstmann",
+    region: "Migori",
+    title: "Centro de Formación Profesional Kuria",
     description:
-      "Junto a la Fundación Pablo Horstmann, Fikir apoya el desarrollo de un nuevo proyecto para la infancia en Dokolo. Un compromiso que nace de la experiencia directa del fundador en Kenia y de la relación con esta fundación de referencia en cooperación infantil.",
+      "Junto a la Fundación Pablo Horstmann, Fikir apoya la puesta en marcha del Centro de Formación Profesional Kuria en Migori: talleres de peluquería, carpintería y fontanería en itinerarios de 12 meses. 210 jóvenes previstos en 2026–2028 (50% mujeres), con formación en igualdad de género y prevención de la mutilación genital femenina.",
     stats: [
-      { value: "En desarrollo", label: "" },
-      { value: "Fundación Pablo Horstmann", label: "" },
-      { value: "Dokolo, Kenia", label: "" },
+      { value: "Migori, Kenia", label: "" },
+      { value: "2026–2028", label: "" },
+      { value: "210 jóvenes · 50% mujeres", label: "" },
     ],
     evidence: [
-      { date: "2025-presente", text: "Desarrollo del proyecto infantil con Fundación Pablo Horstmann", location: "Dokolo, Kenia" },
+      { date: "2026–presente", text: "Puesta en marcha del Centro de Formación Profesional Kuria junto a la Fundación Pablo Horstmann", location: "Migori, Kenia" },
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
-    imagePlaceholder: "Foto del proyecto en Dokolo",
+    imagePlaceholder: "Foto del Centro de Formación en Migori",
   },
 ];
 
@@ -163,15 +163,27 @@ export default function ImpactoPage() {
             {projects.map((project) => (
               <div key={project.title}>
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-16 items-start">
-                  {/* Image placeholder */}
+                  {/* Image (Meki) / Placeholder (Migori, pendiente de foto real) */}
                   <div className="rounded-3xl overflow-hidden lg:col-span-2 relative aspect-video lg:aspect-square">
-                    <Image
-                      src={project.region === "Meki" ? "/images/meki-orfanato.jpg" : "/images/fundador-lalibela.jpg"}
-                      alt={project.region === "Meki" ? "Orfanato en Meki, Etiopía" : "Pablo en Kenia"}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                    />
+                    {project.region === "Meki" ? (
+                      <Image
+                        src="/images/meki-orfanato.jpg"
+                        alt="Orfanato en Meki, Etiopía"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-fikir-cream-dark flex flex-col items-center justify-center gap-3 px-6 text-center">
+                        <Camera className="h-10 w-10 text-fikir-brown-light/40" />
+                        <p className="font-body text-xs text-fikir-brown-light/70 tracking-wide uppercase">
+                          {project.imagePlaceholder}
+                        </p>
+                        <p className="font-body text-[11px] italic text-fikir-brown-light/50">
+                          Próximamente
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
@@ -225,7 +237,7 @@ export default function ImpactoPage() {
                       </div>
                     </div>
 
-                    {/* Media: real photo for Meki, YouTube embed for Dokolo */}
+                    {/* Media: real photo for Meki, YouTube embed for Migori */}
                     {project.region === "Meki" ? (
                       <div className="mt-8 relative aspect-video rounded-2xl overflow-hidden">
                         <Image
@@ -240,8 +252,8 @@ export default function ImpactoPage() {
                       <div className="mt-8">
                         <div className="relative aspect-video rounded-2xl overflow-hidden">
                           <iframe
-                            src="https://www.youtube.com/embed/0HcMMGiaruw"
-                            title="Proyecto Fikir en Dokolo con Fundación Pablo Horstmann"
+                            src="https://www.youtube.com/embed/CEvnCTuh7CU"
+                            title="Proyecto previo de la Fundación Pablo Horstmann"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             className="absolute inset-0 w-full h-full"

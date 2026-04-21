@@ -10,8 +10,8 @@ const stats = [
   },
   {
     icon: GraduationCap,
-    value: "Dokolo",
-    label: "Proyecto infantil en Kenia",
+    value: "Migori",
+    label: "Centro de Formación Profesional en Kenia",
     color: "text-fikir-terracotta",
   },
   {
@@ -59,11 +59,12 @@ export default function ImpactSection() {
                 <div className="w-2 h-2 mt-2 rounded-full bg-fikir-terracotta shrink-0" />
                 <div>
                   <h4 className="font-body text-sm font-semibold text-fikir-brown">
-                    Dokolo, Kenia &mdash; Fundación Pablo Horstmann
+                    Migori, Kenia &mdash; Fundación Pablo Horstmann
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    Nuevo proyecto para la infancia en desarrollo. Educación
-                    y oportunidades para niños en comunidades cafetaleras.
+                    Centro de Formación Profesional Kuria: talleres técnicos
+                    para jóvenes de la comunidad Kuria, con foco en igualdad
+                    de género y prevención de la MGF.
                   </p>
                 </div>
               </div>

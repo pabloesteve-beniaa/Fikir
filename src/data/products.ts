@@ -100,11 +100,11 @@ export const products: Product[] = [
     story:
       "En las faldas del Monte Kenia, a más de 1.700 metros, los caficultores de Nyeri producen algunos de los cafes más complejos del mundo. El suelo volcánico y el clima templado crean condiciones perfectas para un café excepcional.",
     impact:
-      "Este café apoya el desarrollo de un nuevo proyecto para la infancia junto a la Fundación Pablo Horstmann en Dokolo. Un compromiso real con las comunidades que hacen posible tu café.",
-    impactProject: "Proyecto infantil con Fundación Pablo Horstmann",
-    impactLocation: "Dokolo, Kenia",
-    impactWhat: "Desarrollo infantil, educación y oportunidades",
-    impactWho: "Niños en la comunidad de Dokolo",
+      "Este café apoya el Centro de Formación Profesional Kuria, en Migori (Kenia), junto a la Fundación Pablo Horstmann. Un itinerario formativo de 12 meses para jóvenes de la comunidad Kuria, con foco en igualdad de género y prevención de la mutilación genital femenina.",
+    impactProject: "Centro de Formación Profesional Kuria",
+    impactLocation: "Migori, Kenia",
+    impactWhat: "Talleres técnicos (peluquería, carpintería, fontanería) y prevención de la MGF",
+    impactWho: "Juventud de la comunidad Kuria (50% mujeres)",
     profileHint: "Ideal si prefieres intensidad y fruta",
     image: "/images/kenia-product.jpg",
     imageAlt: "Bolsa de café Fikir Coffee Kenia Nyeri",

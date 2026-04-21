@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, Camera } from "lucide-react";
 
 export default function VisualImpactBlock() {
   return (
@@ -48,30 +48,30 @@ export default function VisualImpactBlock() {
             </div>
           </div>
 
-          {/* Kenia - Dokolo */}
+          {/* Kenia - Migori */}
           <div className="rounded-2xl overflow-hidden bg-fikir-cream">
-            <div className="relative aspect-video">
-              <Image
-                src="/images/fundador-meki.jpg"
-                alt="Pablo trabajando con niños en el orfanato"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative aspect-video bg-fikir-cream-dark flex flex-col items-center justify-center gap-2 px-6 text-center">
+              <Camera className="h-8 w-8 text-fikir-brown-light/40" />
+              <p className="font-body text-[11px] text-fikir-brown-light/70 tracking-wide uppercase">
+                Foto del proyecto en Migori
+              </p>
+              <p className="font-body text-[10px] italic text-fikir-brown-light/50">
+                Próximamente
+              </p>
             </div>
             <div className="p-6">
               <div className="flex items-center gap-2 mb-3">
                 <MapPin className="h-4 w-4 text-fikir-terracotta" />
                 <span className="font-body text-xs font-semibold text-fikir-terracotta uppercase tracking-wide">
-                  Dokolo, Kenia
+                  Migori, Kenia
                 </span>
               </div>
               <h3 className="font-heading text-xl font-bold text-fikir-brown">
-                Fundación Pablo Horstmann
+                Centro de Formación Profesional Kuria
               </h3>
               <p className="mt-2 font-body text-sm text-fikir-brown-light leading-relaxed">
-                Nuevo proyecto para la infancia en desarrollo.
-                Educación, oportunidades y futuro para niños en Dokolo.
+                Formación técnica de 12 meses para jóvenes Kuria. Talleres,
+                igualdad de género y prevención de la MGF.
               </p>
             </div>
           </div>
