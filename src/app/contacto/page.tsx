@@ -64,16 +64,16 @@ export default function ContactoPage() {
   return (
     <div className="pt-20 lg:pt-24">
       {/* Hero */}
-      <section className="py-20 bg-fikir-brown lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="flex items-center bg-fikir-cream py-16 lg:min-h-[420px] lg:py-20">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-fikir-gold">
               Contacto
             </p>
-            <h1 className="mt-4 font-heading text-5xl font-bold text-fikir-cream sm:text-6xl">
+            <h1 className="mt-5 font-heading text-4xl font-medium leading-[1.05] text-fikir-brown sm:text-5xl lg:text-6xl">
               Hablemos
             </h1>
-            <p className="mt-6 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
+            <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-fikir-brown-light sm:text-lg">
               Tienes preguntas sobre nuestro café, nuestro impacto o quieres
               colaborar? Estamos aquí para ti.
             </p>
