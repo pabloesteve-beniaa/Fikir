@@ -86,20 +86,26 @@ export default function ImpactoPage() {
   return (
     <div className="pt-20 lg:pt-24">
       {/* Hero */}
-      <section className="py-20 bg-fikir-brown lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="flex items-center bg-fikir-cream py-16 lg:min-h-[420px] lg:py-20">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-fikir-gold">
               Nuestro impacto
             </p>
-            <h1 className="mt-4 font-heading text-5xl font-bold text-fikir-cream sm:text-6xl lg:text-7xl">
-              Tu café
-              <br />
-              <span className="text-fikir-gold">construye futuro</span>
+            <h1 className="mt-5 font-heading text-4xl font-medium leading-[1.05] text-fikir-brown sm:text-5xl lg:text-6xl">
+              Tu café{" "}
+              <em className="font-normal italic text-fikir-gold">construye futuro</em>
             </h1>
-            <p className="mt-8 font-body text-lg leading-relaxed text-fikir-cream/80 max-w-xl">
+            <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-fikir-brown-light sm:text-lg">
               El 100% del beneficio neto —tras cubrir costes operativos— se reinvierte en proyectos para la infancia en Etiopía y Kenia.
             </p>
+            <Link
+              href="/tienda"
+              className="mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full bg-fikir-green px-7 py-4 font-body text-sm font-semibold uppercase tracking-wider text-fikir-cream transition duration-200 hover:-translate-y-0.5 hover:bg-fikir-brown"
+            >
+              Comprar y aportar
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

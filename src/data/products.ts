@@ -112,6 +112,53 @@ export const products: Product[] = [
   },
 ];
 
+export type BrandColor = "green" | "terracotta" | "brown" | "gold";
+
+export interface CardMeta {
+  brand: BrandColor;
+  tagline: string;
+  notes: string[];
+  badge?: string;
+}
+
+/**
+ * Visual metadata keyed by product handle. Used by both the editorial
+ * ProductCard and ShopifyProductCard so the grid reads as a single
+ * system whether the catalog is served from Shopify or the static fallback.
+ */
+export const CARD_METADATA: Record<string, CardMeta> = {
+  etiopia: {
+    brand: "green",
+    tagline: "Ideal si te gustan los cafés suaves y florales",
+    notes: ["Floral", "Cítrico", "Bergamota"],
+  },
+  kenia: {
+    brand: "terracotta",
+    tagline: "Ideal si prefieres intensidad y fruta",
+    notes: ["Grosella negra", "Frutos rojos", "Cítrico"],
+  },
+  "pack-degustacion": {
+    brand: "brown",
+    tagline: "Los dos orígenes, una historia",
+    notes: ["Etiopía + Kenia", "2 × 250g"],
+  },
+  suscripcion: {
+    brand: "gold",
+    tagline: "Café fresco cada mes, en tu puerta",
+    notes: ["Grano o molido", "Pausa cuando quieras"],
+    badge: "Más popular",
+  },
+};
+
+export const FALLBACK_CARD_META: CardMeta = {
+  brand: "green",
+  tagline: "Café de especialidad",
+  notes: [],
+};
+
+/** Preferred order on /tienda: origin products first, then pack, then subscription. */
+export const TIENDA_ORDER = ["etiopia", "kenia", "pack-degustacion", "suscripcion"];
+
 export const packs = [
   {
     id: "pack-degustacion",
