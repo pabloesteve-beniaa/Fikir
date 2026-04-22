@@ -68,8 +68,8 @@ export default function HeroSection() {
         <figure className="relative order-1 overflow-hidden rounded-3xl shadow-[0_16px_40px_rgba(45,42,38,0.18)] lg:order-2">
           <div className="relative aspect-[4/5] w-full">
             <Image
-              src="/images/fundador-meki.jpg"
-              alt="Pablo, fundador de Fikir, con niños del orfanato de Meki en Etiopía"
+              src="/images/meki-grupo.jpg"
+              alt="Niños del orfanato de Meki, en Etiopía, una de las comunidades apoyadas por Fikir"
               fill
               priority
               sizes="(max-width: 900px) 100vw, 50vw"
@@ -77,7 +77,7 @@ export default function HeroSection() {
             />
           </div>
           <figcaption className="absolute bottom-5 left-5 max-w-[70%] rounded-xl bg-fikir-brown/55 px-3.5 py-2.5 font-body text-[12px] font-medium leading-snug tracking-wide text-fikir-cream backdrop-blur-md">
-            Pablo, fundador de Fikir, en el orfanato de Meki (Etiopía).
+            Orfanato de Meki (Etiopía), una de las comunidades con las que el equipo de Fikir mantiene una relación directa.
           </figcaption>
         </figure>
       </div>

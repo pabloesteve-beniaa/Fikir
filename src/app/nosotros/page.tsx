@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Heart, Globe, Coffee, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowRight, Heart, Globe, Coffee, Sparkles, Camera } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
-  description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas. Café con propósito desde Etiopía y Kenia.",
+  description: "La historia de Fikir Coffee y del equipo detrás del proyecto. Café con propósito desde Etiopía y Kenia.",
   alternates: { canonical: "/nosotros" },
   openGraph: {
     title: "Sobre nosotros | Fikir Coffee",
-    description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas.",
-    images: [{ url: "/images/fundador-pablo.jpg" }],
+    description: "La historia de Fikir Coffee y del equipo detrás del proyecto.",
+    images: [{ url: "/images/meki-orfanato.jpg" }],
   },
 };
 
@@ -37,7 +37,7 @@ const timeline = [
     year: "2025",
     title: "Primeras aportaciones a Meki",
     description:
-      "Las primeras ventas se traducen en apoyo directo al orfanato de Meki, el proyecto con el que el fundador convivió durante años y que dio origen a Fikir.",
+      "Las primeras ventas se traducen en apoyo directo al orfanato de Meki, el proyecto con el que convivió el equipo fundador durante años y que dio origen a Fikir.",
   },
   {
     year: "2026",
@@ -101,49 +101,40 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      {/* Founder letter - NEW */}
+      {/* Team manifesto */}
       <section className="py-24 bg-fikir-cream-dark lg:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
-            {/* Founder photo placeholder */}
-            <div className="w-32 h-32 rounded-full overflow-hidden mb-8 relative">
-              <Image
-                src="/images/fundador-pablo.jpg"
-                alt="Pablo Esteve Rozas, fundador de Fikir Coffee"
-                fill
-                className="object-cover"
-                sizes="128px"
-              />
+            {/* Team photo placeholder — TODO: replace with foto de equipo / comunidad */}
+            <div className="w-40 h-40 rounded-full overflow-hidden mb-8 relative bg-fikir-cream flex flex-col items-center justify-center gap-2 px-4">
+              <Camera className="h-8 w-8 text-fikir-brown-light/40" />
+              <p className="font-body text-[10px] text-fikir-brown-light/70 tracking-wide uppercase">
+                Foto del equipo
+              </p>
+              <p className="font-body text-[10px] italic text-fikir-brown-light/50">
+                Próximamente
+              </p>
             </div>
             <h2 className="font-heading text-3xl font-bold text-fikir-brown sm:text-4xl">
               Por qué existe Fikir
             </h2>
             <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
               <p>
-                Fikir no empezó como un negocio. Empezó después de vivir en Kenia y Etiopía, de formar allí parte de mi vida y de trabajar en un orfanato en Meki durante dos años.
+                Fikir no nació como un negocio. Nació tras años de convivencia en Kenia y Etiopía, y del trabajo del equipo fundador durante dos años en un orfanato en Meki.
               </p>
               <p>
-                Cuando volví, sentí que le debía algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.
+                Cuando regresamos, sentimos que les debíamos algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es nuestra forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia y la juventud en las comunidades que nos dieron tanto.
               </p>
               <p>
-                Hoy, cada bolsa de Fikir apoya al orfanato en Meki &mdash;un lugar y unas personas que conozco&mdash; y el Centro de Formación Profesional Kuria en Migori (Kenia), junto a la Fundación Pablo Horstmann. No es un proyecto lejano. Es personal.
+                Hoy, cada bolsa de Fikir apoya al orfanato en Meki &mdash;un lugar y unas personas que conocemos&mdash; y el Centro de Formación Profesional Kuria en Migori (Kenia), junto a la Fundación Pablo Horstmann. No es un proyecto lejano. Es personal.
               </p>
               <p className="font-semibold text-fikir-brown">
                 Gracias por ser parte de esto.
               </p>
             </div>
             <p className="mt-6 font-heading text-xl italic text-fikir-gold">
-              &mdash; Pablo Esteve Rozas, fundador de Fikir Coffee
+              &mdash; El equipo de Fikir
             </p>
-            <a
-              href="https://www.linkedin.com/in/pabloesteverozas/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 font-body text-sm text-fikir-brown-light hover:text-fikir-brown transition-colors cursor-pointer"
-            >
-              <ExternalLink className="h-4 w-4" />
-              LinkedIn
-            </a>
 
             {/* Partner */}
             <div className="mt-10 pt-8 border-t border-fikir-brown/10 flex items-center gap-4">

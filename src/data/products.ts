@@ -58,11 +58,11 @@ export const products: Product[] = [
     story:
       "Yirgacheffe es considerada la cuna del café. Aquí, a más de 1.800 metros de altitud, las familias caficultoras cultivan con métodos tradicionales que se transmiten de generación en generación. Cada grano lleva consigo siglos de tradición.",
     impact:
-      "Este café contribuye directamente a mejorar la vida de niños en un orfanato en Meki, donde el fundador de Fikir convivió y trabajó durante años. Una conexión personal y real con el origen.",
+      "Este café contribuye directamente a mejorar la vida de niños en un orfanato en Meki, donde el equipo fundador de Fikir convivió y trabajó durante años. Una conexión personal y real con el origen.",
     impactProject: "Orfanato en Meki",
     impactLocation: "Meki, Etiopía",
     impactWhat: "Mejora de condiciones, material educativo y necesidades básicas",
-    impactWho: "Niños del orfanato donde el fundador vivió y trabajó",
+    impactWho: "Niños del orfanato donde convivió el equipo fundador",
     profileHint: "Ideal si te gustan los cafés suaves y florales",
     image: "/images/etiopia-product.jpg",
     imageAlt: "Bolsa de café Fikir Coffee Etiopía Yirgacheffe",

@@ -37,9 +37,9 @@ export default function ImpactSection() {
               <br />historias reales
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              No es marketing. Son proyectos con los que el fundador de Fikir
-              tiene una conexión personal y directa. Lugares donde vivió,
-              trabajó y formó su vida.
+              No es marketing. Son proyectos con los que el equipo fundador de
+              Fikir tiene una conexión personal y directa. Lugares donde
+              convivió, trabajó y formó parte de su vida.
             </p>
 
             <div className="mt-10 space-y-6">
@@ -50,8 +50,9 @@ export default function ImpactSection() {
                     Meki, Etiopía &mdash; Orfanato
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    El fundador de Fikir vivió y trabajó aquí durante años.
-                    Tu café mejora directamente la vida de estos niños.
+                    El equipo fundador de Fikir convivió y trabajó aquí
+                    durante años. Tu café mejora directamente la vida de estos
+                    niños.
                   </p>
                 </div>
               </div>

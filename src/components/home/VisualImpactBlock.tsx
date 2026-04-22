@@ -14,8 +14,9 @@ export default function VisualImpactBlock() {
             Donde tu café cambia vidas
           </h2>
           <p className="mt-4 font-body text-lg text-fikir-brown-light leading-relaxed">
-            No es marketing. Son proyectos con los que el fundador de Fikir tiene una
-            conexión personal y directa. Lugares donde vivió, trabajó y formó su vida.
+            No es marketing. Son proyectos con los que el equipo fundador de Fikir
+            tiene una conexión personal y directa. Lugares donde convivió, trabajó y
+            formó parte de su vida.
           </p>
         </div>
 
@@ -42,7 +43,7 @@ export default function VisualImpactBlock() {
                 Orfanato en Meki
               </h3>
               <p className="mt-2 font-body text-sm text-fikir-brown-light leading-relaxed">
-                Donde el fundador de Fikir vivió y trabajó durante años.
+                Donde el equipo fundador de Fikir convivió y trabajó durante años.
                 Tu café mejora directamente las condiciones de vida de estos niños.
               </p>
             </div>

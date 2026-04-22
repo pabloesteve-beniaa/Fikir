@@ -21,14 +21,14 @@ const projects = [
     region: "Meki",
     title: "Orfanato en Meki",
     description:
-      "El fundador de Fikir vivió y trabajó en este orfanato en Meki durante dos años, seis meses de ellos en terreno. Esta conexión personal es el corazón de Fikir. Cada bolsa de Etiopía contribuye directamente a mejorar las condiciones de vida, el material educativo y las necesidades básicas de los niños que aquí crecen.",
+      "El equipo fundador de Fikir convivió y trabajó en este orfanato en Meki durante dos años, seis meses de ellos en terreno. Esta conexión personal es el corazón de Fikir. Cada bolsa de Etiopía contribuye directamente a mejorar las condiciones de vida, el material educativo y las necesidades básicas de los niños que aquí crecen.",
     stats: [
       { value: "Proyecto activo", label: "" },
       { value: "Conexión directa", label: "" },
       { value: "Meki, Etiopía", label: "" },
     ],
     evidence: [
-      { date: "2024-presente", text: "Apoyo continuo al orfanato donde el fundador vivió", location: "Meki, Etiopía" },
+      { date: "2024-presente", text: "Apoyo continuo al orfanato donde convivió el equipo fundador", location: "Meki, Etiopía" },
     ],
     color: "bg-fikir-green",
     accent: "text-fikir-green",
@@ -118,7 +118,7 @@ export default function ImpactoPage() {
               Más que café, oportunidades reales
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              Después de vivir en Kenia y Etiopía y formar allí parte de su vida, el fundador de Fikir sintió una deuda personal con estas comunidades. Fikir nace de esa conexión: no como un proyecto distante, sino como algo profundamente personal.
+              Después de convivir en Kenia y Etiopía y formar allí parte de sus vidas, el equipo fundador de Fikir sintió una deuda con estas comunidades. Fikir nace de esa conexión: no como un proyecto distante, sino como algo profundamente personal.
             </p>
           </div>
         </div>
@@ -242,7 +242,7 @@ export default function ImpactoPage() {
                       <div className="mt-8 relative aspect-video rounded-2xl overflow-hidden">
                         <Image
                           src="/images/meki-grupo.jpg"
-                          alt="Pablo con los niños del orfanato en Meki"
+                          alt="Niños del orfanato de Meki"
                           fill
                           className="object-cover"
                           sizes="(max-width: 1024px) 100vw, 60vw"
