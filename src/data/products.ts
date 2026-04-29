@@ -44,7 +44,7 @@ export const products: Product[] = [
       "Yirgacheffe es considerada la cuna del cafe. Aqui, a mas de 1.800 metros de altitud, las familias caficultoras cultivan con metodos tradicionales que se transmiten de generacion en generacion. Cada grano lleva consigo siglos de tradicion.",
     impact:
       "Cada bolsa de Etiopia financia proyectos de educacion en las comunidades caficultoras de Yirgacheffe. Hasta ahora, hemos contribuido a la construccion de aulas y material escolar para mas de 200 ninos.",
-    image: "/images/etiopia-product.jpg",
+    image: "/images/etiopia-product.png",
     imageAlt: "Bolsa de cafe Fikir Coffee Etiopia Yirgacheffe",
     color: "green",
   },
@@ -71,7 +71,7 @@ export const products: Product[] = [
       "En las faldas del Monte Kenia, a mas de 1.700 metros, los caficultores de Nyeri producen algunos de los cafes mas complejos del mundo. El suelo volcanico y el clima templado crean condiciones perfectas para un cafe excepcional.",
     impact:
       "Cada bolsa de Kenia apoya programas de acceso a agua potable en las comunidades rurales de Nyeri. Trabajamos directamente con cooperativas locales para garantizar que el beneficio llega a quien mas lo necesita.",
-    image: "/images/kenia-product.jpg",
+    image: "/images/kenia-product.png",
     imageAlt: "Bolsa de cafe Fikir Coffee Kenia Nyeri",
     color: "terracotta",
   },
@@ -85,7 +85,7 @@ export const packs = [
     description: "Descubre los dos origenes de Fikir. Incluye 1 bolsa de Etiopia + 1 bolsa de Kenia (250g cada una).",
     price: 27.99,
     currency: "EUR",
-    image: "/images/pack-degustacion.jpg",
+    image: "/images/pack-degustacion.png",
   },
   {
     id: "suscripcion-mensual",
@@ -94,7 +94,7 @@ export const packs = [
     description: "Recibe cafe fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
     price: 12.99,
     currency: "EUR",
-    image: "/images/suscripcion.jpg",
+    image: "/images/suscripcion.png",
     note: "al mes",
   },
 ];
