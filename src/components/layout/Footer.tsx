@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, CreditCard, Shield, Truck } from "lucide-react";
 
 const footerLinks = {
   tienda: [
     { name: "Etiopía Yirgacheffe", href: "/producto/etiopia" },
     { name: "Kenia Nyeri", href: "/producto/kenia" },
+    { name: "Uganda Mbale", href: "/producto/uganda" },
     { name: "Pack Degustación", href: "/producto/pack-degustacion" },
     { name: "Suscripción", href: "/producto/suscripcion" },
   ],
@@ -53,13 +55,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block">
-              <span className="font-heading text-3xl font-bold tracking-wide text-fikir-cream">
-                FIKIR
-              </span>
-              <span className="block font-heading text-xs tracking-[0.3em] text-fikir-gold uppercase">
-                Coffee
-              </span>
+            <Link href="/" className="inline-block" aria-label="Fikir Café — Inicio">
+              <Image
+                src="/images/logo-transparente.png"
+                alt="Fikir Café"
+                width={560}
+                height={843}
+                className="h-16 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-fikir-cream/70 max-w-xs">
               Café de especialidad sin ánimo de lucro. Todo el beneficio se reinvierte en proyectos para la infancia en origen.

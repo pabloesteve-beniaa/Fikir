@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   products as editorialProducts,
   packs,
@@ -67,21 +68,30 @@ export default async function TiendaPage() {
 
   return (
     <div className="pt-20 lg:pt-24">
-      {/* Header */}
-      <section className="bg-fikir-white py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Header — full-bleed hero with rebrand image */}
+      <section className="relative isolate overflow-hidden bg-fikir-brown">
+        <Image
+          src="/images/tienda-hero.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-fikir-brown/70 via-fikir-brown/55 to-fikir-brown/85" />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-body text-sm font-semibold uppercase tracking-[0.25em] text-fikir-gold">
               Tienda
             </p>
-            <h1 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 font-heading text-4xl font-bold text-fikir-cream sm:text-5xl lg:text-6xl">
               Café con propósito
             </h1>
-            <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
+            <p className="mt-6 font-body text-lg leading-relaxed text-fikir-cream/85">
               Café de especialidad tostado en pequeños lotes. Cada bolsa financia
               proyectos para la infancia en comunidades cafetaleras.
             </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-4">
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
               {[
                 "Envío 3-5 días · Gratis >50€",
                 "100% del beneficio neto reinvertido",
@@ -89,8 +99,8 @@ export default async function TiendaPage() {
                 "SCA 85+",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
-                  <CheckCircle className="h-3.5 w-3.5 text-fikir-green" />
-                  <span className="font-body text-xs text-fikir-brown-light">{item}</span>
+                  <CheckCircle className="h-3.5 w-3.5 text-fikir-gold" />
+                  <span className="font-body text-xs text-fikir-cream/85">{item}</span>
                 </div>
               ))}
             </div>

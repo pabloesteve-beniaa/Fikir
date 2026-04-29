@@ -12,6 +12,7 @@ export const dynamic = "force-dynamic";
 const titleByHandle: Record<string, string> = {
   "etiopia": "Café Etiopía Yirgacheffe SCA 85+ · Fikir Coffee",
   "kenia": "Café Kenia Nyeri SCA 86+ · Fikir Coffee",
+  "uganda": "Café Uganda Mbale SCA 80+ · Fikir Coffee",
   "pack-degustacion": "Pack Degustación Etiopía + Kenia · Fikir Coffee",
   "suscripcion": "Suscripción Mensual de Café · Fikir Coffee",
 };

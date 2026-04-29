@@ -64,7 +64,7 @@ export const products: Product[] = [
     impactWhat: "Mejora de condiciones, material educativo y necesidades básicas",
     impactWho: "Niños del orfanato donde el fundador vivió y trabajó",
     profileHint: "Ideal si te gustan los cafés suaves y florales",
-    image: "/images/etiopia-product.jpg",
+    image: "/images/etiopia-product.png",
     imageAlt: "Bolsa de café Fikir Coffee Etiopía Yirgacheffe",
     color: "green",
   },
@@ -106,9 +106,53 @@ export const products: Product[] = [
     impactWhat: "Desarrollo infantil, educación y oportunidades",
     impactWho: "Niños en la comunidad de Dokolo",
     profileHint: "Ideal si prefieres intensidad y fruta",
-    image: "/images/kenia-product.jpg",
+    image: "/images/kenia-product.png",
     imageAlt: "Bolsa de café Fikir Coffee Kenia Nyeri",
     color: "terracotta",
+  },
+  {
+    id: "uganda-mbale",
+    handle: "uganda",
+    name: "Uganda",
+    origin: "Uganda",
+    region: "Mbale",
+    price: 14.99,
+    currency: "EUR",
+    weight: "250g",
+    process: "Lavado",
+    scaScore: "80+",
+    flavorNotes: ["Chocolate", "Nuez", "Caramelo"],
+    roast: "Medio",
+    variants: [
+      {
+        id: "uganda-grano",
+        name: "Grano",
+        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        // TODO Shopify: rellenar con el variant GID de Uganda Grano cuando se cree el producto en la tienda.
+        shopifyVariantId: "",
+      },
+      {
+        id: "uganda-molido",
+        name: "Molido",
+        helper: "Listo para cafetera italiana, filtro o prensa francesa.",
+        // TODO Shopify: rellenar con el variant GID de Uganda Molido cuando se cree el producto en la tienda.
+        shopifyVariantId: "",
+      },
+    ],
+    description:
+      "Café de especialidad de la región de Mbale, en las faldas del Monte Elgon. Un perfil redondo con notas de chocolate negro, nuez tostada y un final suave a caramelo.",
+    story:
+      "En las laderas del Monte Elgon, los caficultores de Mbale cultivan arábica a más de 1.500 metros de altitud, en parcelas familiares que combinan café con cultivos alimentarios. Una tradición que combina patrimonio cafetero y biodiversidad.",
+    impact:
+      "Este café apoya un colegio comunitario de infantil y primaria en Dokolo (Uganda), garantizando el derecho a la escolarización a los más vulnerables.",
+    impactProject: "Colegio de infantil y Primaria en Dokolo",
+    impactLocation: "Dokolo, Uganda",
+    impactWhat: "Impulsando este colegio de iniciativa comunitaria, queremos garantizar el derecho a una escolarización a los más vulnerables",
+    impactWho: "Familias de Dokolo",
+    profileHint: "Ideal si te gustan los cafés equilibrados con notas dulces",
+    image: "/images/uganda-product.png",
+    imageAlt: "Bolsa de café Fikir Coffee Uganda Mbale",
+    color: "green",
   },
 ];
 
@@ -137,6 +181,11 @@ export const CARD_METADATA: Record<string, CardMeta> = {
     tagline: "Ideal si prefieres intensidad y fruta",
     notes: ["Grosella negra", "Frutos rojos", "Cítrico"],
   },
+  uganda: {
+    brand: "green",
+    tagline: "Ideal si te gustan los cafés equilibrados con notas dulces",
+    notes: ["Chocolate", "Nuez", "Caramelo"],
+  },
   "pack-degustacion": {
     brand: "brown",
     tagline: "Los dos orígenes, una historia",
@@ -157,7 +206,7 @@ export const FALLBACK_CARD_META: CardMeta = {
 };
 
 /** Preferred order on /tienda: origin products first, then pack, then subscription. */
-export const TIENDA_ORDER = ["etiopia", "kenia", "pack-degustacion", "suscripcion"];
+export const TIENDA_ORDER = ["etiopia", "kenia", "uganda", "pack-degustacion", "suscripcion"];
 
 export const packs = [
   {
@@ -167,7 +216,7 @@ export const packs = [
     description: "Descubre los dos orígenes de Fikir. Incluye 1 bolsa de Etiopía + 1 bolsa de Kenia (250g cada una).",
     price: 27.99,
     currency: "EUR",
-    image: "/images/etiopia-ficha.jpg",
+    image: "/images/pack-degustacion.png",
     shopifyVariantId: "gid://shopify/ProductVariant/57707504533878",
   },
   {
@@ -177,7 +226,7 @@ export const packs = [
     description: "Recibe café fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
     price: 12.99,
     currency: "EUR",
-    image: "/images/fikir-estanteria.jpg",
+    image: "/images/suscripcion.png",
     note: "al mes",
     shopifyVariantId: "gid://shopify/ProductVariant/57707511611766",
   },
