@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { products, packs } from "@/data/products";
 import ProductCard from "@/components/product/ProductCard";
-import { ArrowRight, Coffee, Repeat } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tienda",
@@ -157,4 +157,13 @@ export default function TiendaPage() {
           </p>
           <Link
             href="/impacto"
-            className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tra
+            className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
+          >
+            Ver nuestro impacto
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

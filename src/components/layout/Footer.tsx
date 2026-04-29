@@ -120,4 +120,8 @@ export default function Footer() {
           <p className="font-body text-xs text-fikir-cream/50 flex items-center gap-1">
             Hecho con <Heart className="h-3 w-3 text-fikir-gold fill-fikir-gold" /> para devolver al origen
           </p>
-        </
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -232,4 +232,25 @@ export default function ImpactoPage() {
       </section>
 
       {/* CTA */}
-      <se
+      <section className="py-20 bg-fikir-green text-center lg:py-28">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
+            Se parte del cambio
+          </h2>
+          <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
+            Con cada taza de Fikir, estas apoyando directamente a comunidades
+            en Etiopia y Kenia. Tu cafe de la manana tiene mas poder del que
+            crees.
+          </p>
+          <Link
+            href="/tienda"
+            className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
+          >
+            Comprar cafe
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

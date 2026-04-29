@@ -175,4 +175,40 @@ export default function NosotrosPage() {
                 key={value.title}
                 className="p-8 rounded-2xl bg-fikir-white"
               >
-                <div c
+                <div className="w-12 h-12 rounded-full bg-fikir-gold/10 flex items-center justify-center">
+                  <value.icon className="h-5 w-5 text-fikir-gold" />
+                </div>
+                <h3 className="mt-5 font-heading text-xl font-bold text-fikir-brown">
+                  {value.title}
+                </h3>
+                <p className="mt-3 font-body text-sm leading-relaxed text-fikir-brown-light">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-fikir-green text-center lg:py-28">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
+            Unete al movimiento
+          </h2>
+          <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
+            Cada taza de Fikir es un acto de amor hacia las comunidades que
+            hacen posible tu cafe de cada manana.
+          </p>
+          <Link
+            href="/tienda"
+            className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
+          >
+            Comprar cafe
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

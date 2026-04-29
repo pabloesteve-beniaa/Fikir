@@ -75,8 +75,6 @@ export const products: Product[] = [
     imageAlt: "Bolsa de cafe Fikir Coffee Kenia Nyeri",
     color: "terracotta",
   },
-];
-
   {
     id: "uganda-mbale",
     handle: "uganda",
@@ -97,4 +95,33 @@ export const products: Product[] = [
     description:
       "Cafe de especialidad de la region de Mbale, en las faldas del Monte Elgon. Un perfil redondo con notas de chocolate negro, nuez tostada y un final suave a caramelo.",
     story:
-      "En las laderas del Monte
+      "En las laderas del Monte Elgon, los caficultores de Mbale cultivan arabica a mas de 1.500 metros de altitud, en parcelas familiares que combinan cafe con cultivos alimentarios. Una tradicion que combina patrimonio cafetero y biodiversidad.",
+    impact:
+      "Cada bolsa de Uganda apoya iniciativas de desarrollo agricola sostenible y formacion para las familias productoras de Mbale, fortaleciendo la economia local y la resiliencia de las comunidades.",
+    image: "/images/uganda-product.png",
+    imageAlt: "Bolsa de cafe Fikir Coffee Uganda Mbale",
+    color: "green",
+  },
+];
+
+export const packs = [
+  {
+    id: "pack-degustacion",
+    handle: "pack-degustacion",
+    name: "Pack Degustacion",
+    description: "Descubre los dos origenes de Fikir. Incluye 1 bolsa de Etiopia + 1 bolsa de Kenia (250g cada una).",
+    price: 27.99,
+    currency: "EUR",
+    image: "/images/pack-degustacion.png",
+  },
+  {
+    id: "suscripcion-mensual",
+    handle: "suscripcion",
+    name: "Suscripcion Mensual",
+    description: "Recibe cafe fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
+    price: 12.99,
+    currency: "EUR",
+    image: "/images/suscripcion.png",
+    note: "al mes",
+  },
+];
