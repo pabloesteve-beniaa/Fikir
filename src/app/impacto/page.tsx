@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, BookOpen, Droplets, Users, TrendingUp, Eye, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -23,6 +24,8 @@ const projects = [
     ],
     color: "bg-fikir-green",
     accent: "text-fikir-green",
+    image: "/images/impacto-recoleccion.png",
+    imageAlt: "Agricultores cosechando cafe en Etiopia",
   },
   {
     icon: Droplets,
@@ -38,6 +41,8 @@ const projects = [
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
+    image: "/images/nosotros-comunidad.jpg",
+    imageAlt: "Mujeres de la comunidad masai en Kenia",
   },
 ];
 
@@ -71,9 +76,18 @@ const principles = [
 export default function ImpactoPage() {
   return (
     <div className="pt-20 lg:pt-24">
-      {/* Hero */}
-      <section className="py-20 bg-fikir-brown lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Hero con foto documental */}
+      <section className="relative min-h-[60vh] flex items-end overflow-hidden">
+        <Image
+          src="/images/impacto-recoleccion.png"
+          alt="Agricultores cosechando cafe en una plantacion africana"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-fikir-brown via-fikir-brown/50 to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 pb-20 lg:pb-32 w-full">
           <div className="max-w-3xl">
             <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
               Nuestro impacto
@@ -133,14 +147,21 @@ export default function ImpactoPage() {
                 key={project.title}
                 className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-16 items-start"
               >
-                {/* Image placeholder */}
-                <div className={`${project.color} rounded-3xl p-12 flex items-center justify-center lg:col-span-2 aspect-video lg:aspect-square`}>
-                  <div className="text-center">
-                    <project.icon className="h-16 w-16 text-fikir-cream/60 mx-auto" />
-                    <p className="mt-4 font-heading text-2xl font-bold text-fikir-cream">
+                {/* Foto documental del proyecto */}
+                <div className={`relative rounded-3xl overflow-hidden lg:col-span-2 aspect-video lg:aspect-square ${project.color}`}>
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-fikir-brown/60 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <p className="font-heading text-2xl font-bold text-fikir-cream">
                       {project.country}
                     </p>
-                    <p className="font-body text-sm text-fikir-cream/70">
+                    <p className="font-body text-sm text-fikir-cream/80">
                       {project.region}
                     </p>
                   </div>
@@ -211,25 +232,4 @@ export default function ImpactoPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-fikir-green text-center lg:py-28">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
-            Se parte del cambio
-          </h2>
-          <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
-            Con cada taza de Fikir, estas apoyando directamente a comunidades
-            en Etiopia y Kenia. Tu cafe de la manana tiene mas poder del que
-            crees.
-          </p>
-          <Link
-            href="/tienda"
-            className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-all duration-200 hover:bg-fikir-gold-light cursor-pointer"
-          >
-            Comprar cafe con impacto
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-    </div>
-  );
-}
+      <se

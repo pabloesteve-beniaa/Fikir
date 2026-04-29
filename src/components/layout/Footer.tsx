@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Heart } from "lucide-react";
 
 const footerLinks = {
   tienda: [
     { name: "Etiopia Yirgacheffe", href: "/producto/etiopia" },
     { name: "Kenia Nyeri", href: "/producto/kenia" },
+    { name: "Uganda Mbale", href: "/producto/uganda" },
     { name: "Pack Degustacion", href: "/tienda" },
     { name: "Suscripcion", href: "/tienda" },
   ],
@@ -30,12 +32,13 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="font-heading text-3xl font-bold tracking-wide text-fikir-cream">
-                FIKIR
-              </span>
-              <span className="block font-heading text-xs tracking-[0.3em] text-fikir-gold uppercase">
-                Coffee
-              </span>
+              <Image
+                src="/images/logo-transparente.png"
+                alt="Fikir Café"
+                width={560}
+                height={843}
+                className="h-16 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-fikir-cream/70 max-w-xs">
               Cafe de especialidad sin animo de lucro. Todo el beneficio vuelve
@@ -117,8 +120,4 @@ export default function Footer() {
           <p className="font-body text-xs text-fikir-cream/50 flex items-center gap-1">
             Hecho con <Heart className="h-3 w-3 text-fikir-gold fill-fikir-gold" /> para devolver al origen
           </p>
-        </div>
-      </div>
-    </footer>
-  );
-}
+        </

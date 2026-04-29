@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { products } from "@/data/products";
 import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart } from "lucide-react";
 
@@ -63,23 +64,21 @@ export default function ProductoPage() {
       <section className="pb-24 lg:pb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-            {/* Left: Product image area */}
-            <div className={`${colors.bg} rounded-3xl flex items-center justify-center p-12 aspect-square lg:aspect-auto lg:min-h-[600px]`}>
-              <div className="text-center">
-                <p className="font-body text-sm tracking-[0.3em] uppercase text-fikir-cream/60">
-                  Fikir Coffee
-                </p>
-                <h2 className="mt-4 font-heading text-7xl font-bold text-fikir-cream lg:text-8xl">
-                  {product.origin}
-                </h2>
-                <p className="mt-2 font-heading text-2xl italic text-fikir-cream/70">
-                  {product.region}
-                </p>
-                <div className="mt-6 inline-block px-4 py-2 rounded-full bg-fikir-cream/10 backdrop-blur-sm">
-                  <span className="font-body text-sm text-fikir-cream">
-                    SCA {product.scaScore} &middot; Specialty
-                  </span>
-                </div>
+            {/* Left: Product image */}
+            <div className={`relative rounded-3xl overflow-hidden aspect-[4/5] lg:aspect-auto lg:min-h-[600px] ${colors.bg}`}>
+              <Image
+                src={product.image}
+                alt={product.imageAlt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+              {/* SCA overlay */}
+              <div className="absolute bottom-6 left-6 px-4 py-2 rounded-full bg-fikir-brown/60 backdrop-blur-sm">
+                <span className="font-body text-sm text-fikir-cream">
+                  SCA {product.scaScore} &middot; Specialty
+                </span>
               </div>
             </div>
 
@@ -207,3 +206,4 @@ export default function ProductoPage() {
     </div>
   );
 }
+                                                                                                                                                                                                       

@@ -77,24 +77,24 @@ export const products: Product[] = [
   },
 ];
 
-export const packs = [
   {
-    id: "pack-degustacion",
-    handle: "pack-degustacion",
-    name: "Pack Degustacion",
-    description: "Descubre los dos origenes de Fikir. Incluye 1 bolsa de Etiopia + 1 bolsa de Kenia (250g cada una).",
-    price: 27.99,
+    id: "uganda-mbale",
+    handle: "uganda",
+    name: "Uganda",
+    origin: "Uganda",
+    region: "Mbale",
+    price: 13.99,
     currency: "EUR",
-    image: "/images/pack-degustacion.png",
-  },
-  {
-    id: "suscripcion-mensual",
-    handle: "suscripcion",
-    name: "Suscripcion Mensual",
-    description: "Recibe cafe fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
-    price: 12.99,
-    currency: "EUR",
-    image: "/images/suscripcion.png",
-    note: "al mes",
-  },
-];
+    weight: "250g",
+    process: "Lavado",
+    scaScore: "80+",
+    flavorNotes: ["Chocolate", "Nuez", "Caramelo"],
+    roast: "Medio",
+    variants: [
+      { id: "uganda-grano", name: "Grano" },
+      { id: "uganda-molido", name: "Molido" },
+    ],
+    description:
+      "Cafe de especialidad de la region de Mbale, en las faldas del Monte Elgon. Un perfil redondo con notas de chocolate negro, nuez tostada y un final suave a caramelo.",
+    story:
+      "En las laderas del Monte
