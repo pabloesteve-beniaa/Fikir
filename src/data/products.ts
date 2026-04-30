@@ -128,15 +128,13 @@ export const products: Product[] = [
         id: "uganda-grano",
         name: "Grano",
         helper: "Máxima frescura. Ideal si tienes molinillo.",
-        // TODO Shopify: rellenar con el variant GID de Uganda Grano cuando se cree el producto en la tienda.
-        shopifyVariantId: "",
+                shopifyVariantId: "gid://shopify/ProductVariant/57777841308022",
       },
       {
         id: "uganda-molido",
         name: "Molido",
         helper: "Listo para cafetera italiana, filtro o prensa francesa.",
-        // TODO Shopify: rellenar con el variant GID de Uganda Molido cuando se cree el producto en la tienda.
-        shopifyVariantId: "",
+                shopifyVariantId: "gid://shopify/ProductVariant/57777841340790",
       },
     ],
     description:
