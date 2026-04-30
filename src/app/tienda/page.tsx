@@ -6,7 +6,6 @@ import {
   packs,
   CARD_METADATA,
   TIENDA_ORDER,
-  type Product,
 } from "@/data/products";
 import ProductCard from "@/components/product/ProductCard";
 import ShopifyProductCard from "@/components/tienda/ShopifyProductCard";
@@ -43,28 +42,22 @@ async function loadCatalog(): Promise<ShopifyProductSummary[]> {
   }
 }
 
-function orderByTienda<T extends { handle: string }>(items: T[]): T[] {
-  return [...items].sort((a, b) => {
-    const ai = TIENDA_ORDER.indexOf(a.handle);
-    const bi = TIENDA_ORDER.indexOf(b.handle);
-    const aRank = ai === -1 ? TIENDA_ORDER.length : ai;
-    const bRank = bi === -1 ? TIENDA_ORDER.length : bi;
-    return aRank - bRank;
-  });
-}
-
 function requiresPdpSelector(handle: string): boolean {
   // Subscription picks frequency + grano/molido on its PDP; always link there.
   return handle === "suscripcion";
 }
 
 export default async function TiendaPage() {
+  // Editorial catalog (products.ts) is the source of truth for what shows
+  // on /tienda. Shopify catalog is consulted only to overlay live price /
+  // availability on the cards that match by handle. New origins (e.g.
+  // Uganda) appear here even before they exist in Shopify, and stale
+  // Shopify drafts (e.g. "Edición 001") never leak into the grid.
   const catalog = await loadCatalog();
-  const ordered = orderByTienda(catalog);
+  const shopifyByHandle = new Map(catalog.map((p) => [p.handle, p]));
 
-  // Build a static fallback list preserving the same order and shape.
   const packByHandle = new Map(packs.map((p) => [p.handle, p]));
-  const staticProducts: Product[] = editorialProducts;
+  const editorialByHandle = new Map(editorialProducts.map((p) => [p.handle, p]));
 
   return (
     <div className="pt-20 lg:pt-24">
@@ -96,7 +89,7 @@ export default async function TiendaPage() {
                 "Envío 3-5 días · Gratis >50€",
                 "100% del beneficio neto reinvertido",
                 "Café tostado en pequeños lotes",
-                "SCA 85+",
+                "Desde SCA 80+",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
                   <CheckCircle className="h-3.5 w-3.5 text-fikir-gold" />
@@ -108,38 +101,22 @@ export default async function TiendaPage() {
         </div>
       </section>
 
-      {/* Unified product grid */}
+      {/* Unified product grid — ordered by TIENDA_ORDER */}
       <section className="bg-fikir-cream py-16 lg:py-24">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          {ordered.length > 0 ? (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
-              {ordered.map((p) => (
-                <ShopifyProductCard
-                  key={p.id}
-                  handle={p.handle}
-                  title={p.title}
-                  description={p.description}
-                  imageUrl={p.featuredImage?.url ?? null}
-                  imageAlt={p.featuredImage?.altText ?? null}
-                  priceAmount={p.priceRange.minVariantPrice.amount}
-                  priceCurrency={p.priceRange.minVariantPrice.currencyCode}
-                  availableForSale={p.availableForSale}
-                  defaultVariantId={null}
-                  detailsOnly={requiresPdpSelector(p.handle)}
-                />
-              ))}
-            </div>
-          ) : (
-            // Static fallback when Shopify is not configured or fails.
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
-              {staticProducts.map((p) => (
-                <ProductCard key={p.handle} product={p} />
-              ))}
-              {TIENDA_ORDER.filter(
-                (h) => !staticProducts.some((p) => p.handle === h) && packByHandle.has(h)
-              ).map((h) => {
-                const pack = packByHandle.get(h)!;
-                const meta = CARD_METADATA[h];
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
+            {TIENDA_ORDER.map((handle) => {
+              const editorial = editorialByHandle.get(handle);
+              if (editorial) {
+                // Origin coffees: editorial card. Shopify availability is
+                // overlaid by EditorialPDP on the product page itself.
+                return <ProductCard key={handle} product={editorial} />;
+              }
+
+              const pack = packByHandle.get(handle);
+              if (pack) {
+                const meta = CARD_METADATA[handle];
+                const shopify = shopifyByHandle.get(handle);
                 return (
                   <ShopifyProductCard
                     key={pack.id}
@@ -148,16 +125,24 @@ export default async function TiendaPage() {
                     description={pack.description}
                     imageUrl={pack.image ?? null}
                     imageAlt={pack.name}
-                    priceAmount={pack.price.toFixed(2)}
-                    priceCurrency={pack.currency}
-                    availableForSale={true}
+                    priceAmount={
+                      shopify?.priceRange.minVariantPrice.amount ??
+                      pack.price.toFixed(2)
+                    }
+                    priceCurrency={
+                      shopify?.priceRange.minVariantPrice.currencyCode ??
+                      pack.currency
+                    }
+                    availableForSale={shopify?.availableForSale ?? true}
                     defaultVariantId={null}
                     detailsOnly={requiresPdpSelector(pack.handle) || !meta}
                   />
                 );
-              })}
-            </div>
-          )}
+              }
+
+              return null;
+            })}
+          </div>
         </div>
       </section>
 

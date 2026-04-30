@@ -43,7 +43,7 @@ export const products: Product[] = [
       {
         id: "etiopia-grano",
         name: "Grano",
-        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        helper: "Máxima frescura. Ideal si tienes molinillo.",
         shopifyVariantId: "gid://shopify/ProductVariant/57707456921974",
       },
       {
@@ -85,7 +85,7 @@ export const products: Product[] = [
       {
         id: "kenia-grano",
         name: "Grano",
-        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        helper: "Máxima frescura. Ideal si tienes molinillo.",
         shopifyVariantId: "gid://shopify/ProductVariant/57707478024566",
       },
       {
@@ -127,7 +127,7 @@ export const products: Product[] = [
       {
         id: "uganda-grano",
         name: "Grano",
-        helper: "Maxima frescura. Ideal si tienes molinillo.",
+        helper: "Máxima frescura. Ideal si tienes molinillo.",
         // TODO Shopify: rellenar con el variant GID de Uganda Grano cuando se cree el producto en la tienda.
         shopifyVariantId: "",
       },

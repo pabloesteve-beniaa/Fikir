@@ -57,17 +57,17 @@ const projects: Project[] = [
   {
     icon: Heart,
     country: "Kenia",
-    region: "Dokolo",
+    region: "",
     title: "Fundación Pablo Horstmann",
     description:
-      "Junto a la Fundación Pablo Horstmann, Fikir apoya el desarrollo de un nuevo proyecto para la infancia en Dokolo. Un compromiso que nace de la experiencia directa del fundador en Kenia y de la relación con esta fundación de referencia en cooperación infantil.",
+      "Junto a la Fundación Pablo Horstmann, Fikir apoya el desarrollo de un nuevo proyecto para la infancia en Kenia. Un compromiso que nace de la experiencia directa del fundador en el país y de la relación con esta fundación de referencia en cooperación infantil.",
     stats: [
       { value: "En desarrollo", label: "" },
       { value: "Fundación Pablo Horstmann", label: "" },
-      { value: "Dokolo, Kenia", label: "" },
+      { value: "Kenia", label: "" },
     ],
     evidence: [
-      { date: "2025-presente", text: "Desarrollo del proyecto infantil con Fundación Pablo Horstmann", location: "Dokolo, Kenia" },
+      { date: "2025-presente", text: "Desarrollo del proyecto infantil con Fundación Pablo Horstmann", location: "Kenia" },
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
@@ -236,7 +236,7 @@ export default function ImpactoPage() {
                   {/* Content */}
                   <div className="lg:col-span-3 py-4">
                     <p className={`font-body text-xs font-semibold tracking-[0.2em] uppercase ${project.accent}`}>
-                      {project.country} &middot; {project.region}
+                      {project.country}{project.region ? ` · ${project.region}` : ""}
                     </p>
                     <h3 className="mt-3 font-heading text-3xl font-bold text-fikir-brown">
                       {project.title}
@@ -258,7 +258,7 @@ export default function ImpactoPage() {
                     {/* Evidence timeline */}
                     <div className="mt-8 border-t border-fikir-brown/10 pt-6">
                       <h4 className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-fikir-brown-light mb-4">
-                        Ultimas actualizaciones
+                        Últimas actualizaciones
                       </h4>
                       <div className="space-y-4">
                         {project.evidence.map((ev) => (
@@ -366,7 +366,7 @@ export default function ImpactoPage() {
                 </p>
                 <div className="mt-4 pt-4 border-t border-fikir-cream/20">
                   <p className="font-body text-xs text-fikir-cream/80 leading-relaxed">
-                    Proyectos para la infancia en Etiopía y Kenia. Sin intermediarios.
+                    Proyectos para la infancia en Etiopía, Kenia y Uganda. Sin intermediarios.
                   </p>
                 </div>
               </div>
@@ -387,7 +387,7 @@ export default function ImpactoPage() {
               Nuestro modelo
             </p>
             <h2 className="font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-              Por que funciona
+              Por qué funciona
             </h2>
           </div>
 
@@ -416,12 +416,12 @@ export default function ImpactoPage() {
       <section className="py-20 bg-fikir-green text-center lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
-            Se parte del cambio
+            Sé parte del cambio
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
             Con cada taza de Fikir, estás apoyando directamente a comunidades
-            en Etiopía y Kenia. Tu café de la mañana tiene más poder del que
-            crees.
+            en Etiopía, Kenia y Uganda. Tu café de la mañana tiene más poder del
+            que crees.
           </p>
           <Link
             href="/tienda"

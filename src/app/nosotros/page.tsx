@@ -43,7 +43,7 @@ const timeline = [
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "2 proyectos en marcha en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "3 proyectos en marcha en Meki, Dokolo y Uganda, 3 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -75,9 +75,9 @@ export default function NosotrosPage() {
     <div className="pt-20 lg:pt-24">
       {/* Hero — split layout with community image */}
       <section className="bg-fikir-cream">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:min-h-[480px]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:min-h-[420px]">
           {/* Texto */}
-          <div className="flex items-center px-6 py-16 lg:px-8 lg:pr-16 lg:py-20">
+          <div className="flex items-center px-6 py-12 lg:px-8 lg:pr-16 lg:py-16">
             <div>
               <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-fikir-gold">
                 Sobre nosotros
@@ -276,7 +276,7 @@ export default function NosotrosPage() {
       <section className="py-20 bg-fikir-green text-center lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
-            Unete al movimiento
+            Únete al movimiento
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
             Cada taza de Fikir es un acto de amor hacia las comunidades que
