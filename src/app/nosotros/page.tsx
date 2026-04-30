@@ -43,7 +43,7 @@ const timeline = [
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "2 proyectos en marcha en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "3 proyectos en marcha en Meki, Dokolo y Uganda, 3 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -73,31 +73,64 @@ const values = [
 export default function NosotrosPage() {
   return (
     <div className="pt-20 lg:pt-24">
-      {/* Hero */}
-      <section className="flex items-center bg-fikir-cream py-16 lg:min-h-[420px] lg:py-20">
-        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-fikir-gold">
-              Sobre nosotros
-            </p>
-            <h1 className="mt-5 font-heading text-4xl font-medium leading-[1.05] text-fikir-brown sm:text-5xl lg:text-6xl">
-              Fikir significa{" "}
-              <em className="font-normal italic text-fikir-gold">amor</em>
-            </h1>
-            <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-fikir-brown-light sm:text-lg">
-              En amharico, la lengua de Etiopía. Y eso es exactamente lo que
-              ponemos en cada bolsa: amor por el café, por los niños que crecen
-              donde se cultiva y por la idea de que las cosas se pueden hacer de
-              otra manera.
-            </p>
-            <Link
-              href="/impacto"
-              className="mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full bg-fikir-green px-7 py-4 font-body text-sm font-semibold uppercase tracking-wider text-fikir-cream transition duration-200 hover:-translate-y-0.5 hover:bg-fikir-brown"
-            >
-              Ver el impacto
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+      {/* Hero — split layout with community image */}
+      <section className="bg-fikir-cream">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:min-h-[420px]">
+          {/* Texto */}
+          <div className="flex items-center px-6 py-12 lg:px-8 lg:pr-16 lg:py-16">
+            <div>
+              <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-fikir-gold">
+                Sobre nosotros
+              </p>
+              <h1 className="mt-5 font-heading text-4xl font-medium leading-[1.05] text-fikir-brown sm:text-5xl lg:text-6xl">
+                Fikir significa{" "}
+                <em className="font-normal italic text-fikir-gold">amor</em>
+              </h1>
+              <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-fikir-brown-light sm:text-lg">
+                En amharico, la lengua de Etiopía. Y eso es exactamente lo que
+                ponemos en cada bolsa: amor por el café, por los niños que crecen
+                donde se cultiva y por la idea de que las cosas se pueden hacer de
+                otra manera.
+              </p>
+              <Link
+                href="/impacto"
+                className="mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full bg-fikir-green px-7 py-4 font-body text-sm font-semibold uppercase tracking-wider text-fikir-cream transition duration-200 hover:-translate-y-0.5 hover:bg-fikir-brown"
+              >
+                Ver el impacto
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
+          {/* Imagen comunidad masai */}
+          <div className="relative aspect-[4/5] lg:aspect-auto">
+            <Image
+              src="/images/nosotros-comunidad.jpg"
+              alt="Mujeres de la comunidad masái con vestimenta tradicional"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-fikir-cream/30 lg:to-fikir-cream/40" />
+          </div>
+        </div>
+      </section>
+
+      {/* Foto documental — tostado */}
+      <section className="relative h-72 overflow-hidden lg:h-96">
+        <Image
+          src="/images/nosotros-tostado.png"
+          alt="Granos de café tostados saliendo de la tostadora con vapor"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-fikir-brown/45" />
+        <div className="relative h-full flex items-center justify-center px-6">
+          <p className="font-heading text-3xl font-medium text-fikir-cream text-center sm:text-4xl lg:text-5xl">
+            Calidad que se{" "}
+            <em className="font-normal italic text-fikir-gold">huele</em>
+          </p>
         </div>
       </section>
 
@@ -243,7 +276,7 @@ export default function NosotrosPage() {
       <section className="py-20 bg-fikir-green text-center lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
-            Unete al movimiento
+            Únete al movimiento
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
             Cada taza de Fikir es un acto de amor hacia las comunidades que

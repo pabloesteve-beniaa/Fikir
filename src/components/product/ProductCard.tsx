@@ -69,7 +69,7 @@ export default function ProductCard({
 
         <div className="mt-auto flex items-center justify-between border-t border-fikir-cream-dark pt-4">
           <span className="font-body text-xl font-semibold text-fikir-brown">
-            {product.price.toFixed(2)}&euro;
+            {product.price.toFixed(2).replace(".", ",")}&euro;
           </span>
           <span className="font-body text-xs font-semibold uppercase tracking-wider text-fikir-green transition-transform duration-300 group-hover:translate-x-1">
             Ver café <span aria-hidden="true">→</span>

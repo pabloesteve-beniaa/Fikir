@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
@@ -24,13 +25,15 @@ export default function Navbar() {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Navegacion principal">
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-heading text-2xl font-bold tracking-wide text-fikir-brown lg:text-3xl">
-              FIKIR
-            </span>
-            <span className="font-heading text-xs tracking-[0.3em] text-fikir-brown-light uppercase">
-              Coffee
-            </span>
+          <Link href="/" className="flex items-center" aria-label="Fikir Café — Inicio">
+            <Image
+              src="/images/logo-transparente.png"
+              alt="Fikir Café"
+              width={560}
+              height={843}
+              priority
+              className="h-12 w-auto lg:h-14"
+            />
           </Link>
 
           {/* Desktop nav */}

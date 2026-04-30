@@ -84,13 +84,21 @@ export default function EditorialPDP({ product, shopifyAvailable, shopifyPrice }
 
   const colors = colorMap[product.color];
   const ImpactIcon = colors.impactIcon;
-  const lifestyleImage = product.handle === "etiopia" ? "/images/etiopia-lifestyle.jpg" : "/images/kenia-lifestyle.jpg";
+
+  // Lifestyle hero per origin. Uganda has no dedicated lifestyle shot yet,
+  // so we fall back to the project documentary image.
+  const lifestyleByHandle: Record<string, string> = {
+    etiopia: "/images/etiopia-lifestyle.jpg",
+    kenia: "/images/kenia-lifestyle.jpg",
+    uganda: "/images/impacto-uganda.png",
+  };
+  const lifestyleImage = lifestyleByHandle[product.handle] ?? product.image;
 
   const galleryImages = [
-    { src: lifestyleImage, alt: product.imageAlt },
-    { src: "/images/etiopia-granos.jpg", alt: "Granos de café Fikir" },
+    { src: product.image, alt: product.imageAlt },
+    { src: lifestyleImage, alt: `Origen ${product.origin} — ${product.region}` },
+    { src: "/images/etiopia-granos.jpg", alt: "Granos de café de especialidad Fikir" },
     { src: "/images/etiopia-tostador.jpg", alt: "Proceso de tueste artesanal" },
-    { src: "/images/fikir-estanteria.jpg", alt: "Colección Fikir Coffee" },
   ];
 
   return (
@@ -129,9 +137,9 @@ export default function EditorialPDP({ product, shopifyAvailable, shopifyPrice }
 
       <section className="pb-24 lg:pb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <div className="relative rounded-3xl overflow-hidden aspect-square lg:aspect-auto lg:min-h-[560px]">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 lg:items-start">
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <div className="relative rounded-3xl overflow-hidden aspect-square">
                 <Image
                   src={galleryImages[selectedImage].src}
                   alt={galleryImages[selectedImage].alt}
@@ -188,7 +196,7 @@ export default function EditorialPDP({ product, shopifyAvailable, shopifyPrice }
                 {product.profileHint}
               </p>
               <p className="mt-3 font-heading text-3xl font-bold text-fikir-brown">
-                {unitPrice.toFixed(2)}&euro;
+                {unitPrice.toFixed(2).replace(".", ",")}&euro;
               </p>
               <p className="mt-1 font-body text-xs text-fikir-brown-light/70">
                 IVA incluido · Envío gratis a partir de 50€
@@ -315,7 +323,7 @@ export default function EditorialPDP({ product, shopifyAvailable, shopifyPrice }
                   ? "Agotado"
                   : loading
                     ? "Añadiendo..."
-                    : `Comprar — ${(unitPrice * quantity).toFixed(2)}€`}
+                    : `Comprar — ${(unitPrice * quantity).toFixed(2).replace(".", ",")}€`}
               </button>
               {buyError && (
                 <p className="mt-3 font-body text-sm text-red-600" role="alert">
@@ -463,7 +471,7 @@ function CrossSell({ currentHandle }: { currentHandle: string }) {
               </p>
               <div className="mt-auto pt-3 flex items-center justify-between">
                 <span className="font-heading text-lg font-bold text-fikir-brown">
-                  {item.price.toFixed(2)}€
+                  {item.price.toFixed(2).replace(".", ",")}€
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-fikir-green group-hover:gap-2 transition-all">
                   Ver pack
