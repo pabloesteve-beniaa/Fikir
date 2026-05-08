@@ -5,6 +5,7 @@ const footerLinks = {
   tienda: [
     { name: "Etiopía Yirgacheffe", href: "/producto/etiopia" },
     { name: "Kenia Nyeri", href: "/producto/kenia" },
+    { name: "Uganda Bugisu", href: "/producto/uganda" },
     { name: "Pack Degustación", href: "/tienda" },
     { name: "Suscripción", href: "/tienda" },
   ],
@@ -15,10 +16,10 @@ const footerLinks = {
     { name: "Contacto", href: "/contacto" },
   ],
   legal: [
-    { name: "Política de privacidad", href: "#" },
-    { name: "Términos y condiciones", href: "#" },
-    { name: "Política de cookies", href: "#" },
-    { name: "Envíos y devoluciones", href: "#" },
+    { name: "Política de privacidad", href: "/privacidad" },
+    { name: "Términos y condiciones", href: "/terminos" },
+    { name: "Política de cookies", href: "/cookies" },
+    { name: "Envíos y devoluciones", href: "/envios" },
   ],
 };
 
