@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Product } from "@/data/products";
+import { formatEUR } from "@/lib/format";
 
 export default function ProductCard({ product, badge }: { product: Product; badge?: string }) {
   const colorMap = {
@@ -59,7 +60,7 @@ export default function ProductCard({ product, badge }: { product: Product; badg
             </p>
           </div>
           <span className="font-body text-lg font-semibold text-fikir-brown">
-            {product.price.toFixed(2)}&euro;
+            {formatEUR(product.price)}
           </span>
         </div>
 

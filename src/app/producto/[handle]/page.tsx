@@ -5,12 +5,14 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
+import { formatEUR } from "@/lib/format";
 import { ArrowLeft, ShoppingBag, MapPin, Leaf, Award, Heart, CheckCircle, Clock, Truck, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
 
 export default function ProductoPage() {
   const { handle } = useParams<{ handle: string }>();
   const product = products.find((p) => p.handle === handle);
   const [selectedVariant, setSelectedVariant] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(0);
 
   if (!product) {
     return (
@@ -55,14 +57,12 @@ export default function ProductoPage() {
   const ImpactIcon = colors.impactIcon;
   const lifestyleImage = product.handle === "etiopia" ? "/images/etiopia-lifestyle.jpg" : "/images/kenia-lifestyle.jpg";
 
-  // Product gallery - lifestyle shot + 3 process/detail shots (shared between origins)
   const galleryImages = [
     { src: lifestyleImage, alt: product.imageAlt },
     { src: "/images/etiopia-granos.jpg", alt: "Granos de café Fikir" },
     { src: "/images/etiopia-tostador.jpg", alt: "Proceso de tueste artesanal" },
     { src: "/images/fikir-estanteria.jpg", alt: "Colección Fikir Coffee" },
   ];
-  const [selectedImage, setSelectedImage] = useState(0);
 
   return (
     <div className="pt-20 lg:pt-24">
@@ -87,13 +87,31 @@ export default function ProductoPage() {
         }}
       />
       {/* Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.fikircafe.com/" },
+              { "@type": "ListItem", position: 2, name: "Tienda", item: "https://www.fikircafe.com/tienda" },
+              { "@type": "ListItem", position: 3, name: `Café ${product.name}`, item: `https://www.fikircafe.com/producto/${product.handle}` },
+            ],
+          }),
+        }}
+      />
       <div className="mx-auto max-w-7xl px-6 py-4 lg:px-8">
-        <nav className="flex items-center gap-2 font-body text-sm text-fikir-brown-light">
-          <Link href="/tienda" className="hover:text-fikir-brown transition-colors">
-            Tienda
-          </Link>
-          <span>/</span>
-          <span className="text-fikir-brown font-medium">{product.name}</span>
+        <nav aria-label="Migas de pan" className="flex items-center gap-2 font-body text-sm text-fikir-brown-light">
+          <ol className="flex items-center gap-2">
+            <li>
+              <Link href="/tienda" className="hover:text-fikir-brown transition-colors">
+                Tienda
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li className="text-fikir-brown font-medium" aria-current="page">{product.name}</li>
+          </ol>
         </nav>
       </div>
 
@@ -161,7 +179,7 @@ export default function ProductoPage() {
                 {product.profileHint}
               </p>
               <p className="mt-3 font-heading text-3xl font-bold text-fikir-brown">
-                {product.price.toFixed(2)}&euro;
+                {formatEUR(product.price)}
               </p>
 
               {/* Flavor notes */}
@@ -258,7 +276,7 @@ export default function ProductoPage() {
                 className={`mt-6 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg ${colors.button} font-body text-base font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 cursor-pointer`}
               >
                 <ShoppingBag className="h-5 w-5" />
-                Comprar &mdash; {product.price.toFixed(2)}&euro;
+                Comprar &mdash; {formatEUR(product.price)}
               </button>
 
               {/* Impact card - structured */}
