@@ -10,8 +10,8 @@ const stats = [
   },
   {
     icon: GraduationCap,
-    value: "Dokolo",
-    label: "Proyecto infantil en Kenia",
+    value: "Migori",
+    label: "Centro de Formación Profesional en Kenia",
     color: "text-fikir-terracotta",
   },
   {
@@ -29,7 +29,7 @@ export default function ImpactSection() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-center">
           {/* Left: Content */}
           <div>
-            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold-dark">
               Nuestro impacto
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -37,9 +37,8 @@ export default function ImpactSection() {
               <br />historias reales
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
-              No es marketing. Son proyectos con los que el fundador de Fikir
-              tiene una conexión personal y directa. Lugares donde vivió,
-              trabajó y formó su vida.
+              No es marketing. Son proyectos con los que tenemos una conexión personal y directa.
+              Lugares donde nuestro fundador vivió, trabajó y formó su vida.
             </p>
 
             <div className="mt-10 space-y-6">
@@ -50,7 +49,7 @@ export default function ImpactSection() {
                     Meki, Etiopía &mdash; Orfanato
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    El fundador de Fikir vivió y trabajó aquí durante años.
+                    Nuestro fundador vivió y trabajó aquí durante años.
                     Tu café mejora directamente la vida de estos niños.
                   </p>
                 </div>
@@ -59,11 +58,11 @@ export default function ImpactSection() {
                 <div className="w-2 h-2 mt-2 rounded-full bg-fikir-terracotta shrink-0" />
                 <div>
                   <h4 className="font-body text-sm font-semibold text-fikir-brown">
-                    Dokolo, Kenia &mdash; Fundación Pablo Horstmann
+                    Migori, Kenia &mdash; Centro de Formación Profesional
                   </h4>
                   <p className="font-body text-sm text-fikir-brown-light mt-1">
-                    Nuevo proyecto para la infancia en desarrollo. Educación
-                    y oportunidades para niños en comunidades cafetaleras.
+                    Educación y oportunidades para jóvenes en Migori.
+                    Formación profesional con relación directa.
                   </p>
                 </div>
               </div>

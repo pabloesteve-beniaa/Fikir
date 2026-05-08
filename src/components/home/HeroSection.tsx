@@ -27,9 +27,9 @@ export default function HeroSection() {
 
           {/* Clear value proposition - childhood focused */}
           <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-fikir-cream/90 sm:text-xl">
-            Café de especialidad de Kenia y Etiopía.
+            Café de especialidad de Etiopía y Kenia.
             <br />
-            <span className="font-semibold text-fikir-cream">100% del beneficio se reinvierte</span> en proyectos para la infancia en comunidades cafetaleras.
+            <span className="font-semibold text-fikir-cream">100% del beneficio se reinvierte</span> en proyectos para la infancia y la juventud en las comunidades cafetaleras de origen.
           </p>
 
           {/* Micro trust badges */}
@@ -87,7 +87,7 @@ export default function HeroSection() {
             </div>
             <div className="w-px h-12 bg-fikir-cream/10" />
             <div>
-              <p className="font-heading text-3xl font-bold text-fikir-gold">85+</p>
+              <p className="font-heading text-3xl font-bold text-fikir-gold">80+</p>
               <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
                 Puntuación SCA
               </p>

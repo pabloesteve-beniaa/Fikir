@@ -6,7 +6,7 @@ export default function TransparencySection() {
     <section className="py-24 bg-fikir-white lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+          <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold-dark">
             Transparencia
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -20,7 +20,7 @@ export default function TransparencySection() {
         <div className="max-w-3xl mx-auto">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="bg-fikir-cream rounded-2xl p-8 text-center">
-              <p className="font-heading text-4xl font-bold text-fikir-brown">14,99&euro;</p>
+              <p className="font-heading text-4xl font-bold text-fikir-brown">14,99&nbsp;&euro;</p>
               <p className="mt-2 font-body text-sm text-fikir-brown-light">Precio por bolsa</p>
               <div className="mt-4 pt-4 border-t border-fikir-brown/10">
                 <p className="font-body text-xs text-fikir-brown-light uppercase tracking-wide">Ingresos</p>

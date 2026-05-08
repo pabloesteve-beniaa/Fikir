@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { products, packs } from "@/data/products";
 import ProductCard from "@/components/product/ProductCard";
+import { formatEUR } from "@/lib/format";
 import { ArrowRight, Coffee, Repeat, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tienda",
-  description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a toda España en 3-5 días.",
+  description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a España en 3-5 días.",
   alternates: { canonical: "/tienda" },
   openGraph: {
     title: "Tienda | Fikir Coffee",
@@ -34,7 +35,7 @@ export default function TiendaPage() {
             </p>
             {/* Trust line */}
             <div className="mt-4 flex flex-wrap justify-center gap-4">
-              {["Envío 3-5 días · Gratis >50€", "100% beneficio reinvertido", "SCA 85+"].map((item) => (
+              {["Envío 3-5 días · Gratis >50€", "100% beneficio reinvertido", "SCA 80+"].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
                   <CheckCircle className="h-3.5 w-3.5 text-fikir-green" />
                   <span className="font-body text-xs text-fikir-brown-light">{item}</span>
@@ -90,7 +91,7 @@ export default function TiendaPage() {
                 </p>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-body text-2xl font-semibold text-fikir-brown">
-                    {packs[0].price.toFixed(2)}&euro;
+                    {formatEUR(packs[0].price)}
                   </span>
                   <Link
                     href="#"
@@ -137,7 +138,7 @@ export default function TiendaPage() {
                 <div className="mt-4 flex items-center justify-between">
                   <div>
                     <span className="font-body text-2xl font-semibold text-fikir-brown">
-                      {packs[1].price.toFixed(2)}&euro;
+                      {formatEUR(packs[1].price)}
                     </span>
                     <span className="font-body text-sm text-fikir-brown-light ml-1">
                       /mes

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Fikir Coffee",
   },
   description:
-    "Café de especialidad etíope y keniano con impacto social. Cada compra financia proyectos para la infancia en comunidades cafeteras de Etiopía.",
+    "Café de especialidad etíope y keniano con impacto social. Cada compra financia proyectos para la infancia y la juventud en las comunidades cafetaleras de origen.",
   keywords: [
     "café de especialidad",
     "café etiopía",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fikir Coffee | Café con impacto en su origen",
     description:
-      "Café de especialidad sin ánimo de lucro. Todo el beneficio se reinvierte en proyectos para la infancia en Etiopía y Kenia.",
+      "Café de especialidad sin ánimo de lucro. Todo el beneficio se reinvierte en proyectos para la infancia y la juventud en las comunidades cafetaleras de origen.",
     type: "website",
     locale: "es_ES",
     siteName: "Fikir Coffee",
