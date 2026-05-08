@@ -6,11 +6,21 @@ import { Gift, CheckCircle, Heart, BookOpen } from "lucide-react";
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: Connect to email service (Mailchimp, Klaviyo, etc.)
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "newsletter-section" }),
+      });
+    } finally {
+      setSubmitted(true);
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -49,6 +59,7 @@ export default function NewsletterSection() {
             >
               <input
                 type="email"
+                name="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -58,9 +69,10 @@ export default function NewsletterSection() {
               />
               <button
                 type="submit"
-                className="px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-gold-light shrink-0 cursor-pointer"
+                disabled={submitting}
+                className="px-8 py-4 rounded-lg bg-fikir-gold font-body text-sm font-semibold text-fikir-brown tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-gold-light shrink-0 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Quiero mi descuento
+                {submitting ? "Enviando..." : "Quiero mi descuento"}
               </button>
             </form>
           ) : (

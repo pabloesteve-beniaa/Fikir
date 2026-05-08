@@ -24,13 +24,20 @@ export default function NewsletterPopup() {
     localStorage.setItem("fikir-newsletter-dismissed", "true");
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: Connect to email service (Mailchimp, Klaviyo, etc.)
-    setSubmitted(true);
-    setTimeout(() => {
-      handleClose();
-    }, 3000);
+    try {
+      await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "newsletter-popup" }),
+      });
+    } finally {
+      setSubmitted(true);
+      setTimeout(() => {
+        handleClose();
+      }, 3000);
+    }
   }
 
   if (!isOpen) return null;
@@ -75,6 +82,7 @@ export default function NewsletterPopup() {
             <form onSubmit={handleSubmit} className="mt-6 space-y-3">
               <input
                 type="email"
+                name="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
