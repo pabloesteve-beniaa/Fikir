@@ -11,7 +11,7 @@ const values = [
     icon: Sprout,
     title: "Proyectos para la infancia",
     description:
-      "Financiamos educación, material escolar y oportunidades para niños en comunidades cafetaleras de Etiopía y Kenia.",
+      "Financiamos educación, material escolar y oportunidades para niños y jóvenes en las comunidades cafetaleras de origen.",
   },
   {
     icon: Users,

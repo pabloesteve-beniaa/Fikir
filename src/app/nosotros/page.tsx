@@ -5,7 +5,7 @@ import { ArrowRight, Heart, Globe, Coffee, Sparkles, ExternalLink } from "lucide
 
 export const metadata: Metadata = {
   title: "Sobre nosotros",
-  description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas. Café con propósito desde Etiopía y Kenia.",
+  description: "La historia de Fikir Coffee y su fundador Pablo Esteve Rozas. Café de especialidad con propósito desde origen.",
   alternates: { canonical: "/nosotros" },
   openGraph: {
     title: "Sobre nosotros | Fikir Coffee",
@@ -19,31 +19,31 @@ const timeline = [
     year: "2024",
     title: "La semilla",
     description:
-      "Después de vivir en Kenia y Etiopía y trabajar en un orfanato en Meki, nace la idea: crear un café de especialidad donde todo el beneficio vuelva a los niños de las comunidades de origen.",
+      "Tras la experiencia de nuestro fundador viviendo en Kenia y Etiopía y trabajando en un orfanato en Meki, nace la idea: crear un café de especialidad donde todo el beneficio vuelva a los niños y jóvenes de las comunidades de origen.",
   },
   {
     year: "2024",
     title: "El primer viaje",
     description:
-      "Viajamos a Etiopía y Kenia para encontrar los mejores granos. Cafés con puntuación SCA superior a 85, cultivados con métodos tradicionales por familias caficultoras.",
+      "Viajamos a Etiopía y Kenia para encontrar los mejores granos. Cafés con puntuación SCA superior a 80, cultivados con métodos tradicionales por familias caficultoras.",
   },
   {
     year: "2025",
     title: "Las primeras bolsas",
     description:
-      "Lanzamos las dos primeras referencias: Etiopía Yirgacheffe y Kenia Nyeri. Los primeros clientes se convierten en los primeros embajadores del proyecto.",
+      "Lanzamos las primeras referencias: Etiopía Yirgacheffe y Kenia Nyeri. Los primeros clientes se convierten en los primeros embajadores del proyecto.",
   },
   {
     year: "2025",
     title: "El impacto empieza",
     description:
-      "Financiamos los primeros kits escolares en Yirgacheffe y los primeros programas educativos en Nyeri. El café empieza a cambiar vidas.",
+      "Apoyamos al orfanato en Meki (Etiopía) y al Centro de Formación Profesional de Migori (Kenia). El café empieza a cambiar vidas.",
   },
   {
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "2 proyectos activos en Meki y Dokolo, 2 comunidades apoyadas. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "Proyectos activos en Meki (Etiopía) y Migori (Kenia), comunidades apoyadas con educación y oportunidades. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -114,20 +114,20 @@ export default function NosotrosPage() {
             </h2>
             <div className="mt-8 font-body text-base leading-relaxed text-fikir-brown-light text-left max-w-2xl space-y-4">
               <p>
-                Fikir no empezó como un negocio. Empezó después de vivir en Kenia y Etiopía, de formar allí parte de mi vida y de trabajar en un orfanato en Meki durante dos años.
+                Fikir no empezó como un negocio. Empezó tras los años que nuestro fundador, Pablo Esteve Rozas, vivió en Kenia y Etiopía y trabajó en un orfanato en Meki.
               </p>
               <p>
-                Cuando volví, sentí que le debía algo a esas comunidades. No como caridad, sino como compromiso real. Fikir es mi forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia en las comunidades que me dieron tanto.
+                De vuelta sentimos una deuda con esas comunidades. No como caridad, sino como compromiso real. Fikir es nuestra forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia y la juventud en las comunidades que tanto nos dieron.
               </p>
               <p>
-                Hoy, cada bolsa de Fikir apoya al orfanato en Meki y un nuevo proyecto con la Fundación Pablo Horstmann en Dokolo. Son lugares que conozco. Personas que conozco. No es un proyecto lejano. Es personal.
+                Hoy, cada bolsa de Fikir apoya al orfanato en Meki (Etiopía) y al Centro de Formación Profesional de Migori (Kenia). Son lugares que conocemos, personas que conocemos. No es un proyecto lejano. Es personal.
               </p>
               <p className="font-semibold text-fikir-brown">
                 Gracias por ser parte de esto.
               </p>
             </div>
-            <p className="mt-6 font-heading text-xl italic text-fikir-gold">
-              &mdash; Pablo Esteve Rozas, fundador de Fikir Coffee
+            <p className="mt-6 font-heading text-xl italic text-fikir-gold-dark">
+              Equipo Fikir Coffee
             </p>
             <a
               href="https://www.linkedin.com/in/pabloesteverozas/"
@@ -201,7 +201,7 @@ export default function NosotrosPage() {
       <section className="py-24 bg-fikir-cream lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold-dark">
               Lo que nos mueve
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -234,7 +234,7 @@ export default function NosotrosPage() {
       <section className="py-20 bg-fikir-green text-center lg:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-fikir-cream sm:text-4xl">
-            Unete al movimiento
+            Únete al movimiento
           </h2>
           <p className="mt-4 font-body text-base text-fikir-cream/80 leading-relaxed">
             Cada taza de Fikir es un acto de amor hacia las comunidades que

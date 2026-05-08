@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-fikir-cream/95 backdrop-blur-sm border-b border-fikir-gold/10">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Navegacion principal">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Navegación principal">
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
@@ -57,7 +57,7 @@ export default function Navbar() {
               type="button"
               className="lg:hidden p-2 text-fikir-brown cursor-pointer"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
+              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

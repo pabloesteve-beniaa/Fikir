@@ -7,8 +7,8 @@ export default function FeaturedProducts() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
-            Nuestros cafes
+          <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold-dark">
+            Nuestros cafés
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
             Dos orígenes, un propósito

@@ -6,7 +6,7 @@ const steps = [
     step: "01",
     title: "Compras tu café",
     description:
-      "Elige entre nuestros orígenes de Etiopía o Kenia. Café de especialidad, tostado con cuidado, directo a tu puerta.",
+      "Elige entre nuestros orígenes. Café de especialidad, tostado con cuidado, directo a tu puerta.",
   },
   {
     icon: Heart,

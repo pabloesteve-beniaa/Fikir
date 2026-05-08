@@ -125,9 +125,12 @@ export default function Footer() {
               ))}
             </ul>
             <div className="mt-6">
-              <p className="font-body text-sm text-fikir-cream/70">
-                hola@fikircoffee.com
-              </p>
+              <a
+                href="mailto:hola@fikircafe.com"
+                className="font-body text-sm text-fikir-cream/70 hover:text-fikir-gold transition-colors"
+              >
+                hola@fikircafe.com
+              </a>
             </div>
           </div>
         </div>
@@ -138,7 +141,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Fikir Coffee. Todos los derechos reservados.
           </p>
           <p className="font-body text-xs text-fikir-cream/50 flex items-center gap-1">
-            Hecho con <Heart className="h-3 w-3 text-fikir-gold fill-fikir-gold" /> para la infancia en origen
+            Hecho con <Heart aria-label="amor" className="h-3 w-3 text-fikir-gold fill-fikir-gold" /> para la infancia en origen
           </p>
         </div>
       </div>

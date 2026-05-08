@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Building2, Gift, Heart, Coffee, CheckCircle, ArrowRight, MessageSquare, Package, Sparkles } from "lucide-react";
+import B2BForm from "@/components/forms/B2BForm";
 
 export const metadata: Metadata = {
   title: "Empresas",
@@ -18,7 +19,7 @@ const services = [
     description:
       "Lleva café de especialidad a tu oficina. Tus empleados disfrutarán de un café excepcional mientras tu empresa apoya proyectos sociales en origen.",
     features: [
-      "Café de especialidad SCA 85+",
+      "Café de especialidad SCA 80+",
       "Suministro recurrente personalizado",
       "Grano o molido según tus necesidades",
       "Certificado de impacto social",
@@ -140,7 +141,7 @@ export default function EmpresasPage() {
       <section className="py-24 bg-fikir-cream lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold-dark">
               Proceso
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
@@ -178,7 +179,7 @@ export default function EmpresasPage() {
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
             {[
-              { icon: Coffee, title: "Calidad SCA 85+", desc: "Café de especialidad, no café comercial" },
+              { icon: Coffee, title: "Calidad SCA 80+", desc: "Café de especialidad, no café comercial" },
               { icon: Heart, title: "Sin ánimo de lucro", desc: "Tu compra financia la infancia en origen" },
               { icon: Building2, title: "RSC real", desc: "Certificado de impacto para tu empresa" },
               { icon: Gift, title: "Personalizable", desc: "Adaptamos el formato a tus necesidades" },
@@ -203,95 +204,18 @@ export default function EmpresasPage() {
       <section id="contacto-b2b" className="py-24 bg-fikir-cream lg:py-32">
         <div className="mx-auto max-w-2xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold">
+            <p className="font-body text-sm font-semibold tracking-[0.25em] uppercase text-fikir-gold-dark">
               Empecemos
             </p>
             <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
               Solicitar propuesta en 24h
             </h2>
             <p className="mt-4 font-body text-base text-fikir-brown-light">
-              Cuéntanos que necesitas y te respondemos con una propuesta personalizada en menos de 24 horas.
+              Cuéntanos qué necesitas y te respondemos con una propuesta personalizada en menos de 24 horas.
             </p>
           </div>
 
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div>
-                <label htmlFor="company" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                  Empresa
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
-                  placeholder="Nombre de la empresa"
-                />
-              </div>
-              <div>
-                <label htmlFor="b2b-name" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                  Nombre
-                </label>
-                <input
-                  type="text"
-                  id="b2b-name"
-                  name="name"
-                  className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
-                  placeholder="Tu nombre"
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="b2b-email" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="b2b-email"
-                name="email"
-                required
-                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors"
-                placeholder="tu@empresa.com"
-              />
-            </div>
-            <div>
-              <label htmlFor="service" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                Que te interesa
-              </label>
-              <select
-                id="service"
-                name="service"
-                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors cursor-pointer"
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="oficina">Café para oficina</option>
-                <option value="regalo">Regalos corporativos</option>
-                <option value="rsc">RSC y eventos</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="b2b-message" className="block font-body text-sm font-medium text-fikir-brown mb-2">
-                Mensaje
-              </label>
-              <textarea
-                id="b2b-message"
-                name="message"
-                rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-fikir-brown/10 bg-fikir-white font-body text-sm text-fikir-brown placeholder:text-fikir-brown-light/50 focus:outline-none focus:ring-2 focus:ring-fikir-gold/50 focus:border-fikir-gold transition-colors resize-none"
-                placeholder="Cuéntanos que necesitas..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full px-8 py-4 rounded-lg bg-fikir-green font-body text-sm font-semibold text-fikir-cream tracking-wide uppercase transition-colors duration-200 hover:bg-fikir-green-light cursor-pointer"
-            >
-              Solicitar propuesta en 24h
-            </button>
-            <p className="font-body text-xs text-fikir-brown-light/60 text-center">
-              Sin compromiso. Te respondemos en menos de 24 horas.
-            </p>
-          </form>
+          <B2BForm />
         </div>
       </section>
     </div>
