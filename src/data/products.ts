@@ -22,7 +22,7 @@ export interface Product {
   profileHint: string;
   image: string;
   imageAlt: string;
-  color: "green" | "terracotta";
+  color: "green" | "terracotta" | "moss";
 }
 
 export const products: Product[] = [
@@ -90,6 +90,38 @@ export const products: Product[] = [
     imageAlt: "Bolsa de café Fikir Coffee Kenia Nyeri",
     color: "terracotta",
   },
+  {
+    id: "uganda-bugisu",
+    handle: "uganda",
+    name: "Uganda",
+    origin: "Uganda",
+    region: "Bugisu",
+    price: 14.99,
+    currency: "EUR",
+    weight: "250g",
+    process: "Lavado",
+    scaScore: "80+",
+    flavorNotes: ["Chocolate", "Frutos secos", "Caramelo"],
+    roast: "Medio",
+    variants: [
+      { id: "uganda-grano", name: "Grano", helper: "Máxima frescura. Ideal si tienes molinillo." },
+      { id: "uganda-molido", name: "Molido", helper: "Listo para cafetera italiana, filtro o prensa francesa." },
+    ],
+    description:
+      "Café de especialidad de la región de Bugisu, en las laderas del Monte Elgon. Un perfil clásico, dulce y equilibrado con notas de chocolate, frutos secos y caramelo.",
+    story:
+      "En las laderas del Monte Elgon, al este de Uganda, los caficultores de Bugisu cultivan a más de 1.500 metros de altitud bajo sombra natural. Es un café de tradición, equilibrado, que combina el cuerpo de los arábicas africanos con un perfil amable y accesible.",
+    impact:
+      "Este café apoya el colegio de infantil y primaria de la Fundación Pablo Horstmann en Dokolo (Uganda). Educación, comedor escolar y oportunidades para los niños y niñas de la comunidad.",
+    impactProject: "Colegio de infantil y primaria con Fundación Pablo Horstmann",
+    impactLocation: "Dokolo, Uganda",
+    impactWhat: "Educación, material escolar y comedor",
+    impactWho: "Niños y niñas en la comunidad de Dokolo",
+    profileHint: "Ideal para el día a día. Dulce, cremoso y sin aristas",
+    image: "/images/uganda-product.jpg",
+    imageAlt: "Bolsa de café Fikir Coffee Uganda Bugisu",
+    color: "moss",
+  },
 ];
 
 export const packs = [
@@ -97,7 +129,7 @@ export const packs = [
     id: "pack-degustacion",
     handle: "pack-degustacion",
     name: "Pack Degustación",
-    description: "Descubre los dos orígenes de Fikir. Incluye 1 bolsa de Etiopía + 1 bolsa de Kenia (250g cada una).",
+    description: "Descubre dos orígenes de Fikir. Incluye 1 bolsa de Etiopía + 1 bolsa de Kenia (250 g cada una).",
     price: 27.99,
     currency: "EUR",
     image: "/images/pack-degustacion.jpg",
@@ -106,7 +138,7 @@ export const packs = [
     id: "suscripcion-mensual",
     handle: "suscripcion",
     name: "Suscripción Mensual",
-    description: "Recibe café fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre los dos.",
+    description: "Recibe café fresco cada mes en tu puerta. Elige tu origen favorito o alterna entre orígenes.",
     price: 12.99,
     currency: "EUR",
     image: "/images/suscripcion.jpg",

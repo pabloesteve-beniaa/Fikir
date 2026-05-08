@@ -11,7 +11,7 @@ export default function FeaturedProducts() {
             Nuestros cafés
           </p>
           <h2 className="mt-4 font-heading text-4xl font-bold text-fikir-brown sm:text-5xl">
-            Dos orígenes, un propósito
+            Tres orígenes, un propósito
           </h2>
           <p className="mt-6 font-body text-lg leading-relaxed text-fikir-brown-light">
             Café de especialidad tostado con cuidado. Cada bolsa financia
@@ -20,7 +20,7 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Products grid */}
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

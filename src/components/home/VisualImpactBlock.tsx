@@ -19,7 +19,7 @@ export default function VisualImpactBlock() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {/* Etiopía - Meki */}
           <div className="rounded-2xl overflow-hidden bg-fikir-cream">
             <div className="relative aspect-video">
@@ -28,7 +28,7 @@ export default function VisualImpactBlock() {
                 alt="Niños del orfanato en Meki, Etiopía"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="p-6">
@@ -56,7 +56,7 @@ export default function VisualImpactBlock() {
                 alt="Centro de Formación Profesional de Migori, Kenia"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="p-6">
@@ -70,8 +70,36 @@ export default function VisualImpactBlock() {
                 Centro de Formación Profesional
               </h3>
               <p className="mt-2 font-body text-sm text-fikir-brown-light leading-relaxed">
-                Educación y oportunidades para jóvenes en Migori.
-                Un proyecto de formación con relación directa, sin intermediarios.
+                Formación profesional para jóvenes Kuria con las
+                Hermanas Misioneras Sociales y la Fundación Pablo Horstmann.
+              </p>
+            </div>
+          </div>
+
+          {/* Uganda - Dokolo */}
+          <div className="rounded-2xl overflow-hidden bg-fikir-cream">
+            <div className="relative aspect-video">
+              <Image
+                src="/images/fundador-lalibela.jpg"
+                alt="Colegio en Dokolo, Uganda con la Fundación Pablo Horstmann"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <MapPin className="h-4 w-4 text-fikir-moss" />
+                <span className="font-body text-xs font-semibold text-fikir-moss uppercase tracking-wide">
+                  Dokolo, Uganda
+                </span>
+              </div>
+              <h3 className="font-heading text-xl font-bold text-fikir-brown">
+                Colegio en Dokolo
+              </h3>
+              <p className="mt-2 font-body text-sm text-fikir-brown-light leading-relaxed">
+                Colegio de infantil y primaria con la Fundación Pablo Horstmann.
+                Educación, comedor y oportunidades para los niños y niñas de la comunidad.
               </p>
             </div>
           </div>

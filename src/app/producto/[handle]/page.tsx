@@ -51,11 +51,20 @@ export default function ProductoPage() {
       lightBg: "bg-fikir-terracotta/5",
       impactIcon: GraduationCap,
     },
+    moss: {
+      bg: "bg-fikir-moss",
+      button: "bg-fikir-moss hover:bg-fikir-moss-light",
+      accent: "text-fikir-moss",
+      dot: "bg-fikir-moss",
+      border: "border-fikir-moss/20",
+      lightBg: "bg-fikir-moss/5",
+      impactIcon: BookOpen,
+    },
   };
 
   const colors = colorMap[product.color];
   const ImpactIcon = colors.impactIcon;
-  const lifestyleImage = product.handle === "etiopia" ? "/images/etiopia-lifestyle.jpg" : "/images/kenia-lifestyle.jpg";
+  const lifestyleImage = `/images/${product.handle}-lifestyle.jpg`;
 
   const galleryImages = [
     { src: lifestyleImage, alt: product.imageAlt },

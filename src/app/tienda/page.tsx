@@ -7,11 +7,11 @@ import { ArrowRight, Coffee, Repeat, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tienda",
-  description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual. Envío a España en 3-5 días.",
+  description: "Compra café de especialidad: Etiopía Yirgacheffe, Kenia Nyeri y Uganda Bugisu, packs y suscripción mensual. Envío a España en 3-5 días.",
   alternates: { canonical: "/tienda" },
   openGraph: {
     title: "Tienda | Fikir Coffee",
-    description: "Compra café de especialidad: Etiopía Yirgacheffe y Kenia Nyeri, packs y suscripción mensual.",
+    description: "Compra café de especialidad: Etiopía, Kenia y Uganda, packs y suscripción mensual.",
     images: [{ url: "/images/etiopia-product.jpg" }],
   },
 };
@@ -52,9 +52,20 @@ export default function TiendaPage() {
           <h2 className="font-heading text-3xl font-bold text-fikir-brown mb-12 text-center">
             Nuestros orígenes
           </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            <ProductCard product={products[0]} badge="Más vendido" />
-            <ProductCard product={products[1]} badge="Intenso y complejo" />
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                badge={
+                  product.handle === "etiopia"
+                    ? "Más vendido"
+                    : product.handle === "kenia"
+                    ? "Intenso y complejo"
+                    : "Dulce y equilibrado"
+                }
+              />
+            ))}
           </div>
         </div>
       </section>

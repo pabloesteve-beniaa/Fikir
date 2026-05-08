@@ -16,6 +16,11 @@ export default function ProductCard({ product, badge }: { product: Product; badg
       badge: "bg-fikir-terracotta text-fikir-cream",
       hover: "group-hover:text-fikir-terracotta",
     },
+    moss: {
+      bg: "bg-fikir-moss",
+      badge: "bg-fikir-moss text-fikir-cream",
+      hover: "group-hover:text-fikir-moss",
+    },
   };
 
   const colors = colorMap[product.color];

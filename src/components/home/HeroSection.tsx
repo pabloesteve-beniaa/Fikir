@@ -27,7 +27,7 @@ export default function HeroSection() {
 
           {/* Clear value proposition - childhood focused */}
           <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-fikir-cream/90 sm:text-xl">
-            Café de especialidad de Etiopía y Kenia.
+            Café de especialidad de Etiopía, Kenia y Uganda.
             <br />
             <span className="font-semibold text-fikir-cream">100% del beneficio se reinvierte</span> en proyectos para la infancia y la juventud en las comunidades cafetaleras de origen.
           </p>
@@ -66,14 +66,14 @@ export default function HeroSection() {
           {/* Trust metrics - real data only */}
           <div className="mt-16 flex flex-wrap items-center gap-8 border-t border-fikir-cream/10 pt-8">
             <div>
-              <p className="font-heading text-3xl font-bold text-fikir-gold">2</p>
+              <p className="font-heading text-3xl font-bold text-fikir-gold">3</p>
               <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
                 Proyectos activos
               </p>
             </div>
             <div className="w-px h-12 bg-fikir-cream/10" />
             <div>
-              <p className="font-heading text-3xl font-bold text-fikir-gold">2</p>
+              <p className="font-heading text-3xl font-bold text-fikir-gold">3</p>
               <p className="font-body text-xs text-fikir-cream/60 uppercase tracking-wide">
                 Comunidades
               </p>

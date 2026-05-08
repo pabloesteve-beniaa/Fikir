@@ -31,19 +31,19 @@ const timeline = [
     year: "2025",
     title: "Las primeras bolsas",
     description:
-      "Lanzamos las primeras referencias: Etiopía Yirgacheffe y Kenia Nyeri. Los primeros clientes se convierten en los primeros embajadores del proyecto.",
+      "Lanzamos las primeras referencias: Etiopía Yirgacheffe, Kenia Nyeri y Uganda Bugisu. Los primeros clientes se convierten en los primeros embajadores del proyecto.",
   },
   {
     year: "2025",
     title: "El impacto empieza",
     description:
-      "Apoyamos al orfanato en Meki (Etiopía) y al Centro de Formación Profesional de Migori (Kenia). El café empieza a cambiar vidas.",
+      "Apoyamos al orfanato en Meki (Etiopía), al colegio de la Fundación Pablo Horstmann en Dokolo (Uganda) y damos los primeros pasos junto al Centro de Formación Profesional de Migori (Kenia). El café empieza a cambiar vidas.",
   },
   {
     year: "2026",
     title: "Hoy: una comunidad que crece",
     description:
-      "Proyectos activos en Meki (Etiopía) y Migori (Kenia), comunidades apoyadas con educación y oportunidades. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
+      "Tres proyectos activos en Meki (Etiopía), Migori (Kenia) y Dokolo (Uganda). Tres comunidades apoyadas con educación, formación y oportunidades. Cada persona que elige Fikir se une a un movimiento donde el consumo consciente genera impacto real.",
   },
 ];
 
@@ -120,7 +120,7 @@ export default function NosotrosPage() {
                 De vuelta sentimos una deuda con esas comunidades. No como caridad, sino como compromiso real. Fikir es nuestra forma de devolver: un proyecto donde <span className="font-semibold text-fikir-brown">todo el beneficio, literalmente todo,</span> va a proyectos para la infancia y la juventud en las comunidades que tanto nos dieron.
               </p>
               <p>
-                Hoy, cada bolsa de Fikir apoya al orfanato en Meki (Etiopía) y al Centro de Formación Profesional de Migori (Kenia). Son lugares que conocemos, personas que conocemos. No es un proyecto lejano. Es personal.
+                Hoy, cada bolsa de Fikir apoya al orfanato en Meki (Etiopía), al Centro de Formación Profesional de Migori (Kenia) y al colegio de la Fundación Pablo Horstmann en Dokolo (Uganda). Son lugares que conocemos, personas que conocemos. No es un proyecto lejano. Es personal.
               </p>
               <p className="font-semibold text-fikir-brown">
                 Gracias por ser parte de esto.

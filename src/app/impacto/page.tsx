@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera } from "lucide-react";
+import { ArrowRight, BookOpen, Heart, Users, TrendingUp, Eye, Shield, Calendar, MapPin, Camera, GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Impacto",
-  description: "Conoce el impacto social de Fikir Coffee: proyectos activos en Meki (Etiopía) y Migori (Kenia) para la infancia y juventud en comunidades cafeteras.",
+  description: "Conoce el impacto social de Fikir Coffee: proyectos activos en Meki (Etiopía), Migori (Kenia) y Dokolo (Uganda) para la infancia y juventud en comunidades cafeteras.",
   alternates: { canonical: "/impacto" },
   openGraph: {
     title: "Impacto | Fikir Coffee",
-    description: "Conoce el impacto social de Fikir Coffee: proyectos activos en Meki (Etiopía) y Migori (Kenia).",
+    description: "Conoce el impacto social de Fikir Coffee: proyectos en Meki, Migori y Dokolo.",
     images: [{ url: "/images/meki-orfanato.jpg" }],
   },
 };
@@ -40,18 +40,37 @@ const projects = [
     region: "Migori",
     title: "Centro de Formación Profesional de Migori",
     description:
-      "En Migori (Kenia) apoyamos un centro de formación profesional que ofrece a jóvenes la posibilidad de construir su futuro a través de la educación y la cualificación. Un proyecto con relación directa, sin intermediarios.",
+      "En el condado de Migori, en el suroeste de Kenia, apoyamos un Centro de Formación Profesional para jóvenes de la comunidad Kuria, una zona donde solo el 15 % completa la secundaria y persisten prácticas como la mutilación genital femenina. El centro ofrece itinerarios de 12 meses en peluquería, carpintería y fontanería, gestionado por las Hermanas Misioneras Sociales con apoyo administrativo de la Fundación Pablo Horstmann. \"Formar para transformar\".",
     stats: [
-      { value: "En desarrollo", label: "" },
-      { value: "Formación profesional", label: "" },
-      { value: "Migori, Kenia", label: "" },
+      { value: "30 jóvenes", label: "en 2026" },
+      { value: "Hasta 120", label: "jóvenes en 2028" },
+      { value: "50%", label: "mujeres" },
     ],
     evidence: [
-      { date: "2025-presente", text: "Apoyo al Centro de Formación Profesional de Migori", location: "Migori, Kenia" },
+      { date: "2026-2028", text: "Apertura escalonada con itinerarios de peluquería, carpintería y fontanería", location: "Migori, Kenia" },
     ],
     color: "bg-fikir-terracotta",
     accent: "text-fikir-terracotta",
     imagePlaceholder: "Foto del proyecto en Migori",
+  },
+  {
+    icon: GraduationCap,
+    country: "Uganda",
+    region: "Dokolo",
+    title: "Colegio en Dokolo con Fundación Pablo Horstmann",
+    description:
+      "En Dokolo (Uganda) apoyamos el colegio de infantil y primaria de la Fundación Pablo Horstmann. Un proyecto consolidado de educación, comedor escolar y oportunidades para los niños y niñas de la comunidad.",
+    stats: [
+      { value: "Educación", label: "" },
+      { value: "Comedor", label: "" },
+      { value: "Dokolo, Uganda", label: "" },
+    ],
+    evidence: [
+      { date: "2025-presente", text: "Apoyo al colegio de infantil y primaria de la Fundación Pablo Horstmann", location: "Dokolo, Uganda" },
+    ],
+    color: "bg-fikir-moss",
+    accent: "text-fikir-moss",
+    imagePlaceholder: "Foto del colegio en Dokolo",
   },
 ];
 
@@ -123,8 +142,8 @@ export default function ImpactoPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              { value: "2", label: "Proyectos activos" },
-              { value: "2", label: "Comunidades apoyadas" },
+              { value: "3", label: "Proyectos activos" },
+              { value: "3", label: "Comunidades apoyadas" },
               { value: "100%", label: "Beneficio reinvertido" },
               { value: "80+", label: "Puntuación SCA" },
             ].map((stat) => (
@@ -160,8 +179,20 @@ export default function ImpactoPage() {
                   {/* Image placeholder */}
                   <div className="rounded-3xl overflow-hidden lg:col-span-2 relative aspect-video lg:aspect-square">
                     <Image
-                      src={project.region === "Meki" ? "/images/meki-orfanato.jpg" : "/images/fundador-lalibela.jpg"}
-                      alt={project.region === "Meki" ? "Orfanato en Meki, Etiopía" : "Centro de Formación Profesional de Migori, Kenia"}
+                      src={
+                        project.region === "Meki"
+                          ? "/images/meki-orfanato.jpg"
+                          : project.region === "Migori"
+                          ? "/images/fundador-meki.jpg"
+                          : "/images/fundador-lalibela.jpg"
+                      }
+                      alt={
+                        project.region === "Meki"
+                          ? "Orfanato en Meki, Etiopía"
+                          : project.region === "Migori"
+                          ? "Centro de Formación Profesional de Migori, Kenia"
+                          : "Colegio en Dokolo, Uganda"
+                      }
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 40vw"
@@ -228,6 +259,49 @@ export default function ImpactoPage() {
                           className="object-cover"
                           sizes="(max-width: 1024px) 100vw, 60vw"
                         />
+                      </div>
+                    )}
+                    {project.region === "Migori" && (
+                      <div className="mt-8 flex items-center gap-3">
+                        <div className="relative w-10 h-10 shrink-0">
+                          <Image
+                            src="/images/logo-fph.png"
+                            alt="Logo Fundación Pablo Horstmann"
+                            fill
+                            className="object-contain"
+                            sizes="40px"
+                          />
+                        </div>
+                        <p className="font-body text-xs text-fikir-brown-light">
+                          Apoyo administrativo de la Fundación Pablo Horstmann · Gestión por las Hermanas Misioneras Sociales
+                        </p>
+                      </div>
+                    )}
+                    {project.region === "Dokolo" && (
+                      <div className="mt-8">
+                        <div className="relative aspect-video rounded-2xl overflow-hidden">
+                          <iframe
+                            src="https://www.youtube.com/embed/0HcMMGiaruw"
+                            title="Proyecto Fikir en Dokolo con Fundación Pablo Horstmann"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
+                        <div className="mt-4 flex items-center gap-3">
+                          <div className="relative w-10 h-10 shrink-0">
+                            <Image
+                              src="/images/logo-fph.png"
+                              alt="Logo Fundación Pablo Horstmann"
+                              fill
+                              className="object-contain"
+                              sizes="40px"
+                            />
+                          </div>
+                          <p className="font-body text-xs text-fikir-brown-light">
+                            En colaboración con la Fundación Pablo Horstmann
+                          </p>
+                        </div>
                       </div>
                     )}
                   </div>
