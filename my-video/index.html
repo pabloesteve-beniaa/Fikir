@@ -1,10 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html
+  lang="es"
+  data-composition-variables='[
+    {"id":"accent","type":"enum","label":"Acento (uno por vídeo)","default":"verde","options":[
+      {"value":"verde","label":"Verde padre · crianza/presencia"},
+      {"value":"azul","label":"Azul confianza · datos/evidencia"},
+      {"value":"rojo","label":"Rojo energía · opinión/errores"},
+      {"value":"amarillo","label":"Amarillo foco · dato clave"}
+    ]}
+  ]'
+>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="gsap.min.js"></script>
     <style>
+      /* Bebas Neue + Inter are auto-resolved by the renderer.
+         Caveat is not, so it ships locally as captured .woff2. */
+      @font-face {
+        font-family: "Caveat";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("fonts/Caveat-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Caveat";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("fonts/Caveat-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+          U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -12,11 +45,168 @@
       }
       html,
       body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
+        width: 1080px;
+        height: 1920px;
         overflow: hidden;
-        background: #000;
+        background: #0e0e0e;
+      }
+
+      /* ── Brand tokens (design.md) ───────────────────────────── */
+      #root {
+        /* Protagonistas */
+        --negro: #0e0e0e;
+        --hueso: #f4efe7;
+        --verde: #6f8f72;
+        --azul: #6e8fa8;
+        --rojo: #d95c4a;
+        /* Apoyos */
+        --arena: #d9c4a3;
+        --gris: #7b7b73;
+        --marron: #5c4033;
+        --verde-oscuro: #2f4a3a;
+        --amarillo: #e6b84e;
+        /* Active accent — set by the `accent` variable. One per video. */
+        --accent: var(--verde);
+
+        position: absolute;
+        inset: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--hueso);
+        background: var(--negro);
+      }
+
+      /* ── Layout zones (safe areas) ──────────────────────────── */
+      .zone {
+        position: absolute;
+        display: flex;
+        z-index: 2;
+      }
+      /* Hook — centro alto */
+      .zone-hook {
+        top: 13%;
+        left: 6%;
+        right: 6%;
+        justify-content: center;
+        text-align: center;
+      }
+      /* Palabra clave — centro */
+      .zone-kw {
+        top: 0;
+        bottom: 0;
+        left: 6%;
+        right: 6%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      /* Frase emocional — centro-bajo */
+      .zone-emo {
+        left: 8%;
+        right: 8%;
+        bottom: 30%;
+        justify-content: center;
+        text-align: center;
+      }
+      /* Subtítulos — tercio inferior */
+      .zone-sub {
+        left: 6%;
+        right: 6%;
+        bottom: 15%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* ── Type styles ────────────────────────────────────────── */
+      .hook {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 104px;
+        line-height: 0.96;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        max-width: 100%;
+      }
+      .kw {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 132px;
+        line-height: 0.9;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--accent);
+        max-width: 100%;
+      }
+      .sub {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 1.15;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+        max-width: 100%;
+      }
+      /* Highlighted word inside a subtitle */
+      .sub .accent {
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .hook .accent {
+        color: var(--accent);
+      }
+      .emo {
+        font-family: "Caveat", cursive;
+        font-weight: 600;
+        font-size: 84px;
+        line-height: 1.05;
+        color: var(--hueso);
+        max-width: 100%;
+      }
+
+      /* ── Persistent overlays ────────────────────────────────── */
+      /* Firma — esquina inferior izquierda */
+      .signature {
+        position: absolute;
+        left: 6%;
+        bottom: 5.5%;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 32px;
+        letter-spacing: 1px;
+        color: var(--arena);
+        opacity: 0.9;
+        z-index: 3;
+      }
+      /* Nota tipo doc — esquina superior izquierda */
+      .doc-note {
+        position: absolute;
+        left: 6%;
+        top: 5%;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 34px;
+        letter-spacing: 0.5px;
+        color: var(--gris);
+        z-index: 3;
+      }
+
+      /* Grano cinematográfico 8–12 %, constante */
+      .grain {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+        opacity: 0.1;
+        mix-blend-mode: soft-light;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 200px 200px;
+      }
+      /* Viñeta muy leve */
+      .vignette {
+        position: absolute;
+        inset: 0;
+        z-index: 9;
+        pointer-events: none;
+        background: radial-gradient(
+          ellipse at center,
+          transparent 55%,
+          rgba(0, 0, 0, 0.35) 100%
+        );
       }
     </style>
   </head>
@@ -25,26 +215,159 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
+      data-duration="30"
+      data-width="1080"
+      data-height="1920"
     >
-      
-      
+      <!-- ════════════════════════════════════════════════════════
+           BLANK BRANDED STARTER · @estevestevesteve
+           Replace the placeholder copy below. Rules (design.md):
+           · One accent per video (set the `accent` variable).
+           · Subtitles always on, lower third, Inter SemiBold.
+           · One Bebas keyword every 4–6 s, center, hard hit.
+           · One saveable line per video. Max 2 fonts.
+           Placeholder timing is wired — adjust data-start/duration
+           to match your real voiceover once recorded.
+           ════════════════════════════════════════════════════════ -->
 
-      <!--
-        Add your clips here. Example:
-        <div id="title" class="clip" data-start="0" data-duration="5" data-track-index="1"
-             style="font-size: 64px; color: #fff; padding: 40px">
-          Hello World
+      <!-- HOOK · 0–2.5s · centro alto · Bebas, one accent word -->
+      <div
+        id="hook"
+        class="clip zone zone-hook"
+        data-start="0"
+        data-duration="2.5"
+        data-track-index="2"
+      >
+        <div class="hook">
+          ESCRIBE TU <span class="accent">HOOK</span>.
         </div>
-      -->
+      </div>
+
+      <!-- SUBTITLES · tercio inferior · sequential blocks (track 1) -->
+      <div
+        id="sub1"
+        class="clip zone zone-sub"
+        data-start="2.5"
+        data-duration="4.5"
+        data-track-index="1"
+      >
+        <div class="sub">Primer bloque de subtítulo: una idea por bloque.</div>
+      </div>
+      <div
+        id="sub2"
+        class="clip zone zone-sub"
+        data-start="7"
+        data-duration="5"
+        data-track-index="1"
+      >
+        <div class="sub">
+          Aquí desarrollas con <span class="accent">presencia</span>.
+        </div>
+      </div>
+      <div
+        id="sub3"
+        class="clip zone zone-sub"
+        data-start="12"
+        data-duration="5"
+        data-track-index="1"
+      >
+        <div class="sub">Tercer bloque: el ejemplo o el dato concreto.</div>
+      </div>
+      <div
+        id="sub4"
+        class="clip zone zone-sub"
+        data-start="17"
+        data-duration="5"
+        data-track-index="1"
+      >
+        <div class="sub">Cuarto bloque: el matiz, lo que nadie dice.</div>
+      </div>
+      <div
+        id="sub5"
+        class="clip zone zone-sub"
+        data-start="22"
+        data-duration="5"
+        data-track-index="1"
+      >
+        <div class="sub">
+          Cierre: tu <span class="accent">frase guardable</span>.
+        </div>
+      </div>
+
+      <!-- KEYWORDS · centro · brief hard hits (track 2, between hooks) -->
+      <div
+        id="kw1"
+        class="clip zone zone-kw"
+        data-start="8"
+        data-duration="1.6"
+        data-track-index="2"
+      >
+        <div class="kw">PRESENCIA</div>
+      </div>
+      <div
+        id="kw2"
+        class="clip zone zone-kw"
+        data-start="14"
+        data-duration="1.6"
+        data-track-index="2"
+      >
+        <div class="kw">CRITERIO</div>
+      </div>
+
+      <!-- FRASE EMOCIONAL · Caveat · use sparingly · cierre -->
+      <div
+        id="emo"
+        class="clip zone zone-emo"
+        data-start="27"
+        data-duration="3"
+        data-track-index="2"
+      >
+        <div class="emo">Esto también me cuesta a mí.</div>
+      </div>
+
+      <!-- Persistent overlays (no timing — always on) -->
+      <div class="doc-note" data-layout-ignore>
+        Paternidad real · Madrid · 06:42
+      </div>
+      <div class="signature" data-layout-ignore>@estevestevesteve</div>
+      <div class="vignette" data-layout-ignore></div>
+      <div class="grain" data-layout-ignore></div>
     </div>
 
     <script>
+      // ── Accent: one per video (design.md rule) ──────────────
+      const ACCENTS = {
+        verde: "#6f8f72",
+        azul: "#6e8fa8",
+        rojo: "#d95c4a",
+        amarillo: "#e6b84e",
+      };
+      const { accent } = window.__hyperframes.getVariables();
+      const root = document.getElementById("root");
+      root.style.setProperty("--accent", ACCENTS[accent] || ACCENTS.verde);
+
+      // ── Timeline (contained motion · design.md) ─────────────
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.from("#title", { opacity: 0, y: -50, duration: 1 }, 0);
+
+      // Hook — pop 95 → 100 %
+      tl.from("#hook .hook", { scale: 0.95, opacity: 0, duration: 0.3, ease: "power2.out" }, 0.1);
+
+      // Subtitles — aparición por bloques (no exits; clip end = corte seco)
+      tl.from("#sub1 .sub", { y: 28, opacity: 0, duration: 0.4, ease: "power3.out" }, 2.6);
+      tl.from("#sub2 .sub", { y: 28, opacity: 0, duration: 0.4, ease: "power2.out" }, 7.1);
+      tl.from("#sub3 .sub", { y: 28, opacity: 0, duration: 0.4, ease: "power3.out" }, 12.1);
+      tl.from("#sub4 .sub", { y: 28, opacity: 0, duration: 0.4, ease: "power2.out" }, 17.1);
+      tl.from("#sub5 .sub", { y: 28, opacity: 0, duration: 0.4, ease: "power3.out" }, 22.1);
+
+      // Keywords — golpe seco
+      tl.from("#kw1 .kw", { scale: 0.8, opacity: 0, duration: 0.18, ease: "power4.out" }, 8.05);
+      tl.from("#kw2 .kw", { scale: 0.8, opacity: 0, duration: 0.18, ease: "power4.out" }, 14.05);
+
+      // Frase emocional — fade in lento, fade muy corto (final clip)
+      tl.from("#emo .emo", { opacity: 0, duration: 0.8, ease: "power1.out" }, 27.1);
+      tl.to("#emo .emo", { opacity: 0, duration: 0.3, ease: "power1.in" }, 29.6);
+
       window.__timelines["main"] = tl;
     </script>
   </body>
