@@ -72,14 +72,22 @@ mkdir -p "$SKILLS_DIR"
 ln -sfn "$VU_DIR" "$SKILLS_DIR/video-use"
 log "skill linked: $SKILLS_DIR/video-use -> $VU_DIR"
 
-# 5. ElevenLabs (Scribe) key — required for transcript-driven cuts.
-#    Use the env var if the session provides it; never write a committed key.
+# 5. API keys — written to .env only when the session provides them; never a
+#    committed key. ELEVENLABS_API_KEY drives transcript cuts; TENOR_API_KEY
+#    drives meme/GIF fetching (scripts/video-use/fetch_tenor.py).
+: > "$VU_DIR/.env"
+chmod 600 "$VU_DIR/.env"
 if [ -n "${ELEVENLABS_API_KEY:-}" ]; then
-  printf 'ELEVENLABS_API_KEY=%s\n' "$ELEVENLABS_API_KEY" > "$VU_DIR/.env"
-  chmod 600 "$VU_DIR/.env"
+  printf 'ELEVENLABS_API_KEY=%s\n' "$ELEVENLABS_API_KEY" >> "$VU_DIR/.env"
   log "ELEVENLABS_API_KEY written to $VU_DIR/.env"
 else
   log "ELEVENLABS_API_KEY not set — transcription disabled until provided"
+fi
+if [ -n "${TENOR_API_KEY:-}" ]; then
+  printf 'TENOR_API_KEY=%s\n' "$TENOR_API_KEY" >> "$VU_DIR/.env"
+  log "TENOR_API_KEY written to $VU_DIR/.env"
+else
+  log "TENOR_API_KEY not set — Tenor meme fetching disabled until provided"
 fi
 
 # 6. Persist PATH for the rest of the session (SessionStart hook contract).

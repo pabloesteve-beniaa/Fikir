@@ -10,8 +10,10 @@ animation overlays — with overlays rendered on-brand through our HyperFrames
 
 | File | Purpose |
 |------|---------|
-| `setup.sh` | Idempotent installer: clones video-use, installs Python deps, provisions `ffmpeg`/`ffprobe`, symlinks the skill, configures the ElevenLabs key. |
+| `setup.sh` | Idempotent installer: clones video-use, installs Python deps, provisions `ffmpeg`/`ffprobe`, symlinks the skill, configures the ElevenLabs + Tenor keys. |
 | `new-hyperframes-slot.sh` | Scaffolds an on-brand HyperFrames overlay slot seeded from `my-video`. |
+| `fetch_tenor.py` | Downloads reaction GIFs / memes from the Tenor API as overlay-ready clips. |
+| `kym_lookup.py` | KnowYourMeme reference lookup (prints search URLs; no scraping). |
 | `../../.claude/hooks/session-start.sh` | SessionStart hook that runs `setup.sh` on web sessions. |
 | `../../.claude/settings.json` | Registers the hook (synchronous, 600 s timeout). |
 
@@ -30,8 +32,9 @@ On a Claude Code on the web session, the SessionStart hook fires and runs
 3. Provisions `ffmpeg` + `ffprobe` via the `static-ffmpeg` PyPI package
    (apt is blocked in the sandbox) and links them into `~/.local/bin`.
 4. Symlinks the skill into `~/.claude/skills/video-use`.
-5. Writes `ELEVENLABS_API_KEY` to `~/Developer/video-use/.env` **if** the env
-   var is set; otherwise transcription stays disabled until a key is added.
+5. Writes `ELEVENLABS_API_KEY` and `TENOR_API_KEY` to
+   `~/Developer/video-use/.env` **if** those env vars are set; otherwise each
+   feature stays disabled until its key is added.
 
 The hook is gated on `$CLAUDE_CODE_REMOTE` so it's a no-op locally. Run the
 installer by hand any time:
@@ -40,13 +43,52 @@ installer by hand any time:
 bash scripts/video-use/setup.sh
 ```
 
-## ElevenLabs key (transcription)
+## API keys
 
-Transcript-driven cuts need an ElevenLabs (Scribe) key. It is **not** configured
-yet — until then, transcription helpers no-op and the rest of the toolchain
-(grading, fades, overlays, render) still works. To enable it, set
-`ELEVENLABS_API_KEY` in the environment (web env var or shell) and re-run the
-hook/`setup.sh`.
+| Key | Enables | Get it |
+|-----|---------|--------|
+| `ELEVENLABS_API_KEY` | Transcription → transcript-driven cuts | https://elevenlabs.io |
+| `TENOR_API_KEY` | Meme/GIF fetching (`fetch_tenor.py`) | https://developers.google.com/tenor |
+
+**Neither is configured yet.** Each feature no-ops without its key while the
+rest of the toolchain (grading, fades, overlays, render, KYM reference) keeps
+working. To enable one, set the env var (web env var or shell) and re-run the
+hook / `setup.sh`.
+
+## Visual aids: memes & reaction GIFs
+
+Two banks are wired in for cutaways and picture-in-picture overlays:
+
+### Tenor (downloadable)
+
+Official Tenor v2 API — the workhorse for downloadable reaction GIFs/memes.
+Needs a free key in `TENOR_API_KEY` (https://developers.google.com/tenor); until
+then `fetch_tenor.py` no-ops. Prefers `.mp4` (clean for ffmpeg), falls back to
+`.gif`.
+
+```bash
+# from the footage folder you're editing:
+python3 scripts/video-use/fetch_tenor.py "mind blown" -n 3 --out assets/memes
+# -> downloads assets/memes/tenor_<id>.mp4 ... ready as a video-use overlay
+```
+
+Use the clips as cutaway B-roll or a corner picture-in-picture in the EDL.
+**Attribution:** Tenor's API terms require showing "Powered by Tenor" wherever
+the GIFs appear publicly, and meme content may carry third-party copyright —
+check before commercial use.
+
+### KnowYourMeme (reference only)
+
+KnowYourMeme has no public API and blocks automated access (HTTP 403 /
+Cloudflare), so it's a **reference** tool, not a download source. `kym_lookup.py`
+prints search/entry URLs to open in a browser when you need a meme's origin,
+name, or usage context before deciding to use it:
+
+```bash
+python3 scripts/video-use/kym_lookup.py "distracted boyfriend"
+```
+
+Once you know what you want, grab a usable clip of it with `fetch_tenor.py`.
 
 ## On-brand overlays: video-use → HyperFrames → my-video
 
