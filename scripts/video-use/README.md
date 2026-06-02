@@ -14,17 +14,17 @@ animation overlays — with overlays rendered on-brand through our HyperFrames
 | `new-hyperframes-slot.sh` | Scaffolds an on-brand HyperFrames overlay slot seeded from `my-video`. |
 | `fetch_tenor.py` | Downloads reaction GIFs / memes from the Tenor API as overlay-ready clips. |
 | `kym_lookup.py` | KnowYourMeme reference lookup (prints search URLs; no scraping). |
-| `../../.claude/hooks/session-start.sh` | SessionStart hook that runs `setup.sh` on web sessions. |
-| `../../.claude/settings.json` | Registers the hook (synchronous, 600 s timeout). |
 
 The video-use repo itself is **not** vendored — it's cloned to
-`~/Developer/video-use` (outside this repo) and re-provisioned on each cold
-container by the hook. Nothing secret is committed.
+`~/Developer/video-use` (outside this repo). Nothing secret is committed.
 
-## How it runs
+> **Note:** this is a self-contained, opt-in toolset run by hand. It does **not**
+> install a repo-wide SessionStart hook, so it never affects ordinary Fikir
+> sessions. (Intended to move to a dedicated content/video repo.)
 
-On a Claude Code on the web session, the SessionStart hook fires and runs
-`setup.sh`, which:
+## How it works
+
+Run `bash scripts/video-use/setup.sh` once per environment. It:
 
 1. Clones/updates video-use to `~/Developer/video-use`.
 2. `pip install -e .` its deps into the active interpreter (so the agent can
@@ -36,12 +36,7 @@ On a Claude Code on the web session, the SessionStart hook fires and runs
    `~/Developer/video-use/.env` **if** those env vars are set; otherwise each
    feature stays disabled until its key is added.
 
-The hook is gated on `$CLAUDE_CODE_REMOTE` so it's a no-op locally. Run the
-installer by hand any time:
-
-```bash
-bash scripts/video-use/setup.sh
-```
+Safe to re-run any time; it's idempotent.
 
 ## API keys
 
@@ -52,8 +47,8 @@ bash scripts/video-use/setup.sh
 
 **Neither is configured yet.** Each feature no-ops without its key while the
 rest of the toolchain (grading, fades, overlays, render, KYM reference) keeps
-working. To enable one, set the env var (web env var or shell) and re-run the
-hook / `setup.sh`.
+working. To enable one, set the env var (web env var or shell) and re-run
+`setup.sh`.
 
 ## Visual aids: memes & reaction GIFs
 
